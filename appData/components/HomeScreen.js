@@ -38,6 +38,9 @@ export default class HomeScreen extends Component {
       case 4:
         this.props.navigation.navigate("Gallery")
         break;
+      case 5:
+        this.props.navigation.navigate("Videos")
+        break;
 
     }
 

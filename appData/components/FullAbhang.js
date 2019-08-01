@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { Text, View, Dimensions, ScrollView, StyleSheet } from 'react-native';
+import { Text, View, Dimensions, ScrollView, StyleSheet,ImageBackground } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export default class FullAbhang extends Component {
@@ -11,6 +11,7 @@ export default class FullAbhang extends Component {
                 backgroundColor: 'antiquewhite', alignContent: 'center'
             }}>
             <View style={{margin:5,padding:10}}>
+            <ImageBackground source={require('../../images/1.jpg')}>
                 <Text style={{
                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
                     alignSelf: 'center', fontWeight: 'bold', fontSize: 20
@@ -20,6 +21,7 @@ export default class FullAbhang extends Component {
                     ब्रम्हादिक पदें दुःखाची शिराणी । तेथें दुश्चित झणी जडों देसी ॥२॥{"\n"}
                     तुका म्हणे त्याचें कळलें आम्हां वर्म । जे जे कर्मधर्म नाशवंत ॥३॥{"\n"}
                     </Text>
+                    </ImageBackground>
                     </View>
             </View>)
     }
