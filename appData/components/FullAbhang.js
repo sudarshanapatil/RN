@@ -13,15 +13,19 @@ export default class FullAbhang extends Component {
         return (
             <View style={{ flex: 1, width, height, justifyContent: 'center', alignItems: 'center' }}>
                 <ImageBackground
-                    style={{ width: width - 20, height: height - 20, margin: 10, opacity: 0.5 }}
-                    source={require('../../images/5.jpg')}>
+                    style={{ width: width, height }}
+                    source={require('../../images/8.jpeg')}
+                    opacity={0.3}
+                    resizeMode={'stretch'}>
                     <View style={{
+                        flex: 1,
+                        justifyContent: 'center', alignItems: 'center',
                         margin: 5, padding: 10, elevation: 7,
-                        justifyContent: 'center', alignItems: 'center'
+
                     }}>
                         <Text style={{
                             alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: 'black'
+                            alignSelf: 'center', fontSize: 24, color: '#000000'
                         }}>
                             समचरणदृष्टि विटेवरी साजिरी । तेथें माझी हरी वृत्ति राहो ॥१॥{"\n"}
                             आणीक न लगे मायिक पदार्थ । तेथें माझें आर्त्त नको देवा ॥ध्रु.॥{"\n"}
@@ -30,7 +34,6 @@ export default class FullAbhang extends Component {
                         </Text>
 
                     </View>
-                    {/* </View> */}
                 </ImageBackground>
             </View>)
     }

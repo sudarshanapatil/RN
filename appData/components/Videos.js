@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Text, View, Dimensions, Image, StyleSheet, ScrollView, WebView } from 'react-native';
 // import console = require('console');
 const { width, height } = Dimensions.get('window');
-
 const styles = StyleSheet.create({
   recommImage: {
     width: (width / 3) - 5,
@@ -86,17 +85,17 @@ export default class Videos extends Component {
               </View>
               <View style={styles.imageCard}>
                 <Image style={styles.recommImage}
-                  source={require('../../images/1.jpg')}>
+                  source={require('../../images/7.jpeg')}>
                 </Image>
               </View>
               <View style={styles.imageCard}>
                 <Image style={styles.recommImage}
-                  source={require('../../images/2.jpg')}>
+                  source={require('../../images/8.jpeg')}>
                 </Image>
               </View>
               <View style={styles.imageCard}>
                 <Image style={styles.recommImage}
-                  source={require('../../images/3.jpg')}>
+                  source={require('../../images/9.jpeg')}>
                 </Image>
               </View>
             </View>

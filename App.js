@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { Text, View } from 'react-native';
+// import { Text, View } from 'react-native';
 import HomeScreen from './appData/components/HomeScreen'
 import Charitra from './appData/components/Chatritra'
 import Abhang from './appData/components/Abhang'
@@ -9,6 +9,7 @@ import FullAbhang from './appData/components/FullAbhang'
 import Gallery from './appData/components/Gallery'
 import Videos from './appData/components/Videos'
 import Audios from './appData/components/Audios'
+import Docs from './appData/components/Docs'
 
 const AppNavigator = createStackNavigator(
   {
@@ -40,6 +41,9 @@ const AppNavigator = createStackNavigator(
     },
     Audios: {
       screen: Audios
+    },
+    Docs: {
+      screen: Docs
     }
 
   },

@@ -17,10 +17,6 @@ const styles = StyleSheet.create({
 
 
 export default class HomeScreen extends Component {
-  // static navigationOptions = {
-  //   title: "HomeScreen",
-  //   header: null
-  // };
 
   constructor() {
     super()
@@ -48,6 +44,9 @@ export default class HomeScreen extends Component {
         break;
       case 6:
         this.props.navigation.navigate("Audios")
+        break;
+      case 7:
+        this.props.navigation.navigate("Docs")
         break;
 
     }
@@ -85,7 +84,8 @@ export default class HomeScreen extends Component {
           <FlatList
             data={[{ key: 'कांबेकर महाराज चरित्र', id: 1 }, { key: 'कांबेकर  महाराज अभंग', id: 2 },
             { key: 'कांबेकर  महाराज गुरुपरंपरा', id: 3 }, { key: 'कांबेकर महाराज फोटो गॅलरी ', id: 4 },
-            { key: 'कांबेकर महाराज  प्रवचने (व्हिडिओ ) ', id: 5 }, { key: 'कांबेकर महाराज  प्रवचने (ऑडिओ ) ', id: 6 }
+            { key: 'कांबेकर महाराज  प्रवचने (व्हिडिओ ) ', id: 5 }, { key: 'कांबेकर महाराज  प्रवचने (ऑडिओ ) ', id: 6 },
+            { key: 'कांबेकर महाराज  हस्ताक्षर ', id: 7 }
             ]}
             renderItem={({ item }) =>
               <TouchableOpacity onPress={() => this.onTouchCard(item.id)}>
@@ -103,7 +103,7 @@ export default class HomeScreen extends Component {
                   }}>
                     <Image
                       style={{ width: 60, height: 60 }}
-                      source={require("../../images/1.jpg")}>
+                      source={require(`../../images/1.jpg`)}>
                     </Image>
                   </View>
 
