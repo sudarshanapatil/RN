@@ -17,6 +17,11 @@ const styles = StyleSheet.create({
 
 
 export default class HomeScreen extends Component {
+  // static navigationOptions = {
+  //   title: "HomeScreen",
+  //   header: null
+  // };
+
   constructor() {
     super()
     this.state = {
@@ -40,6 +45,9 @@ export default class HomeScreen extends Component {
         break;
       case 5:
         this.props.navigation.navigate("Videos")
+        break;
+      case 6:
+        this.props.navigation.navigate("Audios")
         break;
 
     }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Text, View, Dimensions, Image, StyleSheet } from 'react-native';
 
 const { width, height } = Dimensions.get('window');

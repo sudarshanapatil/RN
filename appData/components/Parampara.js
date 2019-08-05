@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { Text, View, Dimensions, ScrollView} from 'react-native';
+import { Text, View, Dimensions, ScrollView,StyleSheet} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
-
+const styles = StyleSheet.create({
+    fontButton: {
+        width: 60, height: 60, backgroundColor: 'orange',
+        borderRadius: 30, justifyContent: 'center', alignItems: 'center'
+    }
+})
 export default class Parampara extends Component {
     render() {
         return (
@@ -29,7 +34,7 @@ export default class Parampara extends Component {
                 }}>
                 
                     <View>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold',textAlign:'justify' }}>
+                    <Text style={{ fontSize: 16, textAlign:'justify' }}>
                         वंशपरंपरा
     श्रीएकनाथमहाराज आणि गिरिजाबाई यांना तीन अपत्ये झाली.
     गोदाबाई, हरिपंडीत, गंगाबाई. त्यातील गोदाबाई उर्फ लीला यांचा विवाह पैठण येथिल चिंतामणि मुद्‍गल यांच्याशी झाला.

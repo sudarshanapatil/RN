@@ -8,6 +8,7 @@ import Parampara from './appData/components/Parampara'
 import FullAbhang from './appData/components/FullAbhang'
 import Gallery from './appData/components/Gallery'
 import Videos from './appData/components/Videos'
+import Audios from './appData/components/Audios'
 
 const AppNavigator = createStackNavigator(
   {
@@ -36,11 +37,15 @@ const AppNavigator = createStackNavigator(
     },
     Videos: {
       screen: Videos
+    },
+    Audios: {
+      screen: Audios
     }
 
   },
   {
     initialRouteName: 'Home',
+    headerMode: 'none'
   }
 );
 
