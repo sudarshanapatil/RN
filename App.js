@@ -10,6 +10,7 @@ import Gallery from './appData/components/Gallery'
 import Videos from './appData/components/Videos'
 import Audios from './appData/components/Audios'
 import Docs from './appData/components/Docs'
+import fullImage from './appData/components/FullImage'
 
 const AppNavigator = createStackNavigator(
   {
@@ -44,7 +45,11 @@ const AppNavigator = createStackNavigator(
     },
     Docs: {
       screen: Docs
+    },
+    fullImage: {
+      screen: fullImage
     }
+
 
   },
   {
