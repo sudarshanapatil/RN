@@ -1,6 +1,6 @@
 import Video from 'react-native-video';
 import React, { Component } from 'react';
-import { Text, View, Dimensions, Image, StyleSheet, ScrollView, WebView } from 'react-native';
+import { Text, View, Dimensions, Image, StyleSheet, ScrollView, WebView, TouchableOpacity } from 'react-native';
 // import console = require('console');
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -26,6 +26,9 @@ export default class Videos extends Component {
 
   videoError = () => {
     console.log("yahape aaya");
+  }
+  playVideo = () => {
+
   }
 
   render() {
@@ -65,14 +68,20 @@ export default class Videos extends Component {
             आणखी व्हिडिओ
           </Text>
         </View>
+
+        {
+          
+        }
         <View style={{ width, height: height - 400 - 50, backgroundColor: "blue" }}>
           <ScrollView horizontal={true}>
             <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
-              <View style={styles.imageCard}>
-                <Image style={styles.recommImage}
-                  source={require('../../images/1.jpg')}>
-                </Image>
-              </View>
+              <TouchableOpacity onPress={() => this.playVideo()}>
+                <View style={styles.imageCard}>
+                  <Image style={styles.recommImage}
+                    source={require('../../images/1.jpg')}>
+                  </Image>
+                </View>
+              </TouchableOpacity>
               <View style={styles.imageCard}>
                 <Image style={styles.recommImage}
                   source={require('../../images/2.jpg')}>

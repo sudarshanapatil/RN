@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createAppContainer } from "react-navigation";
 import {
   Platform, StyleSheet, Text, View, Image, DrawerLayoutAndroid,
   ToolbarAndroid, FlatList, Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
-import Splash from './Splash'
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
   toolbar: {

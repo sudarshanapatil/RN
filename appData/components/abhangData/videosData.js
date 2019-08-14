@@ -1,0 +1,10 @@
+module.exports.videoData=[
+  {
+    imagePath:"",
+    videoUrl:""
+  },
+  {
+    imagePath:"",
+    videoUrl:""
+  }
+]
