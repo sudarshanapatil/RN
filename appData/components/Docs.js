@@ -11,9 +11,10 @@ export default class Docs extends Component {
         const source = { uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true };
         return (
             <View style={{ width, height: height / 2, flex: 1 }}>
-                <WebView style={{ width, height: 600, flex: 1 }}
+            <WebView source={{uri: 'http://www.lagotzki.de/pdftk/beispiel_neu.pdf'}} style={{ flex:1}} />
+                {/* <WebView style={{ width, height: 600, flex: 1 }}
                     source={{ uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf' }}
-                />
+                /> */}
             </View>
             // <Pdf source={source} />
         )

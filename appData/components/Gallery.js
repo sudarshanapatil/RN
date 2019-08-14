@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Dimensions, Image, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, Dimensions, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -17,8 +17,18 @@ const styles = StyleSheet.create({
 
 })
 
-const imageIds = [1, 2, 3, 4, 5]
 export default class Gallary extends Component {
+    constructor() {
+        super();
+        this.state = {
+            fullImage: 1
+        }
+    }
+    displayImage = () => {
+        this.setState({
+            fullImage: 0
+        })
+    }
     render() {
         return (
             <View style={{
@@ -36,116 +46,128 @@ export default class Gallary extends Component {
                         कांबेकर महाराज फोटो गॅलरी
                 </Text>
                 </View>
-                <View style={{ width: width, height: height - 50, backgroundColor: 'antiquewhite' }}>
-                    <View style={{ width, height: (height - 50) / 3, backgroundColor: 'pink' }}>
-                        <ScrollView horizontal={true}>
-                            <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/1.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/2.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/3.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/7.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/8.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/9.jpeg')}>
-                                    </Image>
-                                </View>
+
+                {
+                    (this.state.fullImage) ?
+                        <View style={{ width: width, height: height - 50, backgroundColor: 'antiquewhite' }}>
+                            <View style={{ width, height: (height - 50) / 3, backgroundColor: 'pink' }}>
+                                <ScrollView horizontal={true}>
+                                    <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
+                                        <View style={styles.imageCard}>
+                                            <TouchableOpacity onPress={() => this.displayImage()}>
+                                                <Image style={styles.recommImage}
+                                                    source={require('../../images/1.jpg')}>
+                                                </Image>
+                                            </TouchableOpacity>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/2.jpg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/3.jpg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/7.jpeg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/8.jpeg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/9.jpeg')}>
+                                            </Image>
+                                        </View>
+                                    </View>
+                                </ScrollView>
                             </View>
-                        </ScrollView>
-                    </View>
-                    <View style={{ width, height: (height - 50) / 3 }}>
-                        <ScrollView horizontal={true}>
-                            <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/1.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/2.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/3.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/7.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/8.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/9.jpeg')}>
-                                    </Image>
-                                </View>
+                            <View style={{ width, height: (height - 50) / 3 }}>
+                                <ScrollView horizontal={true}>
+                                    <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/1.jpg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/2.jpg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/3.jpg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/7.jpeg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/8.jpeg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/9.jpeg')}>
+                                            </Image>
+                                        </View>
+                                    </View>
+                                </ScrollView>
                             </View>
-                        </ScrollView>
-                    </View>
-                    <View style={{ width, height: (height - 50) / 3 }}>
-                        <ScrollView horizontal={true}>
-                            <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/1.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/2.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/3.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/7.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/8.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/9.jpeg')}>
-                                    </Image>
-                                </View>
+                            <View style={{ width, height: (height - 50) / 3 }}>
+                                <ScrollView horizontal={true}>
+                                    <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/1.jpg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/2.jpg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/3.jpg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/7.jpeg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/8.jpeg')}>
+                                            </Image>
+                                        </View>
+                                        <View style={styles.imageCard}>
+                                            <Image style={styles.recommImage}
+                                                source={require('../../images/9.jpeg')}>
+                                            </Image>
+                                        </View>
+                                    </View>
+                                </ScrollView>
                             </View>
-                        </ScrollView>
-                    </View>
-                </View>
+                        </View>
+                        :
+                        <View style={{ width: width, height: height - 50, backgroundColor: 'antiquewhite' }}>
+                            <Image style={{ width, height }}
+                                source={require('../../images/9.jpeg')}>
+                            </Image>
+                        </View>
+                }
             </View>
 
         )

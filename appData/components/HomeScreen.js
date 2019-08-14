@@ -31,7 +31,7 @@ export default class HomeScreen extends Component {
       this.setState({
         showSplash: 1
       })
-    }, 3000)
+    }, 500)
   }
 
   onTouchCard = (id) => {
@@ -57,6 +57,8 @@ export default class HomeScreen extends Component {
       case 7:
         this.props.navigation.navigate("Docs")
         break;
+     
+
 
     }
 
@@ -143,21 +145,21 @@ export default class HomeScreen extends Component {
                 opacity={0.3}
                 resizeMode={'stretch'}>
                 <View style={{
-                        flex: 1,
-                        justifyContent: 'center', alignItems: 'center',
-                        margin: 5, padding: 10, elevation: 7,
+                  flex: 1,
+                  justifyContent: 'center', alignItems: 'center',
+                  margin: 5, padding: 10, elevation: 7,
 
-                    }}>
-                        <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                            alignSelf: 'center', fontSize: 24, color: '#000000'
-                        }}>
-                            सकळ देवांचाही देव । बाळा म्हणे पंढरीराव ।।
+                }}>
+                  <Text style={{
+                    alignContent: 'center', alignItems: 'center', textAlign: "justify",
+                    alignSelf: 'center', fontSize: 24, color: '#000000'
+                  }}>
+                    सकळ देवांचाही देव । बाळा म्हणे पंढरीराव ।।
                         </Text>
 
-                    </View>
+                </View>
               </ImageBackground>
-              
+
             </View>
         }
       </View>
