@@ -13,9 +13,7 @@ const styles = StyleSheet.create({
   }
 });
 
-
 export default class HomeScreen extends Component {
-
   constructor() {
     super()
     this.state = {
@@ -55,9 +53,6 @@ export default class HomeScreen extends Component {
       case 7:
         this.props.navigation.navigate("Docs")
         break;
-     
-
-
     }
 
   }
@@ -81,8 +76,8 @@ export default class HomeScreen extends Component {
               <ToolbarAndroid
                 style={styles.toolbar}
                 navIcon={require('../../images/activity.svg')}
-                title="ग्रंथ संपदा"
-                titleColor="000"
+                title="राम कृष्ण हरी"
+                titleColor="white"
                 actions={[{ title: 'Rate this app', icon: require('../../images/menu.svg'), show: 'never' },
                 { title: 'About app', icon: require('../../images/menu.svg'), show: 'never' },
                 { title: 'Check update', icon: require('../../images/menu.svg'), show: 'never' },
@@ -92,7 +87,10 @@ export default class HomeScreen extends Component {
                 ]}
                 onActionSelected={this.onActionSelected}
               />
-              <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+              <View style={{
+                flex: 1, justifyContent: "center", alignItems: "center",
+                backgroundColor: "antiquewhite"
+              }}>
                 <FlatList
                   data={[{ key: 'कांबेकर महाराज चरित्र', id: 1 }, { key: 'कांबेकर  महाराज अभंग', id: 2 },
                   { key: 'कांबेकर  महाराज गुरुपरंपरा', id: 3 }, { key: 'कांबेकर महाराज फोटो गॅलरी ', id: 4 },
@@ -103,10 +101,12 @@ export default class HomeScreen extends Component {
                     <TouchableOpacity onPress={() => this.onTouchCard(item.id)}>
                       <View style={
                         {
-                          flex: 1, width: width - 20, height: 80, backgroundColor: 'antiquewhite',
+                          flex: 1, width: width - 20, height: 80, backgroundColor: 'white',
                           marginTop: 10, fontSize: 20, fontWeight: 'bold', marginLeft: 10,
-                          marginRight: 10, flexDirection: 'row', shadowColor: 'black',
-                          shadowOpacity: 1.0,
+                          marginRight: 10, flexDirection: 'row',
+                          shadowColor: 'black', borderRadius: 10,
+                          shadowOffset: { width: 0, height: 2, }, shadowRadius: 5,
+                          shadowOpacity: 1.0
                         }
                       }>
                         <View style={{
@@ -138,10 +138,11 @@ export default class HomeScreen extends Component {
             :
             <View style={{ flex: 1, width, height }}>
               <ImageBackground
-                style={{ width: width, height }}
-                source={require('../../images/8.jpeg')}
-                opacity={0.3}
-                resizeMode={'stretch'}>
+                style={{ width, height }}
+                source={require('../../images/splash2.webp')}
+                opacity={0.7}
+
+              >
                 <View style={{
                   flex: 1,
                   justifyContent: 'center', alignItems: 'center',
@@ -150,14 +151,13 @@ export default class HomeScreen extends Component {
                 }}>
                   <Text style={{
                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                    alignSelf: 'center', fontSize: 24, color: '#000000'
+                    alignSelf: 'center', fontSize: 24, color: 'white',marginTop:400
                   }}>
-                    सकळ देवांचाही देव । बाळा म्हणे पंढरीराव ।।
-                        </Text>
-
+                    सकळ देवांचाही देव ।{"\n"}
+                     बाळा म्हणे पंढरीराव ।।
+                  </Text>
                 </View>
               </ImageBackground>
-
             </View>
         }
       </View>

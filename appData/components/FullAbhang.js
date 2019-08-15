@@ -15,7 +15,7 @@ export default class FullAbhang extends Component {
                 <ImageBackground
                     style={{ width: width, height }}
                     source={require('../../images/8.jpeg')}
-                    opacity={0.3}
+                    opacity={0.1}
                     resizeMode={'stretch'}>
                     <View style={{
                         flex: 1,

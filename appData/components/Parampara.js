@@ -39,7 +39,7 @@ export default class Parampara extends Component {
                 }}>
                     <Text style={{
                         alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20
+                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20,color:"white"
                     }}>
                         कांबेकर  महाराज गुरुपरंपरा
                 </Text>

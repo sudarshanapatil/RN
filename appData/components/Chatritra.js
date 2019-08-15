@@ -33,7 +33,7 @@ export default class Charitra extends Component {
         return (
             <View style={{
                 flex: 1,
-                width: width, height: height, backgroundColor: 'antiquewhite'
+                width: width, height: height, backgroundColor: 'white'
             }}>
                 <View style={{
                     justifyContent: 'center',
@@ -41,17 +41,18 @@ export default class Charitra extends Component {
                 }}>
                     <Text style={{
                         alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20
+                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20,color:"white"
                     }}>
                         कांबेकर महाराज चरित्र
                 </Text>
                 </View>
-                <View style={{ width, height: height - 50 }}>
+                <View style={{ width, height: height - 50,backgroundColor:"antiquewhite" }}>
                    
                     <View>
                         <ScrollView>
                             <View style={{
-                                flex: 1, width: width - 40, height: height - 50, margin: 20, padding: 10, alignItems: 'center'
+                                flex: 1, width: width - 40, height: height - 50, margin: 20, 
+                                padding: 10, alignItems: 'center',
                             }}>
                                 <Text style={{ fontSize: this.state.initialFontSize, textAlign: 'justify' }}>
                                     नाथांचा जन्म संत भानुदासांच्या कुळामध्ये देशस्थ ऋग्वेदी आश्वलायन ब्राह्मण कुटुंबात झाला. नाथांचे मातापिता नाथांच्या बालपणात निवर्तल्यामुळे आजी आजोबांनी नाथांचा सांभाळ केला. बालपणापासूनच नाथांना भगवद्‍भक्‍तीचे वेड. गुरुकृपेने भगवंताची भेट होते हे समजल्यानंतर वयाच्या १२ व्या वर्षी आकाशवाणीच्या निर्देशाप्रमाणे नाथ देवगिरी (दौलताबाद) येथे पोचले. तेथे जनार्दन स्वामी नावाचे दत्‍तभक्‍त किल्लेदार म्हणुन होते. नाथांनी त्यांना पाहताच सद्‍गुरू मानून मनोभावे सेवा केली. नाथांची सेवा पाहुन स्वामींनी त्यानां शिष्य म्हणुन स्वीकारले. स्वामी प्रत्येक गुरुवारी किल्ल्याच्या शिखरातील गुहेत दत्‍तध्यान करीत. एके दिवशी स्वामी ध्यानात असताना परकीयांचे आक्रमण झाले. सद्‍गुरुंची समाधी भंग होऊ नये म्हणुन नाथ हाती तलवार घेवून घोडयावर स्वार झाले. लढाई केली आणि शत्रुंचा पराभव केला. निस्सिम सेवेने नाथ दत्‍तात्रय दर्शनास पात्र झाल्याचे पाहुन शुलिभंजन पर्वतावर त्यांना पहिले दत्‍तदर्शन स्वामींनी घडविले. पुढे तीर्थयात्रा करुन नाथ पैठणास पोचले.

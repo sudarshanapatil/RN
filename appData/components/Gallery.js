@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, Dimensions, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import galleryImages from '../databaseFiles/galleryImages'
+import shishyaImages from '../databaseFiles/shishya'
+import functionImages from '../databaseFiles/functions'
 
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -20,15 +23,9 @@ const styles = StyleSheet.create({
 export default class Gallary extends Component {
     constructor() {
         super();
-        // this.state = {
-        //     fullImage: 1
-        // }
     }
-    displayImage = () => {
-        this.props.navigation.navigate("FullImage", { imageId: 1 })
-        // this.setState({
-        //     fullImage: 0
-        // })
+    displayImage = (path) => {
+        this.props.navigation.navigate("FullImage", { imageId: path })
     }
     render() {
 
@@ -43,7 +40,7 @@ export default class Gallary extends Component {
                 }}>
                     <Text style={{
                         alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20
+                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
                     }}>
                         कांबेकर महाराज फोटो गॅलरी
                 </Text>
@@ -52,12 +49,12 @@ export default class Gallary extends Component {
                     <View style={{ width, height: (height - 50) / 3, backgroundColor: 'pink' }}>
                         <ScrollView horizontal={true}>
                             {
-                                data.map((item, i) =>
+                                galleryImages.map((item, i) =>
                                     <View key={i} style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
                                         <View style={styles.imageCard}>
-                                            <TouchableOpacity onPress={() => this.displayImage(1)}>
+                                            <TouchableOpacity onPress={() => this.displayImage(item.src)}>
                                                 <Image style={styles.recommImage}
-                                                    source={item[i].src}>
+                                                    source={item.src}>
                                                 </Image>
                                             </TouchableOpacity>
                                         </View>
@@ -67,78 +64,36 @@ export default class Gallary extends Component {
                     </View>
                     <View style={{ width, height: (height - 50) / 3 }}>
                         <ScrollView horizontal={true}>
-                            <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/1.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/2.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/3.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/7.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/8.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/9.jpeg')}>
-                                    </Image>
-                                </View>
-                            </View>
+                            {
+                                shishyaImages.map((item, i) =>
+                                    <View key={i} style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
+                                        <View style={styles.imageCard}>
+                                            <TouchableOpacity onPress={() => this.displayImage(item.src)}>
+                                                <Image style={styles.recommImage}
+                                                    source={item.src}>
+                                                </Image>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>)
+                            }
                         </ScrollView>
                     </View>
                     <View style={{ width, height: (height - 50) / 3 }}>
                         <ScrollView horizontal={true}>
-                            <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/1.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/2.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/3.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/7.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/8.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/9.jpeg')}>
-                                    </Image>
-                                </View>
-                            </View>
-                        </ScrollView>
+                            {
+                                functionImages.map((item, i) =>
+                                    <View key={i} style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
+                                        <View style={styles.imageCard}>
+                                            <TouchableOpacity onPress={() => this.displayImage(item.src)}>
+                                                <Image style={styles.recommImage}
+                                                    source={item.src}>
+                                                </Image>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>)
+                            }</ScrollView>
                     </View>
                 </View>
-
             </View>
 
         )

@@ -43,9 +43,9 @@ export default class Videos extends Component {
         }}>
           <Text style={{
             alignContent: 'center', alignItems: 'center', textAlign: "center",
-            alignSelf: 'center', fontWeight: 'bold', fontSize: 20
+            alignSelf: 'center', fontWeight: 'bold', fontSize: 20,color:"white"
           }}>
-            कांबेकर महाराज फोटो गॅलरी
+            कांबेकर महाराज प्रवचने (व्हिडिओ )
                 </Text>
         </View>
         <View style={{ width, height: 320, backgroundColor: 'pink' }}>

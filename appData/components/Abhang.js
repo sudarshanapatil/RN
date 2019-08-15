@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         width: width - 10, height: 80,
         padding: 8,
         alignContent: 'center', justifyContent: 'center', backgroundColor: 'white',
-        shadowRadius: 2, shadowColor: 'pink', margin: 5
+        shadowRadius: 2, shadowColor: 'pink', margin: 5,borderRadius:10
     },
     cardText: { fontSize: 18, textAlign: 'justify', textAlign: "center" }
 });
@@ -46,7 +46,7 @@ export default class Abhang extends Component {
         return (
             <View style={{
                 flex: 1,
-                width: width, height: height, backgroundColor: 'antiquewhite'
+                width: width, height: height, backgroundColor: 'white'
             }}>
                 <View style={{
                     justifyContent: 'center',
@@ -54,7 +54,7 @@ export default class Abhang extends Component {
                 }}>
                     <Text style={{
                         alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20
+                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
                     }}>
                         कांबेकर महाराज अभंग
                 </Text>
@@ -62,7 +62,7 @@ export default class Abhang extends Component {
                 <ScrollView>
 
                     <View style={{
-                        width: width, height: height - 50,
+                        width: width, height: height - 50,backgroundColor:"antiquewhite"
 
                     }}>
 
