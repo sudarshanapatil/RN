@@ -3,10 +3,11 @@ import {
     Text, View, Dimensions, Image,
     StyleSheet, ScrollView, TouchableOpacity, AppRegistry
 } from 'react-native';
+import audioLinks from '../databaseFiles/audioLinks'
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
     controllers: {
-        backgroundColor: 'orange',
+        backgroundColor: 'darkcyan',
         padding: 15, margin: 10,
         borderRadius: 9
     },
@@ -27,20 +28,43 @@ import TrackPlayer from 'react-native-track-player';
 AppRegistry.registerComponent('appname', () => App);
 TrackPlayer.registerEventHandler(() => { });
 //import Sound from 'react-native-sound';
-TrackPlayer.setupPlayer().then(async () => {
 
-    // Adds a track to the queue
-    await TrackPlayer.add({
-        id: 'trackId',
-        url: require('./moraribapu.mp3'),
-        //url: 'https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_2MG.mp3',
-        title: 'Track Title',
-        artist: 'Track Artist',
-        artwork: require('./5.jpg')
-    });
-})
 export default class Audios extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            audioUrl: require('./moraribapu.mp3')
+        }
+
+
+    }
+    playAudio = (link) => {
+        this.setState({audioUrl:link})
+        TrackPlayer.setupPlayer().then(async () => {
+            // Adds a track to the queue
+            await TrackPlayer.add({
+                id: 'trackId',
+                url: this.state.audioUrl,
+                title: 'Track Title',
+                artist: 'Track Artist',
+                artwork: require('./5.jpg')
+            });
+        })
+        TrackPlayer.play()
+
+    }
     componentDidMount() {
+        TrackPlayer.setupPlayer().then(async () => {
+            // Adds a track to the queue
+            await TrackPlayer.add({
+                id: 'trackId',
+                url: this.state.audioUrl,
+                title: 'Track Title',
+                artist: 'Track Artist',
+                artwork: require('./5.jpg')
+            });
+        })
 
     }
     componentWillUnmount() {
@@ -63,18 +87,18 @@ export default class Audios extends Component {
             <View style={{ width, height, flex: 1, alignItems: 'center' }}>
                 <View style={{
                     justifyContent: 'center',
-                    width: width, height: 50, backgroundColor: 'orange'
+                    width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
                     <Text style={{
                         alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20
+                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: 'white'
                     }}>
                         कांबेकर महाराज प्रवचने (ऑडिओ )
                 </Text>
                 </View>
 
                 <View style={{
-                    width: width, height: height - 50, backgroundColor: 'antiquewhite'
+                    width: width, height: height - 50, backgroundColor: 'white'
                 }}>
                     <View style={{
                         width, height: (height - 50) / 2,
@@ -86,8 +110,8 @@ export default class Audios extends Component {
                             </Image>
                             <Text style={{
                                 fontWeight: 'bold',
-                                fontSize: 20, textAlign: 'center',margin:5
-                            }}>पुणे प्रवचन माला - भाग १</Text>
+                                fontSize: 20, textAlign: 'center', margin: 5
+                            }}>संग्रहित प्रवचने </Text>
                         </View>
                     </View>
 
@@ -97,53 +121,33 @@ export default class Audios extends Component {
 
                     }}>
                         <TouchableOpacity style={styles.controllers} onPress={() => this.playMusic("play")}>
-                            <Text style={{ color: '#FFF' }}>Play</Text>
+                            <Text style={{ color: '#FFF' }}>चालू</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.controllers} onPress={() => this.playMusic("pause")}>
-                            <Text style={{ color: '#FFF' }}>Pause</Text>
+                            <Text style={{ color: '#FFF' }}>थांबा</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.controllers} onPress={() => this.playMusic("stop")}>
-                            <Text style={{ color: '#FFF' }}>Stop</Text>
+                            <Text style={{ color: '#FFF' }}>बंद   </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.controllers} onPress={() => this.playMusic("seek")}>
-                            <Text style={{ color: '#FFF' }}>Seek</Text>
-                        </TouchableOpacity>
+                        
                     </View>
 
-                    <View style={{ width, height: 250, backgroundColor: 'blue' }}>
+                    <View style={{ width, height: ((height - 50) / 2) - 60, backgroundColor: 'blue' }}>
                         <ScrollView horizontal={true}>
-                            <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/1.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/2.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/3.jpg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/7.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/8.jpeg')}>
-                                    </Image>
-                                </View>
-                                <View style={styles.imageCard}>
-                                    <Image style={styles.recommImage}
-                                        source={require('../../images/9.jpeg')}>
-                                    </Image>
-                                </View>
-                            </View>
+                            {
+                                audioLinks.map((item, i) =>
+                                    <View style={{ height: ((height - 50) / 2) - 80, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
+                                        <TouchableOpacity onPress={() => this.playAudio(item[i + 1].link)}>
+                                            <View style={styles.imageCard}>
+                                                <Image style={styles.recommImage}
+                                                    source={item[i + 1].src}>
+                                                </Image>
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            }
+
                         </ScrollView>
                     </View>
                 </View >

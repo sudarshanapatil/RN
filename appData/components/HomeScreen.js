@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Icon } from 'react-native-elements'
 import {
   Platform, StyleSheet, Text, View, Image, DrawerLayoutAndroid,
   ToolbarAndroid, FlatList, Dimensions, TouchableOpacity, ImageBackground
@@ -6,10 +7,18 @@ import {
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
   toolbar: {
-    backgroundColor: 'orange',
+    backgroundColor: 'darkcyan',
     height: 50,
     alignSelf: 'stretch',
     textAlign: 'center',
+  },
+  drawerMenus: {
+    margin: 5,
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    backgroundColor: 'darkcyan',
+    color:'white'
   }
 });
 
@@ -27,7 +36,7 @@ export default class HomeScreen extends Component {
       this.setState({
         showSplash: 1
       })
-    }, 500)
+    }, 7000)
   }
 
   onTouchCard = (id) => {
@@ -56,12 +65,16 @@ export default class HomeScreen extends Component {
     }
 
   }
-  render() {
+  render() { 
     var navigationView = (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <Text style={{ margin: 10, fontSize: 25, fontWeight: 'bold', textAlign: 'left', backgroundColor: 'orange' }}>कांबेकर महाराज चरित्र</Text>
-        <Text style={{ margin: 10, fontSize: 25, fontWeight: 'bold', textAlign: 'left', backgroundColor: 'orange' }}>कांबेकर  महाराज अभंग</Text>
-        <Text style={{ margin: 10, fontSize: 25, fontWeight: 'bold', textAlign: 'left', backgroundColor: 'orange' }}>कांबेकर  महाराज गुरुपरंपरा  </Text>
+        <Text style={styles.drawerMenus}>कांबेकर महाराज चरित्र</Text>
+        <Text style={styles.drawerMenus}>कांबेकर  महाराज अभंग</Text>
+        <Text style={styles.drawerMenus}>कांबेकर  महाराज गुरुपरंपरा  </Text>
+        <Text style={styles.drawerMenus}>कांबेकर महाराज फोटो गॅलरी  </Text>
+        <Text style={styles.drawerMenus}>कांबेकर महाराज  प्रवचने (व्हिडिओ )  </Text>
+        <Text style={styles.drawerMenus}>कांबेकर महाराज  प्रवचने (ऑडिओ )  </Text>
+        <Text style={styles.drawerMenus}>कांबेकर महाराज  हस्ताक्षर </Text>
       </View>
     );
 
@@ -73,12 +86,13 @@ export default class HomeScreen extends Component {
               drawerWidth={300}
               drawerPosition={DrawerLayoutAndroid.positions.Left}
               renderNavigationView={() => navigationView}>
+              
               <ToolbarAndroid
                 style={styles.toolbar}
-                navIcon={require('../../images/activity.svg')}
+                logo={require('./list.svg')}
                 title="राम कृष्ण हरी"
                 titleColor="white"
-                actions={[{ title: 'Rate this app', icon: require('../../images/menu.svg'), show: 'never' },
+                actions={[{ title: 'Rate this app', icon: require('../../images/list.svg'), show: 'never' },
                 { title: 'About app', icon: require('../../images/menu.svg'), show: 'never' },
                 { title: 'Check update', icon: require('../../images/menu.svg'), show: 'never' },
                 { title: 'Send feedback', icon: require('../../images/menu.svg'), show: 'never' },
@@ -89,7 +103,7 @@ export default class HomeScreen extends Component {
               />
               <View style={{
                 flex: 1, justifyContent: "center", alignItems: "center",
-                backgroundColor: "antiquewhite"
+                backgroundColor: "white"
               }}>
                 <FlatList
                   data={[{ key: 'कांबेकर महाराज चरित्र', id: 1 }, { key: 'कांबेकर  महाराज अभंग', id: 2 },
@@ -104,9 +118,10 @@ export default class HomeScreen extends Component {
                           flex: 1, width: width - 20, height: 80, backgroundColor: 'white',
                           marginTop: 10, fontSize: 20, fontWeight: 'bold', marginLeft: 10,
                           marginRight: 10, flexDirection: 'row',
-                          shadowColor: 'black', borderRadius: 10,
+                          shadowColor: 'darkcyan', borderRadius: 10,
                           shadowOffset: { width: 0, height: 2, }, shadowRadius: 5,
-                          shadowOpacity: 1.0
+                          shadowOpacity: 1.0,
+                          elevation:5
                         }
                       }>
                         <View style={{
@@ -151,10 +166,10 @@ export default class HomeScreen extends Component {
                 }}>
                   <Text style={{
                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                    alignSelf: 'center', fontSize: 24, color: 'white',marginTop:400
+                    alignSelf: 'center', fontSize: 30, color: 'white', marginTop: 400,fontWeight:'bold'
                   }}>
                     सकळ देवांचाही देव ।{"\n"}
-                     बाळा म्हणे पंढरीराव ।।
+                    बाळा म्हणे पंढरीराव ।।
                   </Text>
                 </View>
               </ImageBackground>

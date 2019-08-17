@@ -5,7 +5,7 @@ import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity } from
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
     fontButton: {
-        width: 60, height: 60, backgroundColor: 'orange',
+        width: 60, height: 60, backgroundColor: 'darkcyan',
         borderRadius: 30, justifyContent: 'center', alignItems: 'center', margin: 2
     }
 })
@@ -31,11 +31,11 @@ export default class Parampara extends Component {
         return (
             <View style={{
                 flex: 1,
-                width: width, height: height, backgroundColor: 'antiquewhite'
+                width: width, height: height, backgroundColor: 'white'
             }}>
                 <View style={{
                     justifyContent: 'center',
-                    width: width, height: 50, backgroundColor: 'orange'
+                    width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
                     <Text style={{
                         alignContent: 'center', alignItems: 'center', textAlign: "center",
@@ -67,12 +67,12 @@ export default class Parampara extends Component {
                         }}>
                             <TouchableOpacity onPress={() => this.increaseFont("plus")}>
                                 <View style={styles.fontButton}>
-                                    <Text style={{ fontWeight: 'bold' }}>+</Text>
+                                    <Text style={{ fontWeight: 'bold',color:'white' }}>+</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => this.increaseFont("minus")}>
                                 <View style={styles.fontButton}>
-                                    <Text style={{ fontWeight: 'bold' }}>-</Text>
+                                    <Text style={{ fontWeight: 'bold',color:'white' }}>-</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
