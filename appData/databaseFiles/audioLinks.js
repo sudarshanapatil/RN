@@ -8,25 +8,25 @@ const audioLinks = [
     {
         2: {
             "src": require("../../images/nil/6.jpg"),
-            "link": "https://www.youtube.com/embed/uVc1oCJ2MMc"
+            "link": require('../audios/flute.mp3')
         }
     },
     {
         3: {
             "src": require("../../images/nil/6.jpg"),
-            "link": "https://www.youtube.com/embed/GrjPUjU5LJ4"
+            "link": require('../audios/flute.mp3')
         }
     },
     {
         4: {
             "src": require("../../images/nil/6.jpg"),
-            "link": "https://www.youtube.com/embed/8NLfwZ7I1qk"
+            "link":  require('../audios/flute.mp3')
         }
     },
     {
         5: {
             "src": require("../../images/nil/6.jpg"),
-            "link": "https://www.youtube.com/embed/qUQTfWNldF4"
+            "link":  require('../audios/flute.mp3')
         }
     },
     

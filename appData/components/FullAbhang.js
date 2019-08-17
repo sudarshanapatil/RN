@@ -31,6 +31,12 @@ export default class FullAbhang extends Component {
     componentWillUnmount() {
         TrackPlayer.stop()
     }
+    pauseSound = (type) => {
+        if(type==0)
+        TrackPlayer.pause()
+        else
+        TrackPlayer.play()
+    }
     render() {
         return (
             <View style={{ flex: 1, width, height, justifyContent: 'center', alignItems: 'center' }}>
@@ -38,10 +44,14 @@ export default class FullAbhang extends Component {
                     justifyContent: 'center', alignItems: 'center',
                     margin: 5, padding: 10, elevation: 7, width, height: 50, backgroundColor: "darkcyan"
                 }}>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ flexDirection: 'row' }}>
 
-                        <Icon name="favorite" type='material' color="white" />
-                        <Icon name="pause" type='material' color="white" />
+                        <Icon name="favorite" type='material'
+                            color="white" onPress={() => this.addToFvrt()} />
+                        <Icon name="pause" type='material'
+                            color="white" onPress={() => this.pauseSound(0)} />
+                        <Icon name="play_arrow" type='material'
+                            color="white" onPress={() => this.pauseSound(1)} />
 
                     </View>
                 </View>

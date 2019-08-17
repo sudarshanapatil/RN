@@ -77,8 +77,7 @@ export default class Audios extends Component {
             TrackPlayer.pause()
         else if (type == 'stop')
             TrackPlayer.stop()
-        else if (type == 'seek')
-            TrackPlayer.seekTo(10)
+        
     }
 
     render() {
