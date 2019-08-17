@@ -75,15 +75,15 @@ export default class HomeScreen extends Component {
               renderNavigationView={() => navigationView}>
               <ToolbarAndroid
                 style={styles.toolbar}
-                navIcon={require('../../images/activity.svg')}
+                // navIcon={require('../../images/menu.png')}
                 title="राम कृष्ण हरी"
                 titleColor="white"
-                actions={[{ title: 'Rate this app', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'About app', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'Check update', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'Send feedback', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'Privacy policy', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'Terms and Conditions', icon: require('../../images/menu.svg'), show: 'never' }
+                actions={[{ title: 'कांबेकर महाराज चरित्र', icon: require('../../images/menu.png') },
+                { title: 'About app', icon: require('../../images/menu.png'), show: 'never' },
+                { title: 'Check update', icon: require('../../images/menu.png'), show: 'never' },
+                { title: 'Send feedback', icon: require('../../images/menu.png'), show: 'never' },
+                { title: 'Privacy policy', icon: require('../../images/menu.png'), show: 'never' },
+                { title: 'Terms and Conditions', icon: require('../../images/menu.png'), show: 'never' }
                 ]}
                 onActionSelected={this.onActionSelected}
               />
