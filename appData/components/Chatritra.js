@@ -6,8 +6,8 @@ import { Text, View, Dimensions, ScrollView, Button, TouchableOpacity, StyleShee
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
     fontButton: {
-        width: 60, height: 60, backgroundColor: 'darkcyan',
-        borderRadius: 30, justifyContent: 'center', alignItems: 'center', margin: 2
+        width: 30, height: 30, backgroundColor: 'pink',
+        borderRadius: 15, justifyContent: 'center', alignItems: 'center'
     }
 })
 export default class Charitra extends Component {
@@ -36,15 +36,31 @@ export default class Charitra extends Component {
                 width: width, height: height, backgroundColor: 'white'
             }}>
                 <View style={{
-                    justifyContent: 'center',
+                    flexDirection: 'row',alignContent: 'center',
                     width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
-                    <Text style={{
-                        alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                    <View style={{ width: width - 60, height: 50, }}>
+                        <Text style={{
+                            alignContent: 'center', alignItems: 'center', textAlign: "center",
+                            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                        }}>
+                            कांबेकर महाराज चरित्र
+                        </Text>
+                    </View>
+                    <View style={{
+                        width: 60, height: 50, flexDirection: 'row'
                     }}>
-                        कांबेकर महाराज चरित्र
-                </Text>
+                        <TouchableOpacity onPress={() => this.increaseFont("plus")}>
+                            <View style={styles.fontButton}>
+                                <Text style={{ fontWeight: 'bold', color: "white",fontSize:20 }}>+</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.increaseFont("minus")}>
+                            <View style={styles.fontButton}>
+                                <Text style={{ fontWeight: 'bold', color: "white" }}>-</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={{ width, height: height - 50, backgroundColor: "white" }}>
 
@@ -62,21 +78,7 @@ export default class Charitra extends Component {
                             </View>
                         </ScrollView>
                     </View>
-                    <View style={{
-                        justifyContent: 'center', alignItems: 'center',
-                        bottom: 30, right: 30, position: 'absolute'
-                    }}>
-                        <TouchableOpacity onPress={() => this.increaseFont("plus")}>
-                            <View style={styles.fontButton}>
-                                <Text style={{ fontWeight: 'bold', color: "white" }}>+</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.increaseFont("minus")}>
-                            <View style={styles.fontButton}>
-                                <Text style={{ fontWeight: 'bold', color: "white" }}>-</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+
                 </View>
             </View >
         )

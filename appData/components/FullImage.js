@@ -24,7 +24,7 @@ export default class FullImage extends Component {
 
             }}>
                 <View style={{
-                    width, height: 50, backgroundColor: "orange",
+                    width, height: 50, backgroundColor: "darkcyan",
                     justifyContent: 'center', alignItems: 'center'
                 }}>
                     <Text style={{
@@ -35,7 +35,7 @@ export default class FullImage extends Component {
                 </Text>
                 </View>
                 <View style={{
-                    width, height: height - 50, backgroundColor: "antiquewhite",
+                    width, height: height - 50, backgroundColor: "white",
                     justifyContent: 'center', alignItems: 'center'
                 }}>
                     <View style={{

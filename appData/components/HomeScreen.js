@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Icon } from 'react-native-elements'
+//import { Icon } from 'react-native-elements'
 import {
   Platform, StyleSheet, Text, View, Image, DrawerLayoutAndroid,
   ToolbarAndroid, FlatList, Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
   toolbar: {
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'left',
     backgroundColor: 'darkcyan',
-    color:'white'
+    color: 'white'
   }
 });
 
@@ -36,7 +38,7 @@ export default class HomeScreen extends Component {
       this.setState({
         showSplash: 1
       })
-    }, 7000)
+    }, 80)
   }
 
   onTouchCard = (id) => {
@@ -65,7 +67,7 @@ export default class HomeScreen extends Component {
     }
 
   }
-  render() { 
+  render() {
     var navigationView = (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Text style={styles.drawerMenus}>कांबेकर महाराज चरित्र</Text>
@@ -86,7 +88,7 @@ export default class HomeScreen extends Component {
               drawerWidth={300}
               drawerPosition={DrawerLayoutAndroid.positions.Left}
               renderNavigationView={() => navigationView}>
-              
+
               <ToolbarAndroid
                 style={styles.toolbar}
                 logo={require('./list.svg')}
@@ -106,10 +108,13 @@ export default class HomeScreen extends Component {
                 backgroundColor: "white"
               }}>
                 <FlatList
-                  data={[{ key: 'कांबेकर महाराज चरित्र', id: 1 }, { key: 'कांबेकर  महाराज अभंग', id: 2 },
-                  { key: 'कांबेकर  महाराज गुरुपरंपरा', id: 3 }, { key: 'कांबेकर महाराज फोटो गॅलरी ', id: 4 },
-                  { key: 'कांबेकर महाराज  प्रवचने (व्हिडिओ ) ', id: 5 }, { key: 'कांबेकर महाराज  प्रवचने (ऑडिओ ) ', id: 6 },
-                  { key: 'कांबेकर महाराज  हस्ताक्षर ', id: 7 }
+                  data={[{ key: 'कांबेकर महाराज चरित्र', id: 1, logoName: "id-card" },
+                  { key: 'कांबेकर  महाराज अभंग', id: 2, logoName: "book" },
+                  { key: 'कांबेकर  महाराज गुरुपरंपरा', id: 3, logoName: "paw" },
+                  { key: 'कांबेकर महाराज फोटो गॅलरी ', id: 4, logoName: "photo" },
+                  { key: 'कांबेकर महाराज  प्रवचने (व्हिडिओ ) ', id: 5, logoName: "video-camera" },
+                  { key: 'कांबेकर महाराज  प्रवचने (ऑडिओ ) ', id: 6, logoName: "music" },
+                  { key: 'कांबेकर महाराज  हस्ताक्षर ', id: 7, logoName: "file" }
                   ]}
                   renderItem={({ item }) =>
                     <TouchableOpacity onPress={() => this.onTouchCard(item.id)}>
@@ -121,17 +126,18 @@ export default class HomeScreen extends Component {
                           shadowColor: 'darkcyan', borderRadius: 10,
                           shadowOffset: { width: 0, height: 2, }, shadowRadius: 5,
                           shadowOpacity: 1.0,
-                          elevation:5
+                          elevation: 5
                         }
                       }>
                         <View style={{
                           justifyContent: "center", alignItems: 'center',
                           height: 80, width: 80
                         }}>
-                          <Image
+                          <Icon name={item.logoName} size={35} color="darkcyan" />
+                          {/* <Image
                             style={{ width: 60, height: 60 }}
                             source={require(`../../images/1.jpg`)}>
-                          </Image>
+                          </Image> */}
                         </View>
 
                         <View style={{
@@ -166,7 +172,7 @@ export default class HomeScreen extends Component {
                 }}>
                   <Text style={{
                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                    alignSelf: 'center', fontSize: 30, color: 'white', marginTop: 400,fontWeight:'bold'
+                    alignSelf: 'center', fontSize: 30, color: 'white', marginTop: 400, fontWeight: 'bold'
                   }}>
                     सकळ देवांचाही देव ।{"\n"}
                     बाळा म्हणे पंढरीराव ।।
