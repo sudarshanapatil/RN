@@ -47,7 +47,7 @@ export default class Parampara extends Component {
                 {/* <View></View> */}
                 <ScrollView>
                     <View style={{
-                        width: width - 40, height: height - 70, margin: 20,
+                        width: width - 40, margin: 20,
 
                     }}>
 

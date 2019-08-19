@@ -40,25 +40,27 @@ export default class Abhang extends Component {
                         कांबेकर महाराज अभंग
                 </Text>
                 </View>
-                <ScrollView>
-                    <View style={{
-                        width: width, height: height - 50, backgroundColor: "white"
+                <View style={{ width, height: height - 50 }}>
+                    <ScrollView>
+                        <View style={{
+                         backgroundColor: "white"
 
-                    }}>
-                        {
-                            abhangList.map((item, i) =>
-                                <TouchableOpacity key={i} onPress={() => this.onTouchCard(item[i + 1].fullAbhang)}>
-                                    <View style={styles.card}>
-                                        <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
-                                            <Text style={styles.cardText}>
-                                                {item[i + 1].initial}
-                                            </Text>
+                        }}>
+                            {
+                                abhangList.map((item, i) =>
+                                    <TouchableOpacity key={i} onPress={() => this.onTouchCard(item[i + 1].fullAbhang)}>
+                                        <View style={styles.card}>
+                                            <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
+                                                <Text style={styles.cardText}>
+                                                    {item[i + 1].initial}
+                                                </Text>
+                                            </View>
                                         </View>
-                                    </View>
-                                </TouchableOpacity>)
-                        }
-                    </View>
-                </ScrollView>
+                                    </TouchableOpacity>)
+                            }
+                        </View>
+                    </ScrollView>
+                </View>
             </View>
         )
     }

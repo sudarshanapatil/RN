@@ -67,7 +67,7 @@ export default class Charitra extends Component {
                     <View>
                         <ScrollView>
                             <View style={{
-                                flex: 1, width: width - 40, height: height - 50, margin: 20,
+                                flex: 1, width: width - 40, margin: 20,
                                 padding: 10, alignItems: 'center',
                             }}>
                                 <Text style={{ fontSize: this.state.initialFontSize, textAlign: 'justify' }}>

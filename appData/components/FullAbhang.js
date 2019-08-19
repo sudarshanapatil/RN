@@ -48,7 +48,7 @@ export default class FullAbhang extends Component {
         const fullAbhang = navigation.getParam('fullAbhang', '100')
         return (
             <View style={{
-                flex: 1, width, height, justifyContent: 'center', alignItems: 'center'
+                flex: 1, width, height
             }}>
                 <View style={{
                     width, height: 50, backgroundColor: "darkcyan"
@@ -75,7 +75,7 @@ export default class FullAbhang extends Component {
                         }}>
                             <Text style={{
                                 alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                                alignSelf: 'center', fontSize: 20, color: '#000000',
+                                alignSelf: 'center', fontSize: 24, color: '#000000',
 
                             }}>
                                 {fullAbhang}
