@@ -19,11 +19,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'left',
-    backgroundColor: 'darkcyan',
-    color: 'white'
+    // backgroundColor: 'darkcyan',
+    color: 'darkcyan'
   }
 });
 
+const data = [{ key: 'कांबेकर महाराज चरित्र', id: 1, logoName: "id-card" },
+{ key: 'कांबेकर  महाराज अभंग', id: 2, logoName: "book" },
+{ key: 'कांबेकर  महाराज गुरुपरंपरा', id: 3, logoName: "paw" },
+{ key: 'कांबेकर महाराज फोटो गॅलरी ', id: 4, logoName: "photo" },
+{ key: 'कांबेकर महाराज  प्रवचने (व्हिडिओ ) ', id: 5, logoName: "video-camera" },
+{ key: 'कांबेकर महाराज  प्रवचने (ऑडिओ ) ', id: 6, logoName: "music" },
+{ key: 'कांबेकर महाराज  हस्ताक्षर ', id: 7, logoName: "file" }
+]
 export default class HomeScreen extends Component {
   constructor() {
     super()
@@ -70,13 +78,20 @@ export default class HomeScreen extends Component {
   render() {
     var navigationView = (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <Text style={styles.drawerMenus}>कांबेकर महाराज चरित्र</Text>
-        <Text style={styles.drawerMenus}>कांबेकर  महाराज अभंग</Text>
-        <Text style={styles.drawerMenus}>कांबेकर  महाराज गुरुपरंपरा  </Text>
-        <Text style={styles.drawerMenus}>कांबेकर महाराज फोटो गॅलरी  </Text>
-        <Text style={styles.drawerMenus}>कांबेकर महाराज  प्रवचने (व्हिडिओ )  </Text>
-        <Text style={styles.drawerMenus}>कांबेकर महाराज  प्रवचने (ऑडिओ )  </Text>
-        <Text style={styles.drawerMenus}>कांबेकर महाराज  हस्ताक्षर </Text>
+        <View style={{ width:300,height:200}}>
+          {
+            data.map((item, i) =>
+              <View style={{ width: 300,flexDirection: "row", margin: 10 }}>
+                <View>
+                  <Icon name={item.logoName} size={25} color="darkcyan" />
+                </View>
+                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                  <Text style={styles.drawerMenus}>{item.key}</Text>
+                </View>
+              </View>
+            )
+          }
+        </View>
       </View>
     );
 
@@ -118,6 +133,7 @@ export default class HomeScreen extends Component {
                   ]}
                   renderItem={({ item }) =>
                     <TouchableOpacity onPress={() => this.onTouchCard(item.id)}>
+
                       <View style={
                         {
                           flex: 1, width: width - 20, height: 80, backgroundColor: 'white',
@@ -129,28 +145,35 @@ export default class HomeScreen extends Component {
                           elevation: 5
                         }
                       }>
+
+
+
                         <View style={{
                           justifyContent: "center", alignItems: 'center',
                           height: 80, width: 80
                         }}>
                           <Icon name={item.logoName} size={35} color="darkcyan" />
-                          {/* <Image
-                            style={{ width: 60, height: 60 }}
-                            source={require(`../../images/1.jpg`)}>
-                          </Image> */}
-                        </View>
 
-                        <View style={{
-                          justifyContent: "center", height: 80, width: width - 20 - 80,
-                          alignItems: 'center'
-                        }}>
-                          <Text style={{
-                            fontSize: 20, fontWeight: 'bold', textAlign: "center", justifyContent: "center",
-                            alignItems: 'center', alignSelf: 'center'
-                          }}>
-                            {item.key}</Text>
                         </View>
+                        <ImageBackground
+                          style={{ width: width - 20, height: 80 }}
+                          source={require('../../images/vitthal/v3.jpeg')}
+                          opacity={0.5}
+                          resizeMode={'stretch'}>
+                          <View style={{
+                            justifyContent: "center", height: 80, width: width - 20 - 80,
+                            alignItems: 'center'
+                          }}>
+                            <Text style={{
+                              fontSize: 20, fontWeight: 'bold', textAlign: "center", justifyContent: "center",
+                              alignItems: 'center', alignSelf: 'center'
+                            }}>
+                              {item.key}</Text>
+                          </View>
+                        </ImageBackground>
                       </View>
+
+
                     </TouchableOpacity>
                   }
                 />

@@ -135,7 +135,7 @@ export default class Audios extends Component {
                         <ScrollView horizontal={true}>
                             {
                                 audioLinks.map((item, i) =>
-                                    <View style={{ height: ((height - 50) / 2) - 80, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
+                                    <View style={{ height: ((height - 50) / 2) - 80, backgroundColor: 'white', flexDirection: 'row' }}>
                                         <TouchableOpacity onPress={() => this.playAudio(item[i + 1].link)}>
                                             <View style={styles.imageCard}>
                                                 <Image style={styles.recommImage}

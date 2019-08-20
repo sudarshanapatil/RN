@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Text, View, Dimensions, ScrollView, Button, TouchableOpacity, StyleSheet } from 'react-native';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -51,14 +51,16 @@ export default class Charitra extends Component {
                         width: 60, height: 50, flexDirection: 'row'
                     }}>
                         <TouchableOpacity onPress={() => this.increaseFont("plus")}>
-                            <View style={styles.fontButton}>
+                        <Icon name="search-plus" size={25} color="white" />
+                            {/* <View style={styles.fontButton}>
                                 <Text style={{ fontWeight: 'bold', color: "white",fontSize:20 }}>+</Text>
-                            </View>
+                            </View> */}
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.increaseFont("minus")}>
-                            <View style={styles.fontButton}>
+                        <Icon name='search-minus' size={25} color="white" />
+                            {/* <View style={styles.fontButton}>
                                 <Text style={{ fontWeight: 'bold', color: "white" }}>-</Text>
-                            </View>
+                            </View> */}
                         </TouchableOpacity>
                     </View>
                 </View>
