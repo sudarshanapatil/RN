@@ -48,7 +48,10 @@ export default class HomeScreen extends Component {
       })
     }, 80)
   }
+  handleDrawerMenu = (id) => {
 
+
+  }
   onTouchCard = (id) => {
     switch (id) {
       case 1:
@@ -78,17 +81,19 @@ export default class HomeScreen extends Component {
   render() {
     var navigationView = (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <View style={{ width:300,height:200}}>
+        <View style={{ width: 300, height: 200 }}>
           {
             data.map((item, i) =>
-              <View style={{ width: 300,flexDirection: "row", margin: 10 }}>
-                <View>
-                  <Icon name={item.logoName} size={25} color="darkcyan" />
+              <TouchableOpacity onPress={() => this.onTouchCard(item.id)}>
+                <View style={{ width: 300, flexDirection: "row", margin: 10 }}>
+                  <View>
+                    <Icon name={item.logoName} size={25} color="darkcyan" />
+                  </View>
+                  <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <Text style={styles.drawerMenus}>{item.key}</Text>
+                  </View>
                 </View>
-                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                  <Text style={styles.drawerMenus}>{item.key}</Text>
-                </View>
-              </View>
+              </TouchableOpacity>
             )
           }
         </View>
@@ -106,7 +111,7 @@ export default class HomeScreen extends Component {
 
               <ToolbarAndroid
                 style={styles.toolbar}
-                logo={require('./list.svg')}
+                //logo={require('../../images/list.jpeg')}
                 title="राम कृष्ण हरी"
                 titleColor="white"
                 actions={[{ title: 'Rate this app', icon: require('../../images/list.svg'), show: 'never' },
@@ -165,8 +170,8 @@ export default class HomeScreen extends Component {
                             alignItems: 'center'
                           }}>
                             <Text style={{
-                              fontSize: 20, fontWeight: 'bold', textAlign: "center", justifyContent: "center",
-                              alignItems: 'center', alignSelf: 'center'
+                              fontSize: 22, fontWeight: 'bold', textAlign: "center", justifyContent: "center",
+                              alignItems: 'center', alignSelf: 'center', color: 'black'
                             }}>
                               {item.key}</Text>
                           </View>

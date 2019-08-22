@@ -40,6 +40,9 @@ export default class Videos extends Component {
     })
 
   }
+  handleWebError=()=>{
+
+  }
 
   render() {
     return (
@@ -63,6 +66,8 @@ export default class Videos extends Component {
             // style={{ width, height: 300 }}
             javaScriptEnabled={true}
             scrollEnabled={true}
+            onError={()=><View style={{ width, height: 320}}><Text>some thing went wrong</Text></View>}
+            renderError={()=><View style={{ width, height: 320}}><Text>some thing went wrong</Text></View>}
             mediaPlaybackRequiresUserAction={false}
             source={{
               html: `<html>
