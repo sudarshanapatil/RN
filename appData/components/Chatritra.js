@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { Text, View, Dimensions, ScrollView, Button, TouchableOpacity,Share,
-     StyleSheet } from 'react-native';
+import {
+    Text, View, Dimensions, ScrollView, Button, TouchableOpacity, Share,
+    StyleSheet
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const { width, height } = Dimensions.get('window');
@@ -20,24 +22,24 @@ export default class Charitra extends Component {
     }
     onShare = async () => {
         try {
-          const result = await Share.share({
-            message:
-              'first share with bandyaaaaaaaaaaaaa',
-          });
-    
-          if (result.action === Share.sharedAction) {
-            if (result.activityType) {
-              // shared with activity type of result.activityType
-            } else {
-              // shared
+            const result = await Share.share({
+                message:
+                    'first share with bandyaaaaaaaaaaaaa',
+            });
+
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
             }
-          } else if (result.action === Share.dismissedAction) {
-            // dismissed
-          }
         } catch (error) {
-          alert(error.message);
+            alert(error.message);
         }
-      };
+    };
     increaseFont = (type) => {
         let newFont;
         if (type == "plus")
@@ -91,27 +93,38 @@ export default class Charitra extends Component {
                     {/* </View> */}
                     <View style={{
                         width, height: 50, position: 'absolute',
-                        bottom: 0, left: 0, flexDirection: "row",backgroundColor:'ghostwhite'
+                        bottom: 0, left: 0, flexDirection: "row", backgroundColor: 'ghostwhite'
                     }}>
-                        <TouchableOpacity onPress={() => this.increaseFont("minus")}>
-                            <View style={styles.fontButton}>
+                        <View style={{ width: width / 3, height: 50 }}>
+                            <TouchableOpacity onPress={() => this.increaseFont("minus")}>
+                                <View style={styles.fontButton}>
 
-                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '0' }}>अ</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.increaseFont("plus")}>
-                            <View style={styles.fontButton}>
-                                <Text style={{ fontSize: 28, color: 'white', fontWeight: '0' }}>अ</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <View style={{width,height:50,marginRight:3}}>
-                        <Icon name="share-alt-square" size={40} color="darkcyan" onPress={() => this.onShare(0)} />
+                                    <Text style={{ fontSize: 15, color: 'white', fontWeight: '0' }}>अ</Text>
+                                </View>
+
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{
+                            width: width / 3, height: 50, justifyContent: 'center', alignContent: 'center'
+                        }}>
+                            <TouchableOpacity onPress={() => this.increaseFont("plus")}>
+                                <View style={styles.fontButton}>
+                                    <Text style={{ fontSize: 28, color: 'white', fontWeight: '0' }}>अ</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={{
+                            width: width / 3, height: 50, marginRight: 3, justifyContent: 'center', alignItems: "center"
+                        }}>
+                            <Icon name="share-alt-square" size={40} color="darkcyan" onPress={() => this.onShare(0)} />
 
                         </View>
                         <Icon name="heart" size={40} color="darkcyan" onPress={() => this.onShare(0)} />
                     </View>
                 </View>
-            </View >
+            </View>
+
         )
     }
 }

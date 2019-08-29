@@ -8,7 +8,8 @@ let style = StyleSheet.create({
     backgroundImage: {
         flex: 1,
         resizeMode: 'cover'
-    }
+    },
+    navButtons: { width: width / 4, height: 50, alignItems: 'center', justifyContent: 'center' }
 })
 import TrackPlayer from 'react-native-track-player';
 AppRegistry.registerComponent('appname', () => App);
@@ -26,7 +27,7 @@ export default class FullAbhang extends Component {
                 url: require('../audios/flute.mp3'),
                 title: 'Track Title',
                 artist: 'Track Artist',
-                artwork: require('./5.jpg')
+                // artwork: require('./5.jpg')
             });
         })
 
@@ -54,9 +55,20 @@ export default class FullAbhang extends Component {
                     width, height: 50, backgroundColor: "darkcyan"
                 }}>
                     <View style={{ flexDirection: 'row', alignContent: "flex-end", justifyContent: "flex-end" }}>
-                        <Icon name="pause-circle-o" size={30} color="white" onPress={() => this.pauseSound(0)} />
-                        <Icon name="play-circle" size={30} color="white" onPress={() => this.pauseSound(1)} />
+                        <View style={style.navButtons}>
+                            <Icon name="pause-circle-o" size={30} color="white" onPress={() => this.pauseSound(0)} />
+                        </View>
+                        <View style={style.navButtons}>
+                            <Icon name="play-circle" size={30} color="white" onPress={() => this.pauseSound(1)} />
+                        </View>
+                        <View style={style.navButtons}>
+                            <Icon name="bookmark" size={30} color="white" onPress={() => this.pauseSound(1)} />
+                        </View>
+                        <View style={style.navButtons}>
+                            <Icon name="share-alt" size={30} color="white" onPress={() => this.pauseSound(1)} />
+                        </View>
                     </View>
+
                 </View>
                 <View style={{
                     width, height: height - 50

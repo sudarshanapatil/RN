@@ -75,6 +75,9 @@ export default class HomeScreen extends Component {
       case 7:
         this.props.navigation.navigate("Docs")
         break;
+      case 8:
+        this.props.navigation.navigate("Aarati")
+        break;
     }
 
   }
@@ -114,13 +117,13 @@ export default class HomeScreen extends Component {
                 //logo={require('../../images/list.jpeg')}
                 title="राम कृष्ण हरी"
                 titleColor="white"
-                actions={[{ title: 'Rate this app', icon: require('../../images/list.svg'), show: 'never' },
-                { title: 'About app', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'Check update', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'Send feedback', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'Privacy policy', icon: require('../../images/menu.svg'), show: 'never' },
-                { title: 'Terms and Conditions', icon: require('../../images/menu.svg'), show: 'never' }
-                ]}
+                // actions={[{ title: 'Rate this app', icon: require('../../images/list.svg'), show: 'never' },
+                // { title: 'About app', icon: require('../../images/menu.svg'), show: 'never' },
+                // { title: 'Check update', icon: require('../../images/menu.svg'), show: 'never' },
+                // { title: 'Send feedback', icon: require('../../images/menu.svg'), show: 'never' },
+                // { title: 'Privacy policy', icon: require('../../images/menu.svg'), show: 'never' },
+                // { title: 'Terms and Conditions', icon: require('../../images/menu.svg'), show: 'never' }
+                // ]}
                 onActionSelected={this.onActionSelected}
               />
               <View style={{
@@ -134,7 +137,8 @@ export default class HomeScreen extends Component {
                   { key: 'कांबेकर महाराज फोटो गॅलरी ', id: 4, logoName: "photo" },
                   { key: 'कांबेकर महाराज  प्रवचने (व्हिडिओ ) ', id: 5, logoName: "video-camera" },
                   { key: 'कांबेकर महाराज  प्रवचने (ऑडिओ ) ', id: 6, logoName: "music" },
-                  { key: 'कांबेकर महाराज  हस्ताक्षर ', id: 7, logoName: "file" }
+                  { key: 'कांबेकर महाराज  हस्ताक्षर ', id: 7, logoName: "file" },
+                  { key: 'कांबेकर महाराज aarati ', id: 8, logoName: "file" }
                   ]}
                   renderItem={({ item }) =>
                     <TouchableOpacity onPress={() => this.onTouchCard(item.id)}>
@@ -150,9 +154,6 @@ export default class HomeScreen extends Component {
                           elevation: 5
                         }
                       }>
-
-
-
                         <View style={{
                           justifyContent: "center", alignItems: 'center',
                           height: 80, width: 80
@@ -188,7 +189,7 @@ export default class HomeScreen extends Component {
             <View style={{ flex: 1, width, height }}>
               <ImageBackground
                 style={{ width, height }}
-                source={require('../../images/splash2.webp')}
+                source={require('../../images/1.jpg')}
                 opacity={0.7}
 
               >

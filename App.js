@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 //import { Text, View } from 'react-native';
-import HomeScreen from './appData/components/HomeScreen'
+//import HomeScreen from './appData/components/HomeScreen'
 import Charitra from './appData/components/Chatritra'
 import Abhang from './appData/components/Abhang'
 import Parampara from './appData/components/Parampara'
@@ -10,12 +10,22 @@ import Gallery from './appData/components/Gallery'
 import Videos from './appData/components/Videos'
 import Audios from './appData/components/Audios'
 import Docs from './appData/components/Docs'
-import FullImage from './appData/components/FullImage'
+import FullImage from './appData/components/FullImage';
+import PhotoList from './appData/components/PhotoList'
+import Aarati from './appData/components/Aarati'
+import newHome from './appData/components/newHome'
+import Others from './appData/components/Others'
+import Festivals from './appData/components/Festivals'
+//import Drawer from './appData/components/Drawer'
+//const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
 const AppNavigator = createStackNavigator(
   {
-    Home: {
-      screen: HomeScreen
+    // Home: {
+    //   screen: HomeScreen
+    // },
+    newHome: {
+      screen: newHome
     },
     Charitra:
     {
@@ -48,13 +58,29 @@ const AppNavigator = createStackNavigator(
     },
     FullImage: {
       screen: FullImage
-    }
+    },
+    PhotoList: {
+      screen: PhotoList
+    },
+    Aarati: {
+      screen: Aarati
+    },
+    Others: {
+      screen: Others
+    },
+    Festivals: {
+      screen: Festivals
+    },
+    // Drawer: {
+    //   screen: Drawer
+    // }
+
 
 
 
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'newHome',
     headerMode: 'none'
   }
 );

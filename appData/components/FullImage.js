@@ -2,17 +2,12 @@ import React, { Component } from 'react';
 import { Text, View, Dimensions, ScrollView, StyleSheet, Image } from 'react-native';
 const { width, height } = Dimensions.get('window');
 const style = StyleSheet.create({
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover'
-    }
+   
 })
 export default class FullImage extends Component {
     constructor() {
         super()
-        this.state = {
-            uri: require('../../images/1.jpg')
-        }
+       
     }
 
     render() {
@@ -36,13 +31,14 @@ export default class FullImage extends Component {
                 </View>
                 <View style={{
                     width, height: height - 50, backgroundColor: "white",
-                    justifyContent: 'center', alignItems: 'center'
+                     alignItems: 'center'
                 }}>
                     <View style={{
                         width, height: height - 250, backgroundColor: "red",
                         justifyContent: 'center', alignItems: 'center', marginTop: 50, marginBottom: 150
                     }}>
-                        <Image style={{ width: width, height: height - 250, }} source={imageId}>
+                        <Image style={{ width, height: height - 250, }}
+                            source={imageId}>
                         </Image>
 
                     </View>

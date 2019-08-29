@@ -48,7 +48,7 @@ export default class Audios extends Component {
                 url: this.state.audioUrl,
                 title: 'Track Title',
                 artist: 'Track Artist',
-                artwork: require('./5.jpg')
+                //artwork: require('./5.jpg')
             });
         })
         TrackPlayer.play()
@@ -62,7 +62,7 @@ export default class Audios extends Component {
                 url: this.state.audioUrl,
                 title: 'Track Title',
                 artist: 'Track Artist',
-                artwork: require('./5.jpg')
+                //artwork: require('./5.jpg')
             });
         })
 
