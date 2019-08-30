@@ -94,13 +94,13 @@
 
 import React from 'react';
 import {
-	View,
-	Text,
-	Dimensions
+  View,
+  Text,
+  Dimensions
 } from 'react-native';
 import {
-	createDrawerNavigator,
-	createAppContainer,
+  createDrawerNavigator,
+  createAppContainer,
 
 } from 'react-navigation';
 
@@ -121,96 +121,88 @@ import Festivals from './appData/components/Festivals'
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 
-const RouteConfigs = 
+const RouteConfigs =
+{
+  // Home: {
+  //   screen: HomeScreen
+  // },
+  newHome: {
+    screen: newHome
+  },
+
+  Abhang:
   {
-    // Home: {
-    //   screen: HomeScreen
-    // },
-    newHome: {
-      screen: newHome
-    },
-    Charitra:
-    {
-      screen: Charitra
-    },
-    Abhang:
-    {
-      screen: Abhang
-    },
-    Parampara:
-    {
-      screen: Parampara
-    },
-    FullAbhang:
-    {
-      screen: FullAbhang
-    },
-    Gallery:
-    {
-      screen: Gallery
-    },
-    Videos: {
-      screen: Videos
-    },
-    Audios: {
-      screen: Audios
-    },
-    Docs: {
-      screen: Docs
-    },
-    FullImage: {
-      screen: FullImage
-    },
-    PhotoList: {
-      screen: PhotoList
-    },
-    Aarati: {
-      screen: Aarati
-    },
-    Others: {
-      screen: Others
-    },
-    Festivals: {
-      screen: Festivals
-    },
+    screen: Abhang
+  },
+
+  FullAbhang:
+  {
+    screen: FullAbhang
+  },
+  Gallery:
+  {
+    screen: Gallery
+  },
+  Videos: {
+    screen: Videos
+  },
+  Audios: {
+    screen: Audios
+  },
+  Docs: {
+    screen: Docs
+  },
+  FullImage: {
+    screen: FullImage
+  },
+
+  Aarati: {
+    screen: Aarati
+  },
+  Others: {
+    screen: Others
+  },
+  Festivals: {
+    screen: Festivals
+  },
 
 };
 
 class Drawer extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {
 
-		}
-	}
+    }
+  }
 
-	render() {
-		return (
-			<View style={{ flex: 1, width: 300 }}>
-				<Text>{'Menu'}</Text>
-			</View >
-		);
-	}
+  render() {
+    return (
+      <View style={{ flex: 1, width: 300 }}>
+        <Text>{'Menu'}</Text>
+      </View >
+    );
+  }
 }
 
 
 const DrawerNavigatorConfigs = {
-	drawerWidth: DRAWER_WIDTH,
-	drawerPosition: "left",
-	drawerType: "slide",
-	edgeWidth: 30,
-	drawerLockedMode: 'unlocked',
-	contentOptions: {
-		itemStyle: {
-			height: 50
-		},
-		labelStyle: {
-			fontSize: 16,
-			fontFamily: 'Sahitya-Bold',
-			fontWeight: 'normal'
-		}
-	},
-	
+  drawerWidth: DRAWER_WIDTH,
+  drawerPosition: "left",
+  drawerType: "slide",
+  edgeWidth: 30,
+  drawerLockedMode: 'unlocked',
+  contentOptions: {
+    itemStyle: {
+      height: 50
+    },
+    labelStyle: {
+      fontSize: 16,
+      fontFamily: 'NotoSans-Regular',
+      fontWeight: 'normal'
+    }
+  },
+
 };
 
 const DrawerNavigator = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfigs);

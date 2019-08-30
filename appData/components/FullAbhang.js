@@ -95,7 +95,8 @@ export default class FullAbhang extends Component {
                         }}>
                             <Text style={{
                                 alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                                alignSelf: 'center', fontSize: 20, color: '#000000', fontFamily: 'Kalam-Regular'
+                                alignSelf: 'center', fontSize: 20, color: '#000000',
+                                fontFamily: 'NotoSans-Regular'
 
                             }}>
                                 {fullAbhang}

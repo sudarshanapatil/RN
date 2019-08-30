@@ -43,6 +43,7 @@ const data = [
   { key: ' प्रवचने (व्हिडिओ ) ', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/video.jpg') },
   { key: ' प्रवचने (ऑडिओ ) ', id: 4, logoName: "music", imagePath: require('../../images/homeScreen/audio.jpeg') },
   { key: 'इतर माहिती  ', id: 5, logoName: "file", imagePath: require('../../images/homeScreen/otherInfo.jpeg') },
+  { key: 'आरती  ', id: 6, logoName: "file", imagePath: require('../../images/homeScreen/aarti.jpg') }
 
 ]
 
@@ -85,6 +86,9 @@ export default class newHome extends Component {
       case 5:
         this.props.navigation.navigate("Others")
         break;
+      case 6:
+        this.props.navigation.navigate("Aarati")
+        break;
 
     }
 
@@ -102,7 +106,7 @@ export default class newHome extends Component {
                 }}>
                   <TouchableOpacity onPress={() => this.getDrawer()}>
                     <View style={{ width: 50, height: 50, backgroundColor: 'darkcyan', alignItems: 'center', justifyContent: 'center' }}>
-                      <Icon name="" size={35} color="white" />
+                      <Icon name="navicon" size={30} color="white" />
                     </View>
                   </TouchableOpacity>
                   <View style={{ width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center' }}>

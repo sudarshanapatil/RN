@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions } from 'react-navigation';
 
@@ -48,7 +48,7 @@ export default class Aarati extends Component {
             }}>
                 <View style={{
                     justifyContent: 'center',
-                    width: width, height: 50, backgroundColor: 'darkcyan',flexDirection:'row'
+                    width: width, height: 50, backgroundColor: 'darkcyan', flexDirection: 'row'
                 }}>
                     <View style={{
                         width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
@@ -72,18 +72,24 @@ export default class Aarati extends Component {
                 </View>
                 <ScrollView>
                     <View style={{
-                        width: width - 40, margin: 20, backgroundColor: 'white'
+                        width: width - 40, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'
 
                     }}>
-                        <View>
-                            <Text style={{
-                                fontSize: this.state.initialFontSize, textAlign: 'justify',
-                                fontFamily: 'NotoSans-Regular'
-                            }}>
-                                {" आरती ओवाळू कांबेकर बाबांची \nआम्हा दाखविली दिशा जीवनाची || धृ ||\n\nनिरक्षर जे होते त्यांना दिव्य दृष्टी दिधली |\nतया मुखांतूनी गुरुरायांनी गाथा वदविली ||\n\n ओढ लावली भक्तजनांना नामस्मरणाची |\n आम्हा दाखविली दिशा जीवनाची || १ ||\n\n महात्म्य सांगे सदा कीर्तनी श्रीभंडाऱ्याचे |\n उभे ठाकले मंदीर तेथे जिजामाऊलीचे ||\n\n खूण गाठ ही तिथे बांधली ध्यानसाधनेची |\n आम्हा दाखविली दिशा जीवनाची || २ ||\n\n प्रसन्न वदने जवळी घेता शत्रु मित्र झाले |\n पाठीवरती थाप मारुनी दैन्य दूर केले ||\n\n अखंड सेवा घडो आम्हा ऐशा चरणांची |\n आम्हा दाखविली दिशा जीवनाची || ३ ||"}
-                            </Text>
-                        </View>
+                        <ImageBackground
+                            style={{ width: width, height: height - 50 }}
+                            source={require('../../images/homeScreen/aarti.jpg')}
+                            opacity={0.2}
+                            resizeMode={'stretch'}>
+                            <View style={{ width: width - 40, margin: 20, alignContent: 'center', alignItems: 'center' }}>
 
+                                <Text style={{
+                                    fontSize: this.state.initialFontSize, textAlign: 'justify',
+                                    fontFamily: 'NotoSans-Regular', color: 'black'
+                                }}>
+                                    {" आरती ओवाळू कांबेकर बाबांची \nआम्हा दाखविली दिशा जीवनाची || धृ ||\n\nनिरक्षर जे होते त्यांना दिव्य दृष्टी दिधली |\nतया मुखांतूनी गुरुरायांनी गाथा वदविली ||\n ओढ लावली भक्तजनांना नामस्मरणाची |\n आम्हा दाखविली दिशा जीवनाची || १ ||\n\n महात्म्य सांगे सदा कीर्तनी श्रीभंडाऱ्याचे |\n उभे ठाकले मंदीर तेथे जिजामाऊलीचे ||\n खूण गाठ ही तिथे बांधली ध्यानसाधनेची |\n आम्हा दाखविली दिशा जीवनाची || २ ||\n\n प्रसन्न वदने जवळी घेता शत्रु मित्र झाले |\n पाठीवरती थाप मारुनी दैन्य दूर केले ||\n अखंड सेवा घडो आम्हा ऐशा चरणांची |\n आम्हा दाखविली दिशा जीवनाची || ३ ||"}
+                                </Text>
+                            </View>
+                        </ImageBackground>
                     </View>
                 </ScrollView>
                 <View style={{
