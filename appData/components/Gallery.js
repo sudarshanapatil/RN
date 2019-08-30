@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Dimensions, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import galleryImages from '../databaseFiles/galleryImages'
-import shishyaImages from '../databaseFiles/shishya'
-import functionImages from '../databaseFiles/functions'
+
 import oldImgaes from '../databaseFiles/imageList'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -79,107 +77,32 @@ export default class Gallary extends Component {
                         कांबेकर महाराज फोटो गॅलरी
                 </Text>
                 </View>
-                <View style={{ width: width, height: height - 50, backgroundColor: 'white' }}>
+                <ScrollView>
+                    <View style={{
+                        flex: 1, width, height: height - 50,
+                        backgroundColor: 'white', flexDirection: 'row',flexWrap: 'wrap'
+                    }}>
 
-                    <View style={styles.rowCard}>
-                        <View style={styles.rowCardText}>
-                            <Text style={styles.rowTitle}>
-                                कांबेकर महाराज
-                            </Text>
-                            <TouchableOpacity onPress={() => this.showImageList(oldImgaes)}>
-                                <View style={styles.nextButton}>
-                                    <View style={styles.nextText}>
-                                        <Text style={{ color: 'darkcyan', fontSize: 18 }}>पूर्ण पहा</Text>
-                                    </View>
-                                    <Icon name="caret-right" size={35} color="darkcyan"></Icon>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.rowCardImage}>
-                            <ScrollView horizontal={true}>
-                                {
-                                    galleryImages.map((item, i) =>
+                        {
+                            oldImgaes.map((item, i) =>
+                                <TouchableOpacity onPress={() => this.displayImage(item.src)}>
+                                    <View style={{
+                                        width: width / 2 - 8, height: height / 4 - 8, margin: 4,
+                                        backgroundColor: 'pink',
+                                        elevation: 5, alignItems: 'center', justifyContent: 'center',
+                                        borderRadius: 10
 
-                                        <View style={styles.imageCard}>
-                                            <TouchableOpacity onPress={() => this.displayImage(item.src)}>
-                                                <Image style={styles.recommImage}
-                                                    source={item.src}>
-                                                </Image>
-                                            </TouchableOpacity>
-                                        </View>
-                                    )
-                                }
-                            </ScrollView>
-                        </View>
-                    </View>
-                    <View style={styles.rowCard}>
-                        <View style={styles.rowCardText}>
-                            <Text style={styles.rowTitle}>
-                                कांबेकर महाराज शिष्य परिवार
-                            </Text>
-                            <TouchableOpacity onPress={() => this.showImageList(shishyaImages)}>
-                                <View style={styles.nextButton}>
-                                    <View style={styles.nextText}>
-                                        <Text style={{ color: 'darkcyan', fontSize: 18 }}>पूर्ण पहा</Text>
+                                    }}>
+                                        <Image style={{ width: width / 2 - 8, height: height / 4 - 8, margin: 4,borderRadius:10 }} 
+                                        source={item.src}>
+
+                                        </Image>
                                     </View>
-                                    <Icon name="caret-right" size={35} color="darkcyan"></Icon>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.rowCardImage}>
-                            <ScrollView horizontal={true}>
-                                {
-                                    shishyaImages.map((item, i) =>
-                                        <View key={i} style={{
-                                            height: (height - 50 - 50) / 3 - 40,
-                                            backgroundColor: 'antiquewhite', flexDirection: 'row'
-                                        }}>
-                                            <View style={styles.imageCard}>
-                                                <TouchableOpacity onPress={() => this.displayImage(item.src)}>
-                                                    <Image style={styles.recommImage}
-                                                        source={item.src}>
-                                                    </Image>
-                                                </TouchableOpacity>
-                                            </View>
-                                        </View>)
-                                }
-                            </ScrollView>
-                        </View>
+                                </TouchableOpacity>
+                            )
+                        }
                     </View>
-                    <View style={styles.rowCard}>
-                        <View style={styles.rowCardText}>
-                            <Text style={styles.rowTitle}>
-                                वर्षभरातील कार्यक्रम
-                            </Text>
-                            <TouchableOpacity onPress={() => this.showImageList(functionImages)}>
-                                <View style={styles.nextButton}>
-                                    <View style={styles.nextText}>
-                                        <Text style={{ color: 'darkcyan', fontSize: 18 }}>पूर्ण पहा</Text>
-                                    </View>
-                                    <Icon name="caret-right" size={35} color="darkcyan"></Icon>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.rowCardImage}>
-                            <ScrollView horizontal={true}>
-                                {
-                                    functionImages.map((item, i) =>
-                                        <View key={i} style={{
-                                            height: (height - 50 - 50) / 3 - 40,
-                                            backgroundColor: 'antiquewhite', flexDirection: 'row'
-                                        }}>
-                                            <View style={styles.imageCard}>
-                                                <TouchableOpacity onPress={() => this.displayImage(item.src)}>
-                                                    <Image style={styles.recommImage}
-                                                        source={item.src}>
-                                                    </Image>
-                                                </TouchableOpacity>
-                                            </View>
-                                        </View>)
-                                }</ScrollView>
-                        </View>
-                    </View>
-                </View>
+                </ScrollView>
             </View>
 
         )

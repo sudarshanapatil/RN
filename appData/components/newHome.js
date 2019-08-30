@@ -31,17 +31,18 @@ const stylesheet = StyleSheet.create({
     borderRadius: 5,
   },
   cardText: {
-    color: 'black', fontSize: 20, textAlign: 'center',fontFamily:'kalam'
+    color: 'black', fontSize: 20, textAlign: 'justify', fontFamily: 'Sumana-Regular',
+    fontWeight: 'bold', alignSelf: 'center',
   }
 });
 
 const data = [
 
-  { key: ' अभंग', id: 1, logoName: "book" },
-  { key: ' फोटो गॅलरी ', id: 2, logoName: "photo" },
-  { key: ' प्रवचने (व्हिडिओ ) ', id: 3, logoName: "video-camera" },
-  { key: ' प्रवचने (ऑडिओ ) ', id: 4, logoName: "music" },
-  { key: 'इतर माहिती  ', id: 5, logoName: "file" },
+  { key: ' अभंग', id: 1, logoName: "book", imagePath: require('../../images/homeScreen/abhang.jpeg') },
+  { key: ' फोटो गॅलरी ', id: 2, logoName: "photo", imagePath: require('../../images/homeScreen/gallery.jpeg') },
+  { key: ' प्रवचने (व्हिडिओ ) ', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/video.jpg') },
+  { key: ' प्रवचने (ऑडिओ ) ', id: 4, logoName: "music", imagePath: require('../../images/homeScreen/audio.jpeg') },
+  { key: 'इतर माहिती  ', id: 5, logoName: "file", imagePath: require('../../images/homeScreen/otherInfo.jpeg') },
 
 ]
 
@@ -62,6 +63,8 @@ export default class newHome extends Component {
     }, 80)
   }
   getDrawer = (id) => {
+    console.log('yahape aaya', id);
+    this.props.navigation.openDrawer();
 
     //this.props.navigation.navigate("Drawer")
   }
@@ -98,18 +101,17 @@ export default class newHome extends Component {
                   backgroundColor: 'darkcyan', flexDirection: 'row'
                 }}>
                   <TouchableOpacity onPress={() => this.getDrawer()}>
-                    <View style={{ width: 50, height: 50, backgroundColor: 'pink' }}>
-                      <Image style={{ width: 50, height: 50 }} source={require('../../images/list.jpeg')
-
-                      }>
-
-                      </Image>
+                    <View style={{ width: 50, height: 50, backgroundColor: 'darkcyan', alignItems: 'center', justifyContent: 'center' }}>
+                      <Icon name="" size={35} color="white" />
                     </View>
-
                   </TouchableOpacity>
                   <View style={{ width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center' }}>
-                    <Text style={{ alignContent: 'center', alignItems: 'center', textAlign: "center", alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white" }}>
-                      {`राम कृष्ण हरी`}
+                    <Text style={{
+                      fontFamily: 'Kalam-Regular', alignContent: 'center', alignItems: 'center',
+                      textAlign: "center", alignSelf: 'center',
+                      fontWeight: 'bold', fontSize: 20, color: "white",
+                    }}>
+                      राम कृष्ण हरी
                     </Text>
                   </View>
 
@@ -126,15 +128,22 @@ export default class newHome extends Component {
                           width: width / 2 - 8, height: height / 4 - 8, margin: 4,
                           backgroundColor: 'white',
                           elevation: 5, alignItems: 'center', justifyContent: 'center',
+                          borderRadius: 10
 
                         }}>
-                          {/* <ImageBackground
-                          style={{  width: width / 2 - 8, height: height / 4 - 8 }}
-                          source={require('../../images/vitthal/v3.jpeg')}
-                          opacity={0.3}
-                          resizeMode={'stretch'}> */}
-                          <Text style={stylesheet.cardText}>{item.key}</Text>
-                          {/* </ImageBackground> */}
+                          <ImageBackground
+                            style={{ width: width / 2 - 8, height: height / 4 - 8, borderRadius: 10 }}
+                            source={item.imagePath}
+                            opacity={0.3}
+                            resizeMode={'stretch'}>
+                            <View style={{
+                              width: width / 2 - 8, height: height / 4 - 8,
+                              alignItems: 'center', justifyContent: 'center'
+                            }}>
+                              <Text style={stylesheet.cardText}>{item.key}</Text>
+
+                            </View>
+                          </ImageBackground>
                         </View>
                       </TouchableOpacity>
                     )

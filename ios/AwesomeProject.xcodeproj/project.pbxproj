@@ -58,9 +58,10 @@
 		B1B478A5F3EA4E0E81C80E81 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 578E49AF7DE143F481DD5CC6 /* Octicons.ttf */; };
 		EA272B6F972C4146B2FA2091 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7294F243DEAB4812B90F373E /* SimpleLineIcons.ttf */; };
 		342459DA05AA438594082166 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF44767C40904B54BA57737E /* Zocial.ttf */; };
-		B71A027CBE7341B6BFEB3329 /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 305899F511EE4AF8A1410D4B /* libRNTrackPlayer.a */; };
 		9585351EEEE547529FD87B25 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 263EB0A639C44BDF87D343FC /* libRNVectorIcons.a */; };
 		A5CC19C228664839A14A8FBD /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59015464747441C68B7330A8 /* libRNVectorIcons-tvOS.a */; };
+		191F48ECA55E46F4BDA477E5 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEA5C24BC2C451A864EBD51 /* libRNFetchBlob.a */; };
+		B7F319B7902F4FCD885D2291 /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 066FCE3C630041A3A0BB51D7 /* libRNTrackPlayer.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,11 +390,13 @@
 		578E49AF7DE143F481DD5CC6 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7294F243DEAB4812B90F373E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		DF44767C40904B54BA57737E /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0AD07DD9A3B64791A40FB693 /* RNTrackPlayer.xcodeproj */ = {isa = PBXFileReference; name = "RNTrackPlayer.xcodeproj"; path = "../node_modules/react-native-track-player/ios/RNTrackPlayer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		305899F511EE4AF8A1410D4B /* libRNTrackPlayer.a */ = {isa = PBXFileReference; name = "libRNTrackPlayer.a"; path = "libRNTrackPlayer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		AD4584A83FF84B87A9EC5051 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; name = "RNVectorIcons.xcodeproj"; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		263EB0A639C44BDF87D343FC /* libRNVectorIcons.a */ = {isa = PBXFileReference; name = "libRNVectorIcons.a"; path = "libRNVectorIcons.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		59015464747441C68B7330A8 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; name = "libRNVectorIcons-tvOS.a"; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		736822FED1FD4BD2821BC7CD /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; name = "RNFetchBlob.xcodeproj"; path = "../node_modules/rn-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		7FEA5C24BC2C451A864EBD51 /* libRNFetchBlob.a */ = {isa = PBXFileReference; name = "libRNFetchBlob.a"; path = "libRNFetchBlob.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		047917F0694A4F53B0736FE7 /* RNTrackPlayer.xcodeproj */ = {isa = PBXFileReference; name = "RNTrackPlayer.xcodeproj"; path = "../node_modules/react-native-track-player/ios/RNTrackPlayer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		066FCE3C630041A3A0BB51D7 /* libRNTrackPlayer.a */ = {isa = PBXFileReference; name = "libRNTrackPlayer.a"; path = "libRNTrackPlayer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,8 +427,9 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				659ED406C86F40E0B37779BD /* libRNGestureHandler.a in Frameworks */,
 				CA5D86B2C0A84B5DB59495FF /* libRNSound.a in Frameworks */,
-				B71A027CBE7341B6BFEB3329 /* libRNTrackPlayer.a in Frameworks */,
 				9585351EEEE547529FD87B25 /* libRNVectorIcons.a in Frameworks */,
+				191F48ECA55E46F4BDA477E5 /* libRNFetchBlob.a in Frameworks */,
+				B7F319B7902F4FCD885D2291 /* libRNTrackPlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,8 +623,9 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				A0F58B77DE3544A590637876 /* RNGestureHandler.xcodeproj */,
 				61C7CA7868FD47B085D42C9B /* RNSound.xcodeproj */,
-				0AD07DD9A3B64791A40FB693 /* RNTrackPlayer.xcodeproj */,
 				AD4584A83FF84B87A9EC5051 /* RNVectorIcons.xcodeproj */,
+				736822FED1FD4BD2821BC7CD /* RNFetchBlob.xcodeproj */,
+				047917F0694A4F53B0736FE7 /* RNTrackPlayer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1289,13 +1294,15 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AwesomeProject.app/AwesomeProject";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
-					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 				);
 			};
 			name = Debug;
@@ -1317,13 +1324,15 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AwesomeProject.app/AwesomeProject";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
-					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 				);
 			};
 			name = Release;
@@ -1348,8 +1357,9 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
-					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 				);
 			};
 			name = Debug;
@@ -1373,8 +1383,9 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
-					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 				);
 			};
 			name = Release;
@@ -1404,13 +1415,15 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
-					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 				);
 			};
 			name = Debug;
@@ -1440,13 +1453,15 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
-					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 				);
 			};
 			name = Release;
@@ -1475,13 +1490,15 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
-					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 				);
 			};
 			name = Debug;
@@ -1510,13 +1527,15 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
-					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-track-player/ios/RNTrackPlayer/**",
 				);
 			};
 			name = Release;

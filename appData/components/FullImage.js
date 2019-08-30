@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 import { Text, View, Dimensions, ScrollView, StyleSheet, Image } from 'react-native';
 const { width, height } = Dimensions.get('window');
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 const style = StyleSheet.create({
-   
+
 })
+import { NavigationActions } from 'react-navigation';
+const backAction = NavigationActions.back({
+    screen: 'Gallery',
+});
+
 export default class FullImage extends Component {
     constructor() {
         super()
-       
-    }
 
+    }
+    goBack = () => {
+        this.props.navigation.dispatch(backAction);
+    }
     render() {
         const { navigation } = this.props;
         const imageId = navigation.getParam('imageId', '100')
@@ -20,18 +29,29 @@ export default class FullImage extends Component {
             }}>
                 <View style={{
                     width, height: 50, backgroundColor: "darkcyan",
-                    justifyContent: 'center', alignItems: 'center'
+                    justifyContent: 'center', alignItems: 'center', flexDirection: 'row'
                 }}>
-                    <Text style={{
-                        alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                    <View style={{
+                        width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }}>
-                        कांबेकर महाराज फोटो गॅलरी
-                </Text>
+
+                        <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
+                    </View>
+                    <View style={{
+                        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+                    }} >
+                        <Text style={{
+                            alignContent: 'center', alignItems: 'center', textAlign: "center",
+                            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                        }}>
+                            {`कांबेकर महाराज फोटो गॅलरी`}
+                        </Text>
+
+                    </View>
                 </View>
                 <View style={{
                     width, height: height - 50, backgroundColor: "white",
-                     alignItems: 'center'
+                    alignItems: 'center'
                 }}>
                     <View style={{
                         width, height: height - 250, backgroundColor: "red",

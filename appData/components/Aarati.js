@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions } from 'react-navigation';
 
 const backAction = NavigationActions.back({
-  key: 'Others',
+    screen: 'Others',
 });
 
 const { width, height } = Dimensions.get('window');
@@ -48,32 +48,38 @@ export default class Aarati extends Component {
             }}>
                 <View style={{
                     justifyContent: 'center',
-                    width: width, height: 50, backgroundColor: 'darkcyan'
+                    width: width, height: 50, backgroundColor: 'darkcyan',flexDirection:'row'
                 }}>
-                    <Text style={{
-                        alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
-                    }}>
-                        आरती
-                </Text>
-                </View>
-                <TouchableOpacity onPress={() => this.goBack()} >
                     <View style={{
-                        width, backgroundColor: 'red', height: 40
+                        width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }}>
-                        <Text style={{fontSize:20}}>
-                        मागे 
+
+                        <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
+                    </View>
+                    <View style={{
+                        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+                    }} >
+                        <Text style={{
+                            alignContent: 'center', alignItems: 'center', textAlign: "center",
+                            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                        }}>
+                            {`आरती`}
                         </Text>
+
                     </View>
 
-                </TouchableOpacity>
+
+                </View>
                 <ScrollView>
                     <View style={{
                         width: width - 40, margin: 20, backgroundColor: 'white'
 
                     }}>
                         <View>
-                            <Text style={{ fontSize: this.state.initialFontSize, textAlign: 'justify' }}>
+                            <Text style={{
+                                fontSize: this.state.initialFontSize, textAlign: 'justify',
+                                fontFamily: 'NotoSans-Regular'
+                            }}>
                                 {" आरती ओवाळू कांबेकर बाबांची \nआम्हा दाखविली दिशा जीवनाची || धृ ||\n\nनिरक्षर जे होते त्यांना दिव्य दृष्टी दिधली |\nतया मुखांतूनी गुरुरायांनी गाथा वदविली ||\n\n ओढ लावली भक्तजनांना नामस्मरणाची |\n आम्हा दाखविली दिशा जीवनाची || १ ||\n\n महात्म्य सांगे सदा कीर्तनी श्रीभंडाऱ्याचे |\n उभे ठाकले मंदीर तेथे जिजामाऊलीचे ||\n\n खूण गाठ ही तिथे बांधली ध्यानसाधनेची |\n आम्हा दाखविली दिशा जीवनाची || २ ||\n\n प्रसन्न वदने जवळी घेता शत्रु मित्र झाले |\n पाठीवरती थाप मारुनी दैन्य दूर केले ||\n\n अखंड सेवा घडो आम्हा ऐशा चरणांची |\n आम्हा दाखविली दिशा जीवनाची || ३ ||"}
                             </Text>
                         </View>

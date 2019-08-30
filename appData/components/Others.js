@@ -7,6 +7,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { ScrollView } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window');
+import { NavigationActions } from 'react-navigation';
 const stylesheet = StyleSheet.create({
 
     horizontalCard: {
@@ -22,14 +23,16 @@ const stylesheet = StyleSheet.create({
         borderRadius: 5,
     },
     cardText: {
-        color: 'black', fontSize: 20, textAlign: 'center'
+        color: 'black', fontSize: 20, textAlign: 'center',fontWeight:'bold'
     }
 });
-
+const backAction = NavigationActions.back({
+    screen: 'newHome',
+});
 const data = [
-    { key: 'आरती ', id: 1, logoName: "book" },
-    { key: 'चालू केलेले उपक्रम  ', id: 2, logoName: "photo" },
-    { key: 'हस्ताक्षर ', id: 3, logoName: "video-camera" },
+    { key: 'आरती ', id: 1, logoName: "book", imagePath: require('../../images/homeScreen/aarti.jpg') },
+    { key: 'चालू केलेले उपक्रम  ', id: 2, logoName: "photo", imagePath: require('../../images/homeScreen/function.jpeg') },
+    { key: 'हस्ताक्षर ', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/handWrite.jpg') },
 ]
 
 export default class Others extends Component {
@@ -49,6 +52,9 @@ export default class Others extends Component {
         }, 80)
     }
 
+    goBack = () => {
+        this.props.navigation.dispatch(backAction);
+    }
     onTouchCard = (id) => {
         switch (id) {
             case 1:
@@ -68,15 +74,35 @@ export default class Others extends Component {
             <View style={{ flex: 1, width, height }}>
                 <View style={{ flex: 1, width, height, backgroundColor: '#e6e6e6' }}>
                     <View style={{ width, height: 50, backgroundColor: 'teal' }}>
-                        <View style={{ justifyContent: 'center', width: width, height: 50, backgroundColor: 'darkcyan' }}>
-                            <Text style={{
-                                alignContent: 'center', alignItems: 'center', textAlign: "center",
-                                alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                        <View style={{
+                            width: width, height: 50,
+                            backgroundColor: 'darkcyan', flexDirection: 'row'
+                        }}>
+                            <View style={{
+                                width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
                             }}>
-                                {`इतर माहिती `}
-                            </Text>
+
+                                <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
+                            </View>
+                            <View style={{
+                                width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+                            }} >
+                                <Text style={{
+                                    alignContent: 'center', alignItems: 'center', textAlign: "center",
+                                    alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                                }}>
+                                    {`इतर माहिती `}
+                                </Text>
+
+                            </View>
                         </View>
                     </View>
+                    {/* <View style={{ width, height: 40, backgroundColor: 'pink',flexDirection:'row' }}>
+                        <Icon name="arrow-left" size={35} color="black" />
+                        <Text style={{ fontSize: 20, fontFamily: 'NotoSans-Regular' }}>
+                            मागे
+                        </Text>
+                    </View> */}
                     <ScrollView>
                         <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
                             {
@@ -86,15 +112,21 @@ export default class Others extends Component {
                                             width: width / 2 - 8, height: height / 4 - 8, margin: 4,
                                             backgroundColor: 'white',
                                             elevation: 5, alignItems: 'center', justifyContent: 'center',
+                                            borderRadius:5
 
                                         }}>
-                                            {/* <ImageBackground
-                          style={{  width: width / 2 - 8, height: height / 4 - 8 }}
-                          source={require('../../images/vitthal/v3.jpeg')}
-                          opacity={0.3}
-                          resizeMode={'stretch'}> */}
-                                            <Text style={stylesheet.cardText}>{item.key}</Text>
-                                            {/* </ImageBackground> */}
+                                            <ImageBackground
+                                                style={{ width: width / 2 - 8, height: height / 4 - 8,borderRadius:5 }}
+                                                source={item.imagePath}
+                                                opacity={0.3}
+                                                resizeMode={'stretch'}>
+                                                <View style={{
+                                                    width: width / 2 - 8, height: height / 4 - 8,
+                                                    alignItems: 'center', justifyContent: 'center'
+                                                }}>
+                                                    <Text style={stylesheet.cardText}>{item.key}</Text>
+                                                </View>
+                                            </ImageBackground>
                                         </View>
                                     </TouchableOpacity>
                                 )
@@ -102,10 +134,7 @@ export default class Others extends Component {
                         </View>
                     </ScrollView>
                 </View>
-
-
-                
-      </View>
+            </View>
 
         );
     }

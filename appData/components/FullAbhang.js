@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-//import { Icon } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Text, View, Dimensions, ScrollView, StyleSheet, ImageBackground, AppRegistry } from 'react-native';
+import { NavigationActions } from 'react-navigation';
+
 const { width, height } = Dimensions.get('window');
 let style = StyleSheet.create({
     backgroundImage: {
         flex: 1,
         resizeMode: 'cover'
     },
-    navButtons: { width: width / 4, height: 50, alignItems: 'center', justifyContent: 'center' }
+    navButtons: { width: width / 5, height: 50, alignItems: 'center', justifyContent: 'center' }
 })
 import TrackPlayer from 'react-native-track-player';
 AppRegistry.registerComponent('appname', () => App);
-
+const backAction = NavigationActions.back({
+    screen: 'Abhang',
+});
 export default class FullAbhang extends Component {
     constructor() {
         super()
@@ -44,6 +46,9 @@ export default class FullAbhang extends Component {
         else
             TrackPlayer.play()
     }
+    goBack = () => {
+        this.props.navigation.dispatch(backAction);
+    }
     render() {
         const { navigation } = this.props;
         const fullAbhang = navigation.getParam('fullAbhang', '100')
@@ -55,6 +60,9 @@ export default class FullAbhang extends Component {
                     width, height: 50, backgroundColor: "darkcyan"
                 }}>
                     <View style={{ flexDirection: 'row', alignContent: "flex-end", justifyContent: "flex-end" }}>
+                        <View style={style.navButtons}>
+                            <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
+                        </View>
                         <View style={style.navButtons}>
                             <Icon name="pause-circle-o" size={30} color="white" onPress={() => this.pauseSound(0)} />
                         </View>
@@ -87,7 +95,7 @@ export default class FullAbhang extends Component {
                         }}>
                             <Text style={{
                                 alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                                alignSelf: 'center', fontSize: 24, color: '#000000',
+                                alignSelf: 'center', fontSize: 20, color: '#000000', fontFamily: 'Kalam-Regular'
 
                             }}>
                                 {fullAbhang}
