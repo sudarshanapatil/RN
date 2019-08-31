@@ -8,8 +8,12 @@ const styles = StyleSheet.create({
     card: {
         width: width - 10, height: 80,
         padding: 8,
-        alignContent: 'center', justifyContent: 'center', backgroundColor: 'white',
-        shadowRadius: 2, shadowColor: 'pink', margin: 5,borderRadius:10
+        alignContent: 'center', justifyContent: 'center', 
+        backgroundColor: 'white',
+        shadowRadius: 2, shadowColor: 'darkcyan',
+        elevation:5,
+        shadowOffset: { width: 2, height: 5 }, shadowOpacity: 1,
+        margin: 5, borderRadius: 10
     },
     cardText: { fontSize: 18, textAlign: 'justify', textAlign: "center" }
 });
@@ -50,7 +54,7 @@ export default class Abhang extends Component {
             }}>
                 <View style={{
                     justifyContent: 'center',
-                    width: width, height: 50, backgroundColor: 'orange'
+                    width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
                     <Text style={{
                         alignContent: 'center', alignItems: 'center', textAlign: "center",
@@ -62,7 +66,7 @@ export default class Abhang extends Component {
                 <ScrollView>
 
                     <View style={{
-                        width: width, height: height - 50,backgroundColor:"antiquewhite"
+                        width: width, height: height - 50, backgroundColor: "white"
 
                     }}>
 

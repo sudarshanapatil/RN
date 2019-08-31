@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Text, View, Dimensions, Image, StyleSheet, ScrollView, WebView, TouchableOpacity } from 'react-native';
 // import console = require('console');
 const { width, height } = Dimensions.get('window');
+import videoLinks from '../databaseFiles/videoLinks'
 const styles = StyleSheet.create({
   recommImage: {
     width: (width / 3) - 5,
@@ -19,6 +20,12 @@ const styles = StyleSheet.create({
 const dimensions = Dimensions.get('window');
 let imageHeight = Math.round((dimensions.width * 9) / 16);
 export default class Videos extends Component {
+  constructor() {
+    super();
+    this.state = {
+      videoUrl: "https://www.youtube.com/embed/U778iyDyHZ8"
+    }
+  }
 
   onBuffer = () => {
     console.log("yahape buffer aaya");
@@ -27,7 +34,10 @@ export default class Videos extends Component {
   videoError = () => {
     console.log("yahape aaya");
   }
-  playVideo = () => {
+  playVideo = (link) => {
+    this.setState({
+      videoUrl: link
+    })
 
   }
 
@@ -39,11 +49,11 @@ export default class Videos extends Component {
       }}>
         <View style={{
           justifyContent: 'center',
-          width: width, height: 50, backgroundColor: 'orange'
+          width: width, height: 50, backgroundColor: 'darkcyan'
         }}>
           <Text style={{
             alignContent: 'center', alignItems: 'center', textAlign: "center",
-            alignSelf: 'center', fontWeight: 'bold', fontSize: 20,color:"white"
+            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
           }}>
             कांबेकर महाराज प्रवचने (व्हिडिओ )
                 </Text>
@@ -57,57 +67,33 @@ export default class Videos extends Component {
             source={{
               html: `<html>
                       <meta name="viewport" content="intial-scale=1.0, maximum-scale=0">
-                      <iframe width="${width - 20}" height=${300} src="https://www.youtube.com/embed/U778iyDyHZ8">
+                      <iframe width="${width - 20}" height=${300} src=${this.state.videoUrl}>
                       </iframe>
                     </html>`
             }}
           />
         </View>
-        <View style={{ width, height: 50, backgroundColor: "antiquewhite", alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ width, height: 50, backgroundColor: "white", alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
             आणखी व्हिडिओ
           </Text>
         </View>
-
-        {
-          
-        }
         <View style={{ width, height: height - 400 - 50, backgroundColor: "blue" }}>
           <ScrollView horizontal={true}>
-            <View style={{ height: 400, backgroundColor: 'antiquewhite', flexDirection: 'row' }}>
-              <TouchableOpacity onPress={() => this.playVideo()}>
-                <View style={styles.imageCard}>
-                  <Image style={styles.recommImage}
-                    source={require('../../images/1.jpg')}>
-                  </Image>
+            {
+              videoLinks.map((item, i) =>
+                <View key={i} style={{ height: height - 450, backgroundColor: 'white', flexDirection: 'row' }}>
+                  <TouchableOpacity onPress={() => this.playVideo(item[i + 1].link)}>
+                    <View style={styles.imageCard}>
+                      {/* <Text>{item[i + 1].tp}</Text> */}
+                      <Image style={styles.recommImage}
+                        source={item[i+1].src}>
+                      </Image>
+                    </View>
+                  </TouchableOpacity>
                 </View>
-              </TouchableOpacity>
-              <View style={styles.imageCard}>
-                <Image style={styles.recommImage}
-                  source={require('../../images/2.jpg')}>
-                </Image>
-              </View>
-              <View style={styles.imageCard}>
-                <Image style={styles.recommImage}
-                  source={require('../../images/3.jpg')}>
-                </Image>
-              </View>
-              <View style={styles.imageCard}>
-                <Image style={styles.recommImage}
-                  source={require('../../images/7.jpeg')}>
-                </Image>
-              </View>
-              <View style={styles.imageCard}>
-                <Image style={styles.recommImage}
-                  source={require('../../images/8.jpeg')}>
-                </Image>
-              </View>
-              <View style={styles.imageCard}>
-                <Image style={styles.recommImage}
-                  source={require('../../images/9.jpeg')}>
-                </Image>
-              </View>
-            </View>
+              )
+            }
           </ScrollView>
         </View>
 
