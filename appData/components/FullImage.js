@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Dimensions, ScrollView, StyleSheet, Image } from 'react-native';
+import { Text, View, Dimensions, ScrollView, StyleSheet, Image, Toast } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -7,6 +7,7 @@ const style = StyleSheet.create({
 
 })
 import { NavigationActions } from 'react-navigation';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 const backAction = NavigationActions.back({
     screen: 'Gallery',
 });
@@ -18,6 +19,10 @@ export default class FullImage extends Component {
     }
     goBack = () => {
         this.props.navigation.dispatch(backAction);
+    }
+    showToast = () => {
+
+        ToastAndroid.showWithGravity('chan photo', ToastAndroid.SHORT, ToastAndroid.CENTER);
     }
     render() {
         const { navigation } = this.props;
@@ -53,15 +58,16 @@ export default class FullImage extends Component {
                     width, height: height - 50, backgroundColor: "white",
                     alignItems: 'center'
                 }}>
-                    <View style={{
-                        width, height: height - 250, backgroundColor: "red",
-                        justifyContent: 'center', alignItems: 'center', marginTop: 50, marginBottom: 150
-                    }}>
-                        <Image style={{ width, height: height - 250, }}
-                            source={imageId}>
-                        </Image>
-
-                    </View>
+                    <TouchableOpacity onPress={() => { this.showToast() }}>
+                        <View style={{
+                            width, height: height - 250, backgroundColor: "red",
+                            justifyContent: 'center', alignItems: 'center', marginTop: 50, marginBottom: 150
+                        }}>
+                            <Image style={{ width, height: height - 250, }}
+                                source={imageId}>
+                            </Image>
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </View>)
     }

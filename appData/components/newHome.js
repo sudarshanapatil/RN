@@ -4,12 +4,6 @@ import {
   StyleSheet, Text, View, Image,
   Dimensions, TouchableOpacity, ImageBackground
 } from 'react-native';
-import {
-  createDrawerNavigator,
-  createAppContainer,
-  // DrawerItems,
-  // SafeAreaView
-} from 'react-navigation';
 
 const DRAWER_WIDTH = Dimensions.get('window').width * 0.83;
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -17,34 +11,17 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get('window');
 const stylesheet = StyleSheet.create({
-
-  horizontalCard: {
-    width: width - 4, height: (height - 100 - 12) / 3,
-    flexDirection: 'row', backgroundColor: 'pink', margin: 2
-  },
-  imageCard: {
-    width: (width - 8 - 4) / 2, height: (height - 100 - 8) / 3,
-    backgroundColor: "lightblue", borderRadius: 5, margin: 4
-  },
-  photoStyle: {
-    width: (width - 8 - 4) / 2, height: (height - 100 - 8) / 3,
-    borderRadius: 5,
-  },
   cardText: {
-    color: 'black', fontSize: 20, textAlign: 'justify', fontFamily: 'Sumana-Regular',
-    fontWeight: 'bold', alignSelf: 'center',
+    fontFamily: 'Laila-Bold', color: 'black', fontSize: 22, textAlign: 'justify',
+    alignSelf: 'center', textShadowColor: 'gray', textShadowOffset: { width: 4, height: 4 }
   }
 });
 
 const data = [
-
   { key: ' अभंग', id: 1, logoName: "book", imagePath: require('../../images/homeScreen/abhang.jpeg') },
   { key: ' फोटो गॅलरी ', id: 2, logoName: "photo", imagePath: require('../../images/homeScreen/gallery.jpeg') },
-  { key: ' प्रवचने (व्हिडिओ ) ', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/video.jpg') },
-  { key: ' प्रवचने (ऑडिओ ) ', id: 4, logoName: "music", imagePath: require('../../images/homeScreen/audio.jpeg') },
-  { key: 'इतर माहिती  ', id: 5, logoName: "file", imagePath: require('../../images/homeScreen/otherInfo.jpeg') },
-  { key: 'आरती  ', id: 6, logoName: "file", imagePath: require('../../images/homeScreen/aarti.jpg') }
-
+  { key: ' व्हिडिओ प्रवचने', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/video.jpg') },
+  { key: 'इतर माहिती  ', id: 4, logoName: "file", imagePath: require('../../images/homeScreen/otherInfo.jpeg') },
 ]
 
 export default class newHome extends Component {
@@ -61,13 +38,10 @@ export default class newHome extends Component {
       this.setState({
         showSplash: 1
       })
-    }, 80)
+    }, 800)
   }
   getDrawer = (id) => {
-    console.log('yahape aaya', id);
     this.props.navigation.openDrawer();
-
-    //this.props.navigation.navigate("Drawer")
   }
   onTouchCard = (id) => {
     switch (id) {
@@ -78,17 +52,12 @@ export default class newHome extends Component {
         this.props.navigation.navigate("Gallery")
         break;
       case 3:
-        this.props.navigation.navigate("Videos")
+        this.props.navigation.navigate("Videos", { type: "maharaj" })
         break;
       case 4:
-        this.props.navigation.navigate("Audios")
-        break;
-      case 5:
         this.props.navigation.navigate("Others")
         break;
-      case 6:
-        this.props.navigation.navigate("Aarati")
-        break;
+
 
     }
 
@@ -111,41 +80,39 @@ export default class newHome extends Component {
                   </TouchableOpacity>
                   <View style={{ width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center' }}>
                     <Text style={{
-                      fontFamily: 'Kalam-Regular', alignContent: 'center', alignItems: 'center',
+                      fontFamily: 'Laila-Bold', alignContent: 'center', alignItems: 'center',
                       textAlign: "center", alignSelf: 'center',
-                      fontWeight: 'bold', fontSize: 20, color: "white",
+                      fontSize: 20, color: "white",
                     }}>
-                      राम कृष्ण हरी
+                      {" राम कृष्ण हरी"}
                     </Text>
                   </View>
-
-
                 </View>
               </View>
               <ScrollView>
                 <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', width }}>
                   {
                     data.map((item, i) =>
-                      <TouchableOpacity onPress={() => this.onTouchCard(item.id)}>
-
+                      <TouchableOpacity key={item.key} onPress={() => this.onTouchCard(item.id)
+                      }>
                         <View style={{
-                          width: width / 2 - 8, height: height / 4 - 8, margin: 4,
+                          width: width / 2 - 10, height: height / 3 - 40, margin: 5,
                           backgroundColor: 'white',
                           elevation: 5, alignItems: 'center', justifyContent: 'center',
-                          borderRadius: 10
+                          borderRadius: 10,
 
                         }}>
                           <ImageBackground
-                            style={{ width: width / 2 - 8, height: height / 4 - 8, borderRadius: 10 }}
+                            style={{ width: width / 2 - 10, height: height / 3 - 40, }}
                             source={item.imagePath}
-                            opacity={0.3}
+                            opacity={0.5}
+                            imageStyle={{ borderRadius: 6 }}
                             resizeMode={'stretch'}>
                             <View style={{
                               width: width / 2 - 8, height: height / 4 - 8,
                               alignItems: 'center', justifyContent: 'center'
                             }}>
                               <Text style={stylesheet.cardText}>{item.key}</Text>
-
                             </View>
                           </ImageBackground>
                         </View>
@@ -159,7 +126,7 @@ export default class newHome extends Component {
             <View style={{ flex: 1, width, height }}>
               <ImageBackground
                 style={{ width, height }}
-                source={require('../../images/1.jpg')}
+                source={require('../../images/specialPhotos/1.jpg')}
                 opacity={0.7}
 
               >
@@ -171,7 +138,8 @@ export default class newHome extends Component {
                 }}>
                   <Text style={{
                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                    alignSelf: 'center', fontSize: 30, color: 'white', marginTop: 400, fontWeight: 'bold'
+                    alignSelf: 'center', fontSize: 30, color: 'white', marginTop: 400,
+                    fontFamily: 'Laila-Bold'
                   }}>
                     सकळ देवांचाही देव ।{"\n"}
                     बाळा म्हणे पंढरीराव ।।
@@ -181,7 +149,6 @@ export default class newHome extends Component {
             </View>
         }
       </View>
-
     );
   }
 }

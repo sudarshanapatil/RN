@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
+import { Text, View, Dimensions, ScrollView, StyleSheet,Share, TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions } from 'react-navigation';
 
@@ -40,7 +40,17 @@ export default class Aarati extends Component {
     goBack = () => {
         this.props.navigation.dispatch(backAction);
     }
+    onShare = async (data) => {
+        try {
+            const result = await Share.share({
+                message: `भक्तिरस\n\n${data}\n\n अधिक अभंग वाचण्यासाठी डाउनलोड करा संत साहित्य अँप`
+            });
+        } catch (error) {
+            alert(`काही तंत्ररिक कारणांमुळे शेअर केले जाऊ शकत नाही .क्षमस्व!`);
+        }
+    }
     render() {
+        let data = `आरती ओवाळू कांबेकर बाबांची \nआम्हा दाखविली दिशा जीवनाची || धृ ||\n\nनिरक्षर जे होते त्यांना दिव्य दृष्टी दिधली |\nतया मुखांतूनी गुरुरायांनी गाथा वदविली ||\n ओढ लावली भक्तजनांना नामस्मरणाची |\n आम्हा दाखविली दिशा जीवनाची || १ ||\n\n महात्म्य सांगे सदा कीर्तनी श्रीभंडाऱ्याचे |\n उभे ठाकले मंदीर तेथे जिजामाऊलीचे ||\n खूण गाठ ही तिथे बांधली ध्यानसाधनेची |\n आम्हा दाखविली दिशा जीवनाची || २ ||\n\n प्रसन्न वदने जवळी घेता शत्रु मित्र झाले |\n पाठीवरती थाप मारुनी दैन्य दूर केले ||\n अखंड सेवा घडो आम्हा ऐशा चरणांची |\n आम्हा दाखविली दिशा जीवनाची || ३ ||`
         return (
             <View style={{
                 flex: 1,
@@ -53,7 +63,6 @@ export default class Aarati extends Component {
                     <View style={{
                         width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }}>
-
                         <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
                     </View>
                     <View style={{
@@ -65,28 +74,26 @@ export default class Aarati extends Component {
                         }}>
                             {`आरती`}
                         </Text>
-
                     </View>
-
-
                 </View>
                 <ScrollView>
                     <View style={{
-                        width: width - 40, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'
+                        width: width - 40, backgroundColor: 'white', margin: 20,
+                        alignItems: 'center', justifyContent: 'center'
 
                     }}>
                         <ImageBackground
                             style={{ width: width, height: height - 50 }}
-                            source={require('../../images/homeScreen/aarti.jpg')}
+                            source={require('../../images/homeScreen/aarti1.jpeg')}
                             opacity={0.2}
                             resizeMode={'stretch'}>
                             <View style={{ width: width - 40, margin: 20, alignContent: 'center', alignItems: 'center' }}>
 
                                 <Text style={{
                                     fontSize: this.state.initialFontSize, textAlign: 'justify',
-                                    fontFamily: 'NotoSans-Regular', color: 'black'
+                                    fontFamily: 'Laila-Medium', color: 'black'
                                 }}>
-                                    {" आरती ओवाळू कांबेकर बाबांची \nआम्हा दाखविली दिशा जीवनाची || धृ ||\n\nनिरक्षर जे होते त्यांना दिव्य दृष्टी दिधली |\nतया मुखांतूनी गुरुरायांनी गाथा वदविली ||\n ओढ लावली भक्तजनांना नामस्मरणाची |\n आम्हा दाखविली दिशा जीवनाची || १ ||\n\n महात्म्य सांगे सदा कीर्तनी श्रीभंडाऱ्याचे |\n उभे ठाकले मंदीर तेथे जिजामाऊलीचे ||\n खूण गाठ ही तिथे बांधली ध्यानसाधनेची |\n आम्हा दाखविली दिशा जीवनाची || २ ||\n\n प्रसन्न वदने जवळी घेता शत्रु मित्र झाले |\n पाठीवरती थाप मारुनी दैन्य दूर केले ||\n अखंड सेवा घडो आम्हा ऐशा चरणांची |\n आम्हा दाखविली दिशा जीवनाची || ३ ||"}
+                                    {data}
                                 </Text>
                             </View>
                         </ImageBackground>
@@ -109,14 +116,14 @@ export default class Aarati extends Component {
                     <View style={styles.fontView}>
                         <TouchableOpacity onPress={() => this.increaseFont("plus")}>
                             <View style={styles.fontButton}>
-                                <Text style={{ fontSize: 32, color: 'black', fontWeight: '0' }}>अ</Text>
+                                <Text style={{ fontSize: 32, color: 'black' }}>अ</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.fontView}>
-                        <Icon name="share-alt" size={35} color="black" onPress={() => this.onShare(0)} />
+                        <Icon name="share-alt" size={35} color="black" onPress={() => this.onShare(data)} />
                     </View>
-                    <Icon name="heart" size={40} color="black" onPress={() => this.onShare(0)} />
+
                 </View>
             </View>
         )

@@ -1,35 +1,42 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Text, View, Dimensions, ScrollView, StyleSheet, ImageBackground, AppRegistry } from 'react-native';
+import {
+    Text, View, Dimensions, Share, ScrollView, StyleSheet,
+    ImageBackground, AppRegistry, ToastAndroid, TouchableOpacity
+} from 'react-native';
 import { NavigationActions } from 'react-navigation';
-
 const { width, height } = Dimensions.get('window');
 let style = StyleSheet.create({
     backgroundImage: {
         flex: 1,
         resizeMode: 'cover'
     },
+    fontButton: {
+        width: 40, height: 40,
+        borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
+    },
+    fontView: {
+        width: width / 2, height: 50, justifyContent: 'center',
+        alignItems: 'center'
+    },
     navButtons: { width: width / 5, height: 50, alignItems: 'center', justifyContent: 'center' }
 })
 import TrackPlayer from 'react-native-track-player';
 AppRegistry.registerComponent('appname', () => App);
 const backAction = NavigationActions.back({
-    screen: 'Abhang',
+    screen: 'Aarati',
 });
 export default class FullAbhang extends Component {
     constructor() {
         super()
         TrackPlayer.registerEventHandler(() => { });
-        //import Sound from 'react-native-sound';
         TrackPlayer.setupPlayer().then(async () => {
-
-            // Adds a track to the queue
             await TrackPlayer.add({
                 id: 'trackId',
                 url: require('../audios/flute.mp3'),
                 title: 'Track Title',
                 artist: 'Track Artist',
-                // artwork: require('./5.jpg')
+                artwork: require('../../images/specialPhotos/8.jpeg')
             });
         })
 
@@ -47,8 +54,23 @@ export default class FullAbhang extends Component {
             TrackPlayer.play()
     }
     goBack = () => {
+        TrackPlayer.stop()
         this.props.navigation.dispatch(backAction);
     }
+    onShare = async (data) => {
+        try {
+            const result = await Share.share({
+                message: `भक्तिरस\n\n${data}\n\n अधिक अभंग वाचण्यासाठी डाउनलोड करा संत साहित्य अँप`
+            });
+        } catch (error) {
+            alert(`काही तंत्ररिक कारणांमुळे शेअर केले जाऊ शकत नाही .क्षमस्व!`);
+        }
+    }
+    showToast = () => {
+
+        ToastAndroid.showWithGravity('तुमच्या फेवरिट्स मध्ये संपादित केले!', ToastAndroid.SHORT, ToastAndroid.CENTER);
+    }
+
     render() {
         const { navigation } = this.props;
         const fullAbhang = navigation.getParam('fullAbhang', '100')
@@ -70,41 +92,63 @@ export default class FullAbhang extends Component {
                             <Icon name="play-circle" size={30} color="white" onPress={() => this.pauseSound(1)} />
                         </View>
                         <View style={style.navButtons}>
-                            <Icon name="bookmark" size={30} color="white" onPress={() => this.pauseSound(1)} />
+                            <Icon name="bookmark" size={30} color="white" onPress={() => this.showToast()} />
                         </View>
                         <View style={style.navButtons}>
-                            <Icon name="share-alt" size={30} color="white" onPress={() => this.pauseSound(1)} />
+                            <Icon name="share-alt" size={30} color="white" onPress={() => this.onShare(fullAbhang)} />
                         </View>
                     </View>
 
                 </View>
-                <View style={{
-                    width, height: height - 50
-                }}>
-                    <ImageBackground
-                        style={{ width: width, height: height - 50 }}
-                        source={require('../../images/8.jpeg')}
-                        opacity={0.1}
-                        resizeMode={'stretch'}>
-
-                        <View style={{
-                            flex: 1,
-                            justifyContent: 'center', alignItems: 'center',
-                            margin: 5, padding: 10, elevation: 7, width, height: height - 50
-
-                        }}>
-                            <Text style={{
-                                alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                                alignSelf: 'center', fontSize: 20, color: '#000000',
-                                fontFamily: 'NotoSans-Regular'
-
+                <ScrollView>
+                    <View style={{
+                        width
+                    }}>
+                        <ImageBackground
+                            style={{ width: width, height: height - 50 }}
+                            source={require('../../images/specialPhotos/8.jpeg')}
+                            opacity={0.2}
+                            resizeMode={'stretch'}>
+                            <View style={{
+                                justifyContent: 'center', alignItems: 'center',
+                                margin: 5, padding: 10, elevation: 7, width, height: height - 50
                             }}>
-                                {fullAbhang}
-                            </Text>
+                                <Text style={{
+                                    alignContent: 'center', alignItems: 'center', textAlign: "justify",
+                                    alignSelf: 'center', fontSize: 20, color: '#000000',
+                                    fontFamily: 'Laila-Medium'
 
-                        </View>
-                    </ImageBackground>
-                </View>
+                                }}>
+                                    {fullAbhang}
+                                </Text>
+
+                            </View>
+                            <View style={{
+                                width, height: 50, position: 'absolute', alignItems: 'center',
+                                bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6'
+                            }}>
+                                <View style={{
+                                    width: width / 3, height: 50,
+                                    justifyContent: 'center', alignItems: 'center'
+                                }}>
+                                    <TouchableOpacity onPress={() => this.increaseFont("minus")}>
+                                        <View style={style.fontButton}>
+                                            <Text style={{ fontSize: 22, color: 'black', fontWeight: '0' }}>अ</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={style.fontView}>
+                                    <TouchableOpacity onPress={() => this.increaseFont("plus")}>
+                                        <View style={style.fontButton}>
+                                            <Text style={{ fontSize: 32, color: 'black' }}>अ</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+
+                            </View>
+                        </ImageBackground>
+                    </View>
+                </ScrollView>
             </View>)
     }
 }

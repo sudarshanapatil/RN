@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Text, View, Dimensions, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-
 import oldImgaes from '../databaseFiles/imageList'
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import { NavigationActions } from 'react-navigation';
+const backAction = NavigationActions.back({
+    screen: 'Others',
+});
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
     recommImage: {
@@ -60,6 +62,9 @@ export default class Gallary extends Component {
     showImageList = (galleryImages) => {
         this.props.navigation.navigate("PhotoList", { imageArray: galleryImages })
     }
+    goBack = () => {
+        this.props.navigation.dispatch(backAction);
+    }
     render() {
         return (
             <View style={{
@@ -67,20 +72,31 @@ export default class Gallary extends Component {
                 width: width, height: height, backgroundColor: 'white'
             }}>
                 <View style={{
-                    justifyContent: 'center',
+                    justifyContent: 'center',flexDirection:'row',
                     width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
-                    <Text style={{
-                        alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                    <View style={{
+                        width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }}>
-                        कांबेकर महाराज फोटो गॅलरी
-                </Text>
+
+                        <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
+                    </View>
+                    <View style={{
+                        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+                    }} >
+                        <Text style={{
+                            alignContent: 'center', alignItems: 'center', textAlign: "center",
+                            alignSelf: 'center', fontFamily: 'Laila-Bold', fontSize: 20, color: "white"
+                        }}>
+                            {`कांबेकर महाराज फोटो गॅलरी`}
+                        </Text>
+
+                    </View>
                 </View>
                 <ScrollView>
                     <View style={{
-                        flex: 1, width, height: height - 50,
-                        backgroundColor: 'white', flexDirection: 'row',flexWrap: 'wrap'
+                        flex: 1, width,
+                        backgroundColor: 'white', flexDirection: 'row', flexWrap: 'wrap'
                     }}>
 
                         {
@@ -93,8 +109,8 @@ export default class Gallary extends Component {
                                         borderRadius: 10
 
                                     }}>
-                                        <Image style={{ width: width / 2 - 8, height: height / 4 - 8, margin: 4,borderRadius:10 }} 
-                                        source={item.src}>
+                                        <Image style={{ width: width / 2 - 8, height: height / 4 - 8, margin: 4, borderRadius: 10 }}
+                                            source={item.src}>
 
                                         </Image>
                                     </View>

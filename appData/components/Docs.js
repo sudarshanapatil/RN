@@ -1,33 +1,53 @@
 import React, { Component } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 import {
     Text, View, Dimensions, Image,
     StyleSheet, ScrollView, TouchableOpacity, AppRegistry, WebView
 } from 'react-native';
 const { width, height } = Dimensions.get('window');
-//import Pdf from 'react-native-pdf';
+import { NavigationActions } from 'react-navigation';
 
+//import Pdf from 'react-native-pdf';
+const backAction = NavigationActions.back({
+    screen: 'Others',
+})
 export default class Docs extends Component {
+
+    goBack = () => {
+        this.props.navigation.dispatch(backAction);
+    }
     render() {
         const source = { uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true };
         return (
             <View style={{ width, height, flex: 1, alignItems: 'center' }}>
                 <View style={{
-                    justifyContent: 'center',
+                    justifyContent: 'center',flexDirection:"row",
                     width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
-                    <Text style={{
-                        alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20,color:'white'
+                    <View style={{
+                        width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }}>
-                        कांबेकर महाराज हस्ताक्षर
-            </Text>
+                        <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
+                    </View>
+                    <View style={{
+                        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+                    }} >
+                        <Text style={{
+                            alignContent: 'center', alignItems: 'center', textAlign: "center",
+                            alignSelf: 'center', fontFamily: 'Laila-Bold', fontSize: 20, color: "white"
+                        }}>
+                            {`कांबेकर महाराज हस्ताक्षर`}
+                        </Text>
+                    </View>
+
                 </View>
 
                 <View style={{
                     width: width, height: height - 50, backgroundColor: 'antiquewhite'
                 }}>
                     <View style={{ width, height: height / 2, flex: 1 }}>
-                        <Image style={{ width, height }} source={require('../docs/doc1.jpg')}>
+                        <Image style={{ width, height }} source={require('../../images/specialPhotos/1.jpg')}>
 
                         </Image>
                     </View>
