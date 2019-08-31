@@ -4,6 +4,7 @@ import { Text, View, Dimensions, Image, StyleSheet, ScrollView, WebView, Touchab
 // import console = require('console');
 const { width, height } = Dimensions.get('window');
 import videoLinks from '../databaseFiles/videoLinks'
+import otherVideoLinks from '../databaseFiles/otherVideoLinks'
 const styles = StyleSheet.create({
   recommImage: {
     width: (width / 3) - 5,
@@ -22,9 +23,14 @@ let imageHeight = Math.round((dimensions.width * 9) / 16);
 export default class Videos extends Component {
   constructor() {
     super();
+    
     this.state = {
-      videoUrl: "https://www.youtube.com/embed/U778iyDyHZ8"
+      videoUrl: "https://www.youtube.com/embed/U778iyDyHZ8",
+      dindiUrl: "https://www.youtube.com/embed/6b0oX6-Qh9k",
+     
     }
+    
+
   }
 
   onBuffer = () => {
@@ -40,8 +46,13 @@ export default class Videos extends Component {
     })
 
   }
+  handleWebError = () => {
+
+  }
 
   render() {
+    let title= 'कांबेकर महाराज प्रवचने (व्हिडिओ )'
+    
     return (
       <View style={{
         flex: 1,
@@ -53,16 +64,18 @@ export default class Videos extends Component {
         }}>
           <Text style={{
             alignContent: 'center', alignItems: 'center', textAlign: "center",
-            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+            alignSelf: 'center', fontFamily: 'Laila-Bold', fontSize: 20, color: "white"
           }}>
-            कांबेकर महाराज प्रवचने (व्हिडिओ )
-                </Text>
+            {title}
+          </Text>
         </View>
         <View style={{ width, height: 320, backgroundColor: 'pink' }}>
           <WebView
             // style={{ width, height: 300 }}
             javaScriptEnabled={true}
             scrollEnabled={true}
+            onError={() => <View style={{ width, height: 320 }}><Text>some thing went wrong</Text></View>}
+            renderError={() => <View style={{ width, height: 320 }}><Text>some thing went wrong</Text></View>}
             mediaPlaybackRequiresUserAction={false}
             source={{
               html: `<html>
@@ -74,7 +87,7 @@ export default class Videos extends Component {
           />
         </View>
         <View style={{ width, height: 50, backgroundColor: "white", alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
+          <Text style={{ fontFamily: 'Laila-Bold', fontSize: 20 }}>
             आणखी व्हिडिओ
           </Text>
         </View>
@@ -87,7 +100,7 @@ export default class Videos extends Component {
                     <View style={styles.imageCard}>
                       {/* <Text>{item[i + 1].tp}</Text> */}
                       <Image style={styles.recommImage}
-                        source={item[i+1].src}>
+                        source={item[i + 1].src}>
                       </Image>
                     </View>
                   </TouchableOpacity>

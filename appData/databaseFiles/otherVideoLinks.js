@@ -2,13 +2,13 @@ const videoLinks = [
     {
         1: {
             "src": require("../../images/specialPhotos/8.jpeg"),
-            "link": "https://www.youtube.com/embed/U778iyDyHZ8",
+            "link": "https://www.youtube.com/embed/98TUYq6cL6Y",
         }
     },
     {
         2: {
             "src": require("../../images/specialPhotos/8.jpeg"),
-            "link": "https://www.youtube.com/embed/uVc1oCJ2MMc"
+            "link": "https://www.youtube.com/embed/n7FJImHaRpA"
         }
     },
     {
