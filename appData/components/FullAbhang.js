@@ -102,16 +102,16 @@ export default class FullAbhang extends Component {
                 </View>
                 <ScrollView>
                     <View style={{
-                        width
+                        width,flex:1
                     }}>
                         <ImageBackground
-                            style={{ width: width, height: height - 50 }}
+                            style={{ width: width }}
                             source={require('../../images/specialPhotos/8.jpeg')}
                             opacity={0.2}
                             resizeMode={'stretch'}>
                             <View style={{
                                 justifyContent: 'center', alignItems: 'center',
-                                margin: 5, padding: 10, elevation: 7, width, height: height - 50
+                                margin: 5, padding: 10, elevation: 7, width, 
                             }}>
                                 <Text style={{
                                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
@@ -123,7 +123,11 @@ export default class FullAbhang extends Component {
                                 </Text>
 
                             </View>
-                            <View style={{
+                            
+                        </ImageBackground>
+                    </View>
+                </ScrollView>
+                <View style={{
                                 width, height: 50, position: 'absolute', alignItems: 'center',
                                 bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6'
                             }}>
@@ -146,9 +150,6 @@ export default class FullAbhang extends Component {
                                 </View>
 
                             </View>
-                        </ImageBackground>
-                    </View>
-                </ScrollView>
             </View>)
     }
 }
