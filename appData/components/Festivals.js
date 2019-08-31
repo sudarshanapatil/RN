@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions } from 'react-navigation';
 
 const { width, height } = Dimensions.get('window');
-const styles = StyleSheet.create({
-   
+const styles = StyleSheet.create({   
     fontButton: {
         width: 40, height: 40,
         borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
@@ -15,17 +13,16 @@ const styles = StyleSheet.create({
         width: width / 3, height: 50, justifyContent: 'center',
         alignItems: 'center'
     },
-})
-const backAction = NavigationActions.back({
-    screen: 'Others',
-})
+});
+
 export default class Festivals extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
             initialFontSize: 16
         }
     }
+
     increaseFont = (type) => {
         let newFont;
         if (type == "plus")
@@ -39,7 +36,8 @@ export default class Festivals extends Component {
     }
 
     goBack = () => {
-        this.props.navigation.dispatch(backAction);
+        const { navigate } = this.props.navigation;
+        navigate('Others');
     }
     render() {
         return (

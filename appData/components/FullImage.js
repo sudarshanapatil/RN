@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View, Dimensions, ScrollView, StyleSheet, Image, Toast } from 'react-native';
-const { width, height } = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-const style = StyleSheet.create({
-
-})
-import { NavigationActions } from 'react-navigation';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-const backAction = NavigationActions.back({
-    screen: 'Gallery',
-});
+
+const { width, height } = Dimensions.get('window');
 
 export default class FullImage extends Component {
     constructor() {
@@ -18,7 +11,8 @@ export default class FullImage extends Component {
 
     }
     goBack = () => {
-        this.props.navigation.dispatch(backAction);
+        const { navigate } = this.props.navigation;
+        navigate('Gallery');
     }
     showToast = () => {
 

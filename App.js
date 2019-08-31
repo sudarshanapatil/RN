@@ -69,8 +69,8 @@ const RouteConfigs =
   Festivals: {
     screen: Festivals
   },
-  Saptah:{
-    screen:Saptah
+  Saptah: {
+    screen: Saptah
   }
 
 };

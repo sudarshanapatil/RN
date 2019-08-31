@@ -4,10 +4,6 @@ import { Text, View, Dimensions, ScrollView, StyleSheet,Share, TouchableOpacity,
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions } from 'react-navigation';
 
-const backAction = NavigationActions.back({
-    screen: 'Others',
-});
-
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
     fontButton: {
@@ -38,7 +34,8 @@ export default class Aarati extends Component {
 
     }
     goBack = () => {
-        this.props.navigation.dispatch(backAction);
+        const { navigate } = this.props.navigation;
+        navigate('Others');
     }
     onShare = async (data) => {
         try {

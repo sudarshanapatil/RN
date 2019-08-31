@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Text, View, Dimensions, Image, StyleSheet, ScrollView, WebView, TouchableOpacity } from 'react-native';
 // import console = require('console');
 const { width, height } = Dimensions.get('window');
-import videoLinks from '../databaseFiles/videoLinks'
+// import videoLinks from '../databaseFiles/videoLinks'
 import otherVideoLinks from '../databaseFiles/otherVideoLinks'
 const styles = StyleSheet.create({
     recommImage: {

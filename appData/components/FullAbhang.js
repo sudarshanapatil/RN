@@ -4,9 +4,10 @@ import {
     Text, View, Dimensions, Share, ScrollView, StyleSheet,
     ImageBackground, AppRegistry, ToastAndroid, TouchableOpacity
 } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import TrackPlayer from 'react-native-track-player';
+
 const { width, height } = Dimensions.get('window');
-let style = StyleSheet.create({
+const style = StyleSheet.create({
     backgroundImage: {
         flex: 1,
         resizeMode: 'cover'
@@ -20,12 +21,10 @@ let style = StyleSheet.create({
         alignItems: 'center'
     },
     navButtons: { width: width / 5, height: 50, alignItems: 'center', justifyContent: 'center' }
-})
-import TrackPlayer from 'react-native-track-player';
-AppRegistry.registerComponent('appname', () => App);
-const backAction = NavigationActions.back({
-    screen: 'Aarati',
 });
+
+AppRegistry.registerComponent('appname', () => App);
+
 export default class FullAbhang extends Component {
     constructor() {
         super()
@@ -55,7 +54,8 @@ export default class FullAbhang extends Component {
     }
     goBack = () => {
         TrackPlayer.stop()
-        this.props.navigation.dispatch(backAction);
+        const { navigate } = this.props.navigation;
+        navigate('Aarati');
     }
     onShare = async (data) => {
         try {

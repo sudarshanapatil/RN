@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   }
 })
 const dimensions = Dimensions.get('window');
-let imageHeight = Math.round((dimensions.width * 9) / 16);
+// let imageHeight = Math.round((dimensions.width * 9) / 16);
 export default class Videos extends Component {
   constructor() {
     super();

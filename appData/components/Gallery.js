@@ -3,9 +3,6 @@ import { Text, View, Dimensions, Image, StyleSheet, ScrollView, TouchableOpacity
 import oldImgaes from '../databaseFiles/imageList'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions } from 'react-navigation';
-const backAction = NavigationActions.back({
-    screen: 'Others',
-});
 const { width, height } = Dimensions.get('window');
 const styles = StyleSheet.create({
     recommImage: {
@@ -63,7 +60,8 @@ export default class Gallary extends Component {
         this.props.navigation.navigate("PhotoList", { imageArray: galleryImages })
     }
     goBack = () => {
-        this.props.navigation.dispatch(backAction);
+        const { navigate } = this.props.navigation;
+        navigate('Gallery');
     }
     render() {
         return (

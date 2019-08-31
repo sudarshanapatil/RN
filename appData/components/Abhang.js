@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+// import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import abhangList from '../databaseFiles/abhang/abhangData'
 import { NavigationActions } from 'react-navigation';
@@ -30,7 +30,7 @@ export default class Abhang extends Component {
         this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang })
     }
     goBack = () => {
-        this.props.navigation.dispatch(backAction);
+        this.props.navigation.goBack();
     }
     render() {
         return (

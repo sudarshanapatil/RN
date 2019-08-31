@@ -3,19 +3,15 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {
     Text, View, Dimensions, Image,
-    StyleSheet, ScrollView, TouchableOpacity, AppRegistry, WebView
 } from 'react-native';
-const { width, height } = Dimensions.get('window');
-import { NavigationActions } from 'react-navigation';
 
-//import Pdf from 'react-native-pdf';
-const backAction = NavigationActions.back({
-    screen: 'Others',
-})
+const { width, height } = Dimensions.get('window');
+
 export default class Docs extends Component {
 
     goBack = () => {
-        this.props.navigation.dispatch(backAction);
+        const { navigate } = this.props.navigation;
+        navigate('Others');
     }
     render() {
         const source = { uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true };

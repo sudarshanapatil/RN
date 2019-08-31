@@ -42,7 +42,8 @@ export default class Others extends Component {
     }
 
     goBack = () => {
-        this.props.navigation.dispatch(backAction);
+        // this.props.navigation.dispatch(backAction);
+        this.props.navigation.goBack();
     }
     onTouchCard = (id) => {
         switch (id) {
