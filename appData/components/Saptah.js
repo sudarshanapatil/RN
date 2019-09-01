@@ -1,21 +1,24 @@
 import Video from 'react-native-video';
 import React, { Component } from 'react';
-import { Text, View, Dimensions, Image, StyleSheet, ScrollView, WebView, TouchableOpacity } from 'react-native';
+import { Text, View, Dimensions, Image, StyleSheet, ScrollView, WebView, TouchableOpacity, ImageBackground } from 'react-native';
 // import console = require('console');
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 const { width, height } = Dimensions.get('window');
 // import videoLinks from '../databaseFiles/videoLinks'
 import otherVideoLinks from '../databaseFiles/otherVideoLinks'
 const styles = StyleSheet.create({
     recommImage: {
-        width: (width / 3) - 5,
+        width: (width / 2),
         height: height - 500,
-        borderRadius: 3
+        borderRadius: 3, flex: 1,
+        alignSelf: 'center',
     },
     imageCard:
     {
-        width: (width / 3) - 10,
+        width: (width / 2),
         height: height - 500,
-        margin: 5
+        margin: 5,
     }
 })
 const dimensions = Dimensions.get('window');
@@ -27,7 +30,10 @@ export default class Saptah extends Component {
             videoUrl: 'https://www.youtube.com/embed/6b0oX6-Qh9k',
         }
     }
-
+    goBack = () => {
+        const { navigate } = this.props.navigation;
+        navigate('Others');
+    }
     onBuffer = () => {
         console.log("yahape buffer aaya");
     }
@@ -50,17 +56,25 @@ export default class Saptah extends Component {
                 width: width, height: height, backgroundColor: 'antiquewhite'
             }}>
                 <View style={{
-                    justifyContent: 'center',
+                    justifyContent: 'center', flexDirection: 'row',
                     width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
-                    <Text style={{
-                        alignContent: 'center', alignItems: 'center', textAlign: "center",
-                        alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                    <View style={{
+                        width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }}>
-                        {
-                            `रौप्य महोत्सव कार्यक्रम`
-                        }
-                    </Text>
+                        <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
+                    </View>
+                    <View style={{
+                        width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
+                    }} >
+                        <Text style={{
+                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Medium',
+                            alignSelf: 'center', fontSize: 20, color: "white"
+                        }}>
+                            {`रौप्य महोत्सव कार्यक्रम`}
+                        </Text>
+                    </View>
+
                 </View>
                 <View style={{ width, height: 320, backgroundColor: 'pink' }}>
                     <WebView
@@ -80,7 +94,7 @@ export default class Saptah extends Component {
                     />
                 </View>
                 <View style={{ width, height: 50, backgroundColor: "white", alignItems: 'center', justifyContent: 'center' }}>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
+                    <Text style={{ fontFamily: 'Laila-Bold', fontSize: 20, color: 'darkcyan' }}>
                         आणखी व्हिडिओ
           </Text>
                 </View>
@@ -92,9 +106,21 @@ export default class Saptah extends Component {
                                     <TouchableOpacity onPress={() => this.playVideo(item[i + 1].link)}>
                                         <View style={styles.imageCard}>
                                             {/* <Text>{item[i + 1].tp}</Text> */}
-                                            <Image style={styles.recommImage}
-                                                source={item[i + 1].src}>
-                                            </Image>
+                                            <ImageBackground style={styles.recommImage}
+                                                source={item[i + 1].src}
+                                                resizeMode="stretch"
+                                                opacity={0.6}
+                                            >
+                                                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                                    <Text style={{
+                                                        textAlign: "justify", alignContent: 'center', alignItems: 'center',
+                                                        alignSelf: 'center', fontSize: 20, color: '#000000',
+                                                        fontFamily: 'Laila-Bold', margin: 10
+                                                    }}>
+                                                        {item[i + 1].text}
+                                                    </Text>
+                                                </View>
+                                            </ImageBackground>
                                         </View>
                                     </TouchableOpacity>
                                 </View>

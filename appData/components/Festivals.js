@@ -59,7 +59,7 @@ export default class Festivals extends Component {
                     }} >
                         <Text style={{
                             alignContent: 'center', alignItems: 'center', textAlign: "center",
-                            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                            alignSelf: 'center', fontFamily: 'Laila-Medium', fontSize: 20, color: "white"
                         }}>
                             {`चालू केलेले उपक्रम`}
                         </Text>
