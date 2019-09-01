@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import { Text, View, Dimensions, ScrollView, StyleSheet,Share, TouchableOpacity, ImageBackground } from 'react-native';
+import { Text, View, Dimensions, ScrollView, StyleSheet, Share, TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { NavigationActions } from 'react-navigation';
 
@@ -66,8 +66,8 @@ export default class Aarati extends Component {
                         width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }} >
                         <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center",
-                            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                            alignContent: 'center', alignItems: 'center', textAlign: "center",fontFamily: 'Laila-Medium',
+                            alignSelf: 'center', fontSize: 20, color: "white"
                         }}>
                             {`आरती`}
                         </Text>
@@ -85,7 +85,6 @@ export default class Aarati extends Component {
                             opacity={0.2}
                             resizeMode={'stretch'}>
                             <View style={{ width: width - 40, margin: 20, alignContent: 'center', alignItems: 'center' }}>
-
                                 <Text style={{
                                     fontSize: this.state.initialFontSize, textAlign: 'justify',
                                     fontFamily: 'Laila-Medium', color: 'black'

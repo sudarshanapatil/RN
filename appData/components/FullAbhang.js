@@ -4,10 +4,9 @@ import {
     Text, View, Dimensions, Share, ScrollView, StyleSheet,
     ImageBackground, AppRegistry, ToastAndroid, TouchableOpacity
 } from 'react-native';
-import TrackPlayer from 'react-native-track-player';
-
+import { NavigationActions } from 'react-navigation';
 const { width, height } = Dimensions.get('window');
-const style = StyleSheet.create({
+let style = StyleSheet.create({
     backgroundImage: {
         flex: 1,
         resizeMode: 'cover'
@@ -21,13 +20,19 @@ const style = StyleSheet.create({
         alignItems: 'center'
     },
     navButtons: { width: width / 5, height: 50, alignItems: 'center', justifyContent: 'center' }
-});
-
+})
+import TrackPlayer from 'react-native-track-player';
 AppRegistry.registerComponent('appname', () => App);
-
+const backAction = NavigationActions.back({
+    screen: 'Abhang',
+});
 export default class FullAbhang extends Component {
     constructor() {
         super()
+        this.state = {
+            initialFontSize: 20
+        }
+
         TrackPlayer.registerEventHandler(() => { });
         TrackPlayer.setupPlayer().then(async () => {
             await TrackPlayer.add({
@@ -46,6 +51,17 @@ export default class FullAbhang extends Component {
     componentWillUnmount() {
         TrackPlayer.stop()
     }
+    increaseFont = (type) => {
+        let newFont;
+        if (type == "plus")
+            newFont = this.state.initialFontSize + 1
+        else if (type == "minus")
+            newFont = this.state.initialFontSize - 1
+        this.setState({
+            initialFontSize: newFont
+        })
+
+    }
     pauseSound = (type) => {
         if (type == 0)
             TrackPlayer.pause()
@@ -54,8 +70,7 @@ export default class FullAbhang extends Component {
     }
     goBack = () => {
         TrackPlayer.stop()
-        const { navigate } = this.props.navigation;
-        navigate('Aarati');
+        this.props.navigation.dispatch(backAction);
     }
     onShare = async (data) => {
         try {
@@ -73,7 +88,7 @@ export default class FullAbhang extends Component {
 
     render() {
         const { navigation } = this.props;
-        const fullAbhang = navigation.getParam('fullAbhang', '100')
+        const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
         return (
             <View style={{
                 flex: 1, width, height
@@ -102,54 +117,52 @@ export default class FullAbhang extends Component {
                 </View>
                 <ScrollView>
                     <View style={{
-                        width,flex:1
+                        width
                     }}>
                         <ImageBackground
-                            style={{ width: width }}
+                            style={{ width: width  }}
                             source={require('../../images/specialPhotos/8.jpeg')}
                             opacity={0.2}
                             resizeMode={'stretch'}>
                             <View style={{
                                 justifyContent: 'center', alignItems: 'center',
-                                margin: 5, padding: 10, elevation: 7, width, 
+                                margin: 5, elevation: 7, width,
                             }}>
                                 <Text style={{
                                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                                    alignSelf: 'center', fontSize: 20, color: '#000000',
-                                    fontFamily: 'Laila-Medium'
+                                    alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
+                                    fontFamily: 'Laila-Medium', margin: 20
 
                                 }}>
                                     {fullAbhang}
                                 </Text>
-
                             </View>
-                            
                         </ImageBackground>
                     </View>
                 </ScrollView>
                 <View style={{
-                                width, height: 50, position: 'absolute', alignItems: 'center',
-                                bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6'
-                            }}>
-                                <View style={{
-                                    width: width / 3, height: 50,
-                                    justifyContent: 'center', alignItems: 'center'
-                                }}>
-                                    <TouchableOpacity onPress={() => this.increaseFont("minus")}>
-                                        <View style={style.fontButton}>
-                                            <Text style={{ fontSize: 22, color: 'black', fontWeight: '0' }}>अ</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                                <View style={style.fontView}>
-                                    <TouchableOpacity onPress={() => this.increaseFont("plus")}>
-                                        <View style={style.fontButton}>
-                                            <Text style={{ fontSize: 32, color: 'black' }}>अ</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-
+                    width, height: 50, position: 'absolute', alignItems: 'center',
+                    bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6'
+                }}>
+                    <View style={{
+                        width: width / 3, height: 50,
+                        justifyContent: 'center', alignItems: 'center'
+                    }}>
+                        <TouchableOpacity onPress={() => this.increaseFont("minus")}>
+                            <View style={style.fontButton}>
+                                <Text style={{ fontSize: 22, color: 'black', fontWeight: '0' }}>अ</Text>
                             </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={style.fontView}>
+                        <TouchableOpacity onPress={() => this.increaseFont("plus")}>
+                            <View style={style.fontButton}>
+                                <Text style={{ fontSize: 32, color: 'black' }}>अ</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
             </View>)
     }
 }

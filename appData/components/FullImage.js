@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Dimensions, ScrollView, StyleSheet, Image, Toast } from 'react-native';
+import { Text, View, Dimensions, ScrollView, StyleSheet, Image, ToastAndroid } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -41,7 +41,8 @@ export default class FullImage extends Component {
                     }} >
                         <Text style={{
                             alignContent: 'center', alignItems: 'center', textAlign: "center",
-                            alignSelf: 'center', fontWeight: 'bold', fontSize: 20, color: "white"
+                            alignSelf: 'center', fontSize: 20, color: "white",
+                            fontFamily:'Laila-Bold'
                         }}>
                             {`कांबेकर महाराज फोटो गॅलरी`}
                         </Text>
@@ -54,11 +55,13 @@ export default class FullImage extends Component {
                 }}>
                     <TouchableOpacity onPress={() => { this.showToast() }}>
                         <View style={{
-                            width, height: height - 250, backgroundColor: "red",
+                            width, height: height - 250, backgroundColor: "darkcyan",
                             justifyContent: 'center', alignItems: 'center', marginTop: 50, marginBottom: 150
                         }}>
                             <Image style={{ width, height: height - 250, }}
-                                source={imageId}>
+                                source={imageId}
+                                resizeMode='contain'
+                                accessibilityLabel="ranuuuu">
                             </Image>
                         </View>
                     </TouchableOpacity>

@@ -61,7 +61,7 @@ export default class Gallary extends Component {
     }
     goBack = () => {
         const { navigate } = this.props.navigation;
-        navigate('Gallery');
+        navigate('newHome');
     }
     render() {
         return (
@@ -94,7 +94,7 @@ export default class Gallary extends Component {
                 <ScrollView>
                     <View style={{
                         flex: 1, width,
-                        backgroundColor: 'white', flexDirection: 'row', flexWrap: 'wrap'
+                        backgroundColor: '#18646e', flexDirection: 'row', flexWrap: 'wrap'
                     }}>
 
                         {
