@@ -116,29 +116,20 @@ export default class FullAbhang extends Component {
 
                 </View>
                 <ScrollView>
-                    <View style={{
-                        width
-                    }}>
-                        <ImageBackground
-                            style={{ width: width  }}
-                            source={require('../../images/specialPhotos/8.jpeg')}
-                            opacity={0.2}
-                            resizeMode={'stretch'}>
-                            <View style={{
-                                justifyContent: 'center', alignItems: 'center',
-                                margin: 5, elevation: 7, width,
-                            }}>
-                                <Text style={{
-                                    alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                                    alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
-                                    fontFamily: 'Laila-Medium', margin: 20
-
-                                }}>
-                                    {fullAbhang}
-                                </Text>
-                            </View>
-                        </ImageBackground>
-                    </View>
+                    <ImageBackground
+                        style={{ flex: 1, width, height: height + 50 }}
+                        source={require('../../images/specialPhotos/8.jpeg')}
+                        opacity={0.2}
+                        resizeMode={'repeat'}
+                    >
+                        <Text style={{
+                            alignContent: 'center', alignItems: 'center', textAlign: "justify",
+                            alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
+                            fontFamily: 'Laila-Medium', padding: 20
+                        }}>
+                            {fullAbhang}
+                        </Text>
+                    </ImageBackground>
                 </ScrollView>
                 <View style={{
                     width, height: 50, position: 'absolute', alignItems: 'center',

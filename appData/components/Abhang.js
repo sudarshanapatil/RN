@@ -51,35 +51,33 @@ export default class Abhang extends Component {
                         width: width - 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }} >
                         <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "center",fontFamily: 'Laila-Bold',
-                            alignSelf: 'center',  fontSize: 20, color: "white"
+                            alignContent: 'center', alignItems: 'center', textAlign: "center", fontFamily: 'Laila-Bold',
+                            alignSelf: 'center', fontSize: 20, color: "white"
                         }}>
                             {` कांबेकर महाराज अभंग`}
                         </Text>
 
                     </View>
                 </View>
-                <View style={{ width, height: height - 50 }}>
-                    <ScrollView>
-                        <View style={{
-                            backgroundColor: "white"
-
-                        }}>
-                            {
-                                abhangList.map((item, i) =>
-                                    <TouchableOpacity key={i} onPress={() => this.onTouchCard(item[i + 1].fullAbhang)}>
-                                        <View style={styles.card}>
-                                            <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
-                                                <Text style={styles.cardText}>
-                                                    {item[i + 1].initial}
-                                                </Text>
-                                            </View>
+                <ScrollView>
+                    <View style={{
+                        width,
+                        backgroundColor: "white"
+                    }}>
+                        {
+                            abhangList.map((item, i) =>
+                                <TouchableOpacity key={i} onPress={() => this.onTouchCard(item[i + 1].fullAbhang)}>
+                                    <View style={styles.card}>
+                                        <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
+                                            <Text style={styles.cardText}>
+                                                {item[i + 1].initial}
+                                            </Text>
                                         </View>
-                                    </TouchableOpacity>)
-                            }
-                        </View>
-                    </ScrollView>
-                </View>
+                                    </View>
+                                </TouchableOpacity>)
+                        }
+                    </View>
+                </ScrollView>
             </View>
         )
     }
