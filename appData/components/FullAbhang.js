@@ -30,7 +30,7 @@ export default class FullAbhang extends Component {
     constructor() {
         super()
         this.state = {
-            initialFontSize: 20
+            initialFontSize: 18
         }
 
         TrackPlayer.registerEventHandler(() => { });
@@ -70,7 +70,8 @@ export default class FullAbhang extends Component {
     }
     goBack = () => {
         TrackPlayer.stop()
-        this.props.navigation.dispatch(backAction);
+        const { navigate } = this.props.navigation;
+        navigate('Abhang');
     }
     onShare = async (data) => {
         try {
@@ -121,9 +122,9 @@ export default class FullAbhang extends Component {
                     }}>
                         <ImageBackground
                             style={{ width: width  }}
-                            source={require('../../images/specialPhotos/8.jpeg')}
+                            source={require('../../images/specialPhotos/splash.jpg')}
                             opacity={0.2}
-                            resizeMode={'stretch'}>
+                            resizeMode='stretch'>
                             <View style={{
                                 justifyContent: 'center', alignItems: 'center',
                                 margin: 5, elevation: 7, width,

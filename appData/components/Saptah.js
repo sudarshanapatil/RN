@@ -111,9 +111,10 @@ export default class Saptah extends Component {
                                                 resizeMode="stretch"
                                                 opacity={0.6}
                                             >
-                                                <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                                <View style={{ alignContent:'center', alignItems: 'center', justifyContent: 'center' }}>
                                                     <Text style={{
                                                         textAlign: "justify", alignContent: 'center', alignItems: 'center',
+                                                        alignContent:'center',
                                                         alignSelf: 'center', fontSize: 20, color: '#000000',
                                                         fontFamily: 'Laila-Bold', margin: 10
                                                     }}>

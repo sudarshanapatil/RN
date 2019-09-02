@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {
     Text, View, Dimensions, Image,
 } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get('window');
 
@@ -14,11 +15,11 @@ export default class Docs extends Component {
         navigate('Others');
     }
     render() {
-        const source = { uri: 'http://samples.leanpub.com/thereactnativebook-sample.pdf', cache: true };
+
         return (
             <View style={{ width, height, flex: 1, alignItems: 'center' }}>
                 <View style={{
-                    justifyContent: 'center',flexDirection:"row",
+                    justifyContent: 'center', flexDirection: "row",
                     width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
                     <View style={{
@@ -38,16 +39,20 @@ export default class Docs extends Component {
                     </View>
 
                 </View>
+                <ScrollView>
 
-                <View style={{
-                    width: width, height: height - 50, backgroundColor: 'antiquewhite'
-                }}>
-                    <View style={{ width, height: height / 2, flex: 1 }}>
-                        <Image style={{ width, height }} source={require('../../images/specialPhotos/1.jpg')}>
-
-                        </Image>
+                    <View style={{
+                        width, backgroundColor: 'antiquewhite',alignContent:'center',justifyContent:'center'
+                    }}>
+                        <View style={{ width,alignContent:'center',justifyContent:'center', 
+                             }}>
+                            <Image style={{ width, height }} 
+                            source={require('../../images/docs/doc1.jpg')}
+                            resizeMode='stretch'>
+                            </Image>
+                        </View>
                     </View>
-                </View>
+                </ScrollView>
             </View>
         )
     }
