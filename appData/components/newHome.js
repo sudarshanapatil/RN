@@ -19,7 +19,7 @@ const stylesheet = StyleSheet.create({
 
 const data = [
   { key: ' अभंग', id: 1, logoName: "book", imagePath: require('../../images/homeScreen/abhang.jpeg') },
-  { key: ' फोटो गॅलरी ', id: 2, logoName: "photo", imagePath: require('../../images/homeScreen/gallery.jpeg') },
+  { key: ' फोटो गॅलरी ', id: 2, logoName: "photo", imagePath: require('../../images/homeScreen/gallery.jpg') },
   { key: ' व्हिडिओ प्रवचने', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/video.jpg') },
   { key: 'इतर माहिती  ', id: 4, logoName: "file", imagePath: require('../../images/homeScreen/otherInfo.jpeg') },
 ]
@@ -38,7 +38,7 @@ export default class newHome extends Component {
       this.setState({
         showSplash: 1
       })
-    }, 800)
+    }, 6000)
   }
   getDrawer = (id) => {
     this.props.navigation.openDrawer();
@@ -126,8 +126,8 @@ export default class newHome extends Component {
             <View style={{ flex: 1, width, height }}>
               <ImageBackground
                 style={{ width, height }}
-                source={require('../../images/specialPhotos/1.jpg')}
-                opacity={0.7}
+                source={require('../../images/specialPhotos/splash.jpg')}
+                opacity={0.8}
 
               >
                 <View style={{
@@ -138,7 +138,7 @@ export default class newHome extends Component {
                 }}>
                   <Text style={{
                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                    alignSelf: 'center', fontSize: 30, color: 'white', marginTop: 400,
+                    alignSelf: 'center', fontSize: 30, color: 'black', marginTop: 300,
                     fontFamily: 'Laila-Bold'
                   }}>
                     सकळ देवांचाही देव ।{"\n"}

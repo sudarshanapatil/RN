@@ -30,7 +30,7 @@ export default class FullAbhang extends Component {
     constructor() {
         super()
         this.state = {
-            initialFontSize: 20
+            initialFontSize: 18
         }
 
         TrackPlayer.registerEventHandler(() => { });
@@ -70,7 +70,8 @@ export default class FullAbhang extends Component {
     }
     goBack = () => {
         TrackPlayer.stop()
-        this.props.navigation.dispatch(backAction);
+        const { navigate } = this.props.navigation;
+        navigate('Abhang');
     }
     onShare = async (data) => {
         try {
@@ -118,7 +119,7 @@ export default class FullAbhang extends Component {
                 <ScrollView>
                     <ImageBackground
                         style={{ flex: 1, width, height: height + 50 }}
-                        source={require('../../images/specialPhotos/8.jpeg')}
+                        source={require('../../images/specialPhotos/splash.jpg')}
                         opacity={0.2}
                         resizeMode={'repeat'}
                     >

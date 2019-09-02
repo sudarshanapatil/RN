@@ -30,7 +30,8 @@ export default class Abhang extends Component {
         this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang })
     }
     goBack = () => {
-        this.props.navigation.goBack();
+        const { navigate } = this.props.navigation;
+        navigate('newHome');
     }
     render() {
         return (

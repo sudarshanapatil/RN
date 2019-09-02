@@ -16,7 +16,7 @@ export default class FullImage extends Component {
     }
     showToast = () => {
 
-        ToastAndroid.showWithGravity('chan photo', ToastAndroid.SHORT, ToastAndroid.CENTER);
+        //ToastAndroid.showWithGravity('chan photo', ToastAndroid.SHORT, ToastAndroid.CENTER);
     }
     render() {
         const { navigation } = this.props;
@@ -53,18 +53,18 @@ export default class FullImage extends Component {
                     width, height: height - 50, backgroundColor: "white",
                     alignItems: 'center'
                 }}>
-                    <TouchableOpacity onPress={() => { this.showToast() }}>
+                   {/* <TouchableOpacity onPress={() => { this.showToast() }}> */}
                         <View style={{
                             width, height: height - 250, backgroundColor: "darkcyan",
                             justifyContent: 'center', alignItems: 'center', marginTop: 50, marginBottom: 150
                         }}>
                             <Image style={{ width, height: height - 250, }}
                                 source={imageId}
-                                resizeMode='contain'
-                                accessibilityLabel="ranuuuu">
+                                resizeMode='cover'
+                                >
                             </Image>
                         </View>
-                    </TouchableOpacity>
+                    {/* </TouchableOpacity> */}
                 </View>
             </View>)
     }
