@@ -19,7 +19,7 @@ let style = StyleSheet.create({
         width: width / 2, height: 50, justifyContent: 'center',
         alignItems: 'center'
     },
-    navButtons: { width: width / 5, height: 50, alignItems: 'center', justifyContent: 'center' }
+    navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
 })
 import TrackPlayer from 'react-native-track-player';
 AppRegistry.registerComponent('appname', () => App);
@@ -46,10 +46,10 @@ export default class FullAbhang extends Component {
 
     }
     componentWillMount() {
-        TrackPlayer.play()
+       // TrackPlayer.play()
     }
     componentWillUnmount() {
-        TrackPlayer.stop()
+       // TrackPlayer.stop()
     }
     increaseFont = (type) => {
         let newFont;
@@ -101,12 +101,12 @@ export default class FullAbhang extends Component {
                         <View style={style.navButtons}>
                             <Icon name="arrow-left" size={30} color="white" onPress={() => this.goBack()} />
                         </View>
-                        <View style={style.navButtons}>
+                        {/* <View style={style.navButtons}>
                             <Icon name="pause-circle-o" size={30} color="white" onPress={() => this.pauseSound(0)} />
                         </View>
                         <View style={style.navButtons}>
                             <Icon name="play-circle" size={30} color="white" onPress={() => this.pauseSound(1)} />
-                        </View>
+                        </View> */}
                         <View style={style.navButtons}>
                             <Icon name="bookmark" size={30} color="white" onPress={() => this.showToast()} />
                         </View>
@@ -117,12 +117,12 @@ export default class FullAbhang extends Component {
 
                 </View>
                 <ScrollView>
-                    <ImageBackground
+                    {/* <ImageBackground
                         style={{ flex: 1, width, height: height + 50 }}
                         source={require('../../images/specialPhotos/splash.jpg')}
                         opacity={0.2}
                         resizeMode={'repeat'}
-                    >
+                    > */}
                         <Text style={{
                             alignContent: 'center', alignItems: 'center', textAlign: "justify",
                             alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
@@ -130,7 +130,7 @@ export default class FullAbhang extends Component {
                         }}>
                             {fullAbhang}
                         </Text>
-                    </ImageBackground>
+                    {/* </ImageBackground> */}
                 </ScrollView>
                 <View style={{
                     width, height: 50, position: 'absolute', alignItems: 'center',

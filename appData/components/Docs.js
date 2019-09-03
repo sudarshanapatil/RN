@@ -34,7 +34,7 @@ export default class Docs extends Component {
                             alignContent: 'center', alignItems: 'center', textAlign: "center",
                             alignSelf: 'center', fontFamily: 'Laila-Bold', fontSize: 20, color: "white"
                         }}>
-                            {`कांबेकर महाराज हस्ताक्षर`}
+                            {`हस्तलिखित अल्प-परिचय `}
                         </Text>
                     </View>
 
@@ -48,6 +48,18 @@ export default class Docs extends Component {
                              }}>
                             <Image style={{ width, height }} 
                             source={require('../../images/docs/doc1.jpg')}
+                            resizeMode='stretch'>
+                            </Image>
+                            <Image style={{ width, height }} 
+                            source={require('../../images/docs/doc2.jpg')}
+                            resizeMode='stretch'>
+                            </Image>
+                            <Image style={{ width, height }} 
+                            source={require('../../images/docs/doc3.jpg')}
+                            resizeMode='stretch'>
+                            </Image>
+                            <Image style={{ width, height }} 
+                            source={require('../../images/docs/doc4.jpg')}
                             resizeMode='stretch'>
                             </Image>
                         </View>

@@ -20,7 +20,7 @@ const stylesheet = StyleSheet.create({
 const data = [
   { key: ' अभंग', id: 1, logoName: "book", imagePath: require('../../images/homeScreen/abhang.jpeg') },
   { key: ' फोटो गॅलरी ', id: 2, logoName: "photo", imagePath: require('../../images/homeScreen/gallery.jpg') },
-  { key: ' व्हिडिओ प्रवचने', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/video.jpg') },
+  { key: ' व्हिडिओ', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/video.jpg') },
   { key: 'इतर माहिती  ', id: 4, logoName: "file", imagePath: require('../../images/homeScreen/otherInfo.jpeg') },
 ]
 
@@ -141,8 +141,9 @@ export default class newHome extends Component {
                     alignSelf: 'center', fontSize: 30, color: 'black', marginTop: 300,
                     fontFamily: 'Laila-Bold'
                   }}>
-                    सकळ देवांचाही देव ।{"\n"}
-                    बाळा म्हणे पंढरीराव ।।
+                  कोणाही जीवाचा न घडो मत्सर।
+                    {/* सकळ देवांचाही देव ।{"\n"}
+                    बाळा म्हणे पंढरीराव ।। */}
                   </Text>
                 </View>
               </ImageBackground>

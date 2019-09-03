@@ -9,13 +9,13 @@ import videoLinks from '../databaseFiles/videoLinks'
 import otherVideoLinks from '../databaseFiles/otherVideoLinks'
 const styles = StyleSheet.create({
   recommImage: {
-    width: (width / 3) - 5,
+    width: (width / 2) - 5,
     height: height - 500,
     borderRadius: 3
   },
   imageCard:
   {
-    width: (width / 3) - 10,
+    width: (width / 2) - 10,
     height: height - 500,
     margin: 5
   }
@@ -27,7 +27,7 @@ export default class Videos extends Component {
     super();
 
     this.state = {
-      videoUrl: "https://www.youtube.com/embed/U778iyDyHZ8",
+      videoUrl: "https://www.youtube.com/embed/Whx0PJC9sOo",
       dindiUrl: "https://www.youtube.com/embed/6b0oX6-Qh9k",
 
     }
@@ -56,7 +56,7 @@ export default class Videos extends Component {
   }
 
   render() {
-    let title = 'कांबेकर महाराज प्रवचने (व्हिडिओ )'
+    let title = 'व्हिडिओ'
 
     return (
       <View style={{
@@ -126,7 +126,7 @@ export default class Videos extends Component {
                         }}>
                           <Text style={{
                             textAlign: "justify", alignContent: 'center', alignItems: 'center',
-                            alignSelf: 'center', fontSize: 20, color: '#000000',
+                            alignSelf: 'center', fontSize: 14, color: '#000000',
                             fontFamily: 'Laila-Bold', margin: 10
                           }}>
                             {item[i + 1].text}
