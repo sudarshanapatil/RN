@@ -30,7 +30,7 @@ export default class FullAbhang extends Component {
     constructor() {
         super()
         this.state = {
-            initialFontSize: 18
+            initialFontSize: 20
         }
 
         TrackPlayer.registerEventHandler(() => { });
@@ -76,7 +76,7 @@ export default class FullAbhang extends Component {
     onShare = async (data) => {
         try {
             const result = await Share.share({
-                message: `भक्तिरस\n\n${data}\n\n अधिक अभंग वाचण्यासाठी डाउनलोड करा संत साहित्य अँप`
+                message: `भक्तिरस\n\n${data}\n\n अधिक अभंग वाचण्यासाठी डाउनलोड करा हरीभक्त अँप`
             });
         } catch (error) {
             alert(`काही तंत्ररिक कारणांमुळे शेअर केले जाऊ शकत नाही .क्षमस्व!`);
@@ -117,12 +117,12 @@ export default class FullAbhang extends Component {
 
                 </View>
                 <ScrollView>
-                    {/* <ImageBackground
+                    <ImageBackground
                         style={{ flex: 1, width, height: height + 50 }}
                         source={require('../../images/specialPhotos/splash.jpg')}
                         opacity={0.2}
-                        resizeMode={'repeat'}
-                    > */}
+                        resizeMode={'stretch'}
+                    >
                         <Text style={{
                             alignContent: 'center', alignItems: 'center', textAlign: "justify",
                             alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
@@ -130,7 +130,7 @@ export default class FullAbhang extends Component {
                         }}>
                             {fullAbhang}
                         </Text>
-                    {/* </ImageBackground> */}
+                    </ImageBackground>
                 </ScrollView>
                 <View style={{
                     width, height: 50, position: 'absolute', alignItems: 'center',

@@ -82,7 +82,7 @@ export default class Aarati extends Component {
                         <ImageBackground
                             style={{ width: width, height: height - 50 }}
                             source={require('../../images/homeScreen/aarti1.jpeg')}
-                            opacity={0.2}
+                            opacity={0.5}
                             resizeMode={'stretch'}>
                             <View style={{ width: width - 40, margin: 20, alignContent: 'center', alignItems: 'center' }}>
                                 <Text style={{
