@@ -75,8 +75,6 @@ export default class FullAbhang extends Component {
     }
     setPage = (pageType, listPageNo) => {
         let { dataArray, pageNo, x } = this.state;
-        //if (listPageNo < pageNo)
-            //pageNo = listPageNo
         switch (pageType) {
             case "prev": {
                 if (pageNo !== 0) {
@@ -87,8 +85,6 @@ export default class FullAbhang extends Component {
             }
             case "next": {
                 if (pageNo !== dataArray.length--) {
-                    //if(pageNo<listPageNo)
-                    // pageNo=listPageNo;
                     pageNo++;
                     x = new Animated.Value(width)
                 }
@@ -113,15 +109,7 @@ export default class FullAbhang extends Component {
     renderPage = (listPageNo, isList) => {
         let { dataArray, pageNo } = this.state;
         let actualPage;
-        if (isList) {
-            actualPage = abhangList[listPageNo - 1].fullAbhang
-            pageNo = listPageNo
-            this.setState({pageNo:listPageNo})
-        }
-        else {
-            actualPage = abhangList[pageNo].fullAbhang;
-            //pageNo=0
-        }
+       
         return (
             <Animated.View
                 style={[{
@@ -147,7 +135,7 @@ export default class FullAbhang extends Component {
                         alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
                         fontFamily: 'Laila-Medium', padding: 20
                     }}>
-                        {actualPage}
+                        {abhangList[pageNo].fullAbhang}
                     </Text>
 
                 </ImageBackground>
@@ -176,6 +164,7 @@ export default class FullAbhang extends Component {
         TrackPlayer.stop()
         const { navigate } = this.props.navigation;
         navigate('Abhang');
+
     }
     onShare = async (data) => {
         try {
@@ -195,8 +184,8 @@ export default class FullAbhang extends Component {
         const { navigation } = this.props;
 
         const listPageNo = navigation.getParam('pageNo', 0)
-        if (listPageNo)
-            this.state.isList = 1
+       // if (listPageNo)
+         //   this.state.isList = 1
         const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
         return (
             <View style={{
@@ -226,7 +215,7 @@ export default class FullAbhang extends Component {
                 </View>
                 {
 
-                    this.renderPage(listPageNo, this.state.isList)
+                    this.renderPage(listPageNo)
                 }
 
                 <View style={{
