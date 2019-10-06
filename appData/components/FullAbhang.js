@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {
-    Text, View, Dimensions, Share, ScrollView, StyleSheet,
+    Text, View, Dimensions, Share, ScrollView, StyleSheet, Animated,
     ImageBackground, AppRegistry, ToastAndroid, TouchableOpacity
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import abhangList from '../databaseFiles/abhang/abhangData'
 const { width, height } = Dimensions.get('window');
 let style = StyleSheet.create({
     backgroundImage: {
@@ -16,7 +17,7 @@ let style = StyleSheet.create({
         borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
     },
     fontView: {
-        width: width / 2, height: 50, justifyContent: 'center',
+        width: width / 4, height: 50, justifyContent: 'center',
         alignItems: 'center'
     },
     navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
@@ -30,7 +31,12 @@ export default class FullAbhang extends Component {
     constructor() {
         super()
         this.state = {
-            initialFontSize: 20
+            isList: 1,
+            initialFontSize: 20,
+            dataArray: [],
+            pageNo: 0,
+            visible: false,
+            x: new Animated.Value(0)
         }
 
         TrackPlayer.registerEventHandler(() => { });
@@ -45,11 +51,119 @@ export default class FullAbhang extends Component {
         })
 
     }
-    componentWillMount() {
-       // TrackPlayer.play()
+    componentDidMount = () => {
+        this.setState({
+            dataArray: abhangList,
+            pageNo: 0
+        });
     }
+    componentWillReceiveProps(data) {
+        const { navigation } = this.props;
+
+        const listPageNo = navigation.getParam('pageNo', 0)
+        this.setState({
+            isList: 1
+        })
+    }
+    componentWillMount() {
+        this.setState({
+            pageNo: 0
+        })
+        // TrackPlayer.play()
+    }
+
     componentWillUnmount() {
-       // TrackPlayer.stop()
+        // this.setState({
+        //     pageNo: 0
+        // })
+        // TrackPlayer.stop()
+    }
+    componentDidMount(){
+        this.setState({
+            pageNo: 0
+        })
+    }
+    setPage = (pageType, listPageNo) => {
+        let { dataArray, pageNo, x } = this.state;
+        //if (listPageNo < pageNo)
+            //pageNo = listPageNo
+        switch (pageType) {
+            case "prev": {
+                if (pageNo !== 0) {
+                    pageNo--;
+                    x = new Animated.Value(-width)
+                }
+                break;
+            }
+            case "next": {
+                if (pageNo !== dataArray.length--) {
+                    //if(pageNo<listPageNo)
+                    // pageNo=listPageNo;
+                    pageNo++;
+                    x = new Animated.Value(width)
+                }
+                break;
+            }
+            default: break;
+        }
+        this.setState({
+            pageNo,
+            x,
+            isList: 0
+
+        }, () => {
+            Animated.timing(this.state.x, {
+                toValue: 0,
+            }).start();
+            this.setState({
+                visible: true,
+            });
+        });
+    }
+    renderPage = (listPageNo, isList) => {
+        let { dataArray, pageNo } = this.state;
+        let actualPage;
+        if (isList) {
+            actualPage = abhangList[listPageNo - 1].fullAbhang
+            pageNo = listPageNo
+            this.setState({pageNo:listPageNo})
+        }
+        else {
+            actualPage = abhangList[pageNo].fullAbhang;
+            //pageNo=0
+        }
+        return (
+            <Animated.View
+                style={[{
+                    flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
+                    margin: 8, padding: 20, alignItems: 'center', justifyContent: 'center', elevation: 5
+                }, {
+                    transform: [
+                        {
+                            translateX: this.state.x
+                        }
+                    ]
+                }]}
+            >
+                <ImageBackground
+                    style={{ flex: 1, width, height: height + 50 }}
+                    source={require('../../images/specialPhotos/splash.jpg')}
+                    opacity={0.2}
+                    resizeMode={'stretch'}
+                >
+                    <Text style={{ fontFamily: 'Sahitya-Bold', fontSize: 18 }}>{`\n${pageNo}`}</Text>
+                    <Text style={{
+                        alignContent: 'center', alignItems: 'center', textAlign: "justify",
+                        alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
+                        fontFamily: 'Laila-Medium', padding: 20
+                    }}>
+                        {actualPage}
+                    </Text>
+
+                </ImageBackground>
+
+            </Animated.View>
+        )
     }
     increaseFont = (type) => {
         let newFont;
@@ -88,8 +202,10 @@ export default class FullAbhang extends Component {
     }
 
     render() {
-        const { navigation } = this.props;
-        const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
+       
+        //if (listPageNo)
+        //     this.state.isList = 1
+        //const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
         return (
             <View style={{
                 flex: 1, width, height
@@ -116,28 +232,17 @@ export default class FullAbhang extends Component {
                     </View>
 
                 </View>
-                <ScrollView>
-                    <ImageBackground
-                        style={{ flex: 1, width, height: height + 50 }}
-                        source={require('../../images/specialPhotos/splash.jpg')}
-                        opacity={0.2}
-                        resizeMode={'stretch'}
-                    >
-                        <Text style={{
-                            alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                            alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
-                            fontFamily: 'Laila-Medium', padding: 20
-                        }}>
-                            {fullAbhang}
-                        </Text>
-                    </ImageBackground>
-                </ScrollView>
+                {
+
+                    this.renderPage(listPageNo, this.state.isList)
+                }
+
                 <View style={{
                     width, height: 50, position: 'absolute', alignItems: 'center',
-                    bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6'
+                    bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6', elevation: 1000
                 }}>
                     <View style={{
-                        width: width / 3, height: 50,
+                        width: width / 4, height: 50,
                         justifyContent: 'center', alignItems: 'center'
                     }}>
                         <TouchableOpacity onPress={() => this.increaseFont("minus")}>
@@ -150,6 +255,20 @@ export default class FullAbhang extends Component {
                         <TouchableOpacity onPress={() => this.increaseFont("plus")}>
                             <View style={style.fontButton}>
                                 <Text style={{ fontSize: 32, color: 'black' }}>अ</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={style.fontView}>
+                        <TouchableOpacity onPress={() => this.setPage("prev", listPageNo)}>
+                            <View style={style.fontButton}>
+                                <Text style={{ fontSize: 20, color: 'black' }}>prev</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={style.fontView}>
+                        <TouchableOpacity onPress={() => this.setPage("next", listPageNo)}>
+                            <View style={style.fontButton}>
+                                <Text style={{ fontSize: 20, color: 'black' }}>next</Text>
                             </View>
                         </TouchableOpacity>
                     </View>

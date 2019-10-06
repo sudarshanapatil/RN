@@ -138,10 +138,10 @@ export default class newHome extends Component {
                 }}>
                   <Text style={{
                     alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                    alignSelf: 'center', fontSize: 28, color: 'dark-orange', marginTop: 300,
+                    alignSelf: 'center', fontSize: 26, color: 'darkcyan', marginTop: 300,
                     fontFamily: 'Laila-Bold'
                   }}>
-                  कोणाही जीवाचा न घडो मत्सर।
+                  । कोणाही जीवाचा न घडो मत्सर।
                     {/* सकळ देवांचाही देव ।{"\n"}
                     बाळा म्हणे पंढरीराव ।। */}
                   </Text>

@@ -4,7 +4,6 @@ import { Text, View, Dimensions, ScrollView, StyleSheet, TouchableOpacity } from
 import abhangList from '../databaseFiles/abhang/abhangData'
 import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 const backAction = NavigationActions.back({
     screen: 'Others',
 });
@@ -26,8 +25,8 @@ const styles = StyleSheet.create({
 
 
 export default class Abhang extends Component {
-    onTouchCard = (detailAbhang) => {
-        this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang })
+    onTouchCard = (detailAbhang,pageNo) => {
+        this.props.navigation.navigate("FullAbhang", { fullAbhang: detailAbhang ,pageNo})
     }
     goBack = () => {
         const { navigate } = this.props.navigation;
@@ -67,11 +66,11 @@ export default class Abhang extends Component {
                     }}>
                         {
                             abhangList.map((item, i) =>
-                                <TouchableOpacity key={i} onPress={() => this.onTouchCard(item[i + 1].fullAbhang)}>
+                                <TouchableOpacity key={i} onPress={() => this.onTouchCard(item.fullAbhang,(i+1))}>
                                     <View style={styles.card}>
                                         <View style={{ margin: 10, alignContent: 'center', justifyContent: 'center' }}>
                                             <Text style={styles.cardText}>
-                                                {item[i + 1].initial}
+                                                {item.initial}
                                             </Text>
                                         </View>
                                     </View>
