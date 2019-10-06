@@ -84,7 +84,7 @@ export default class newHome extends Component {
                       textAlign: "center", alignSelf: 'center',
                       fontSize: 20, color: "white",
                     }}>
-                      {" राम कृष्ण हरी"}
+                      {" राम कृष्ण हरि"}
                     </Text>
                   </View>
                 </View>

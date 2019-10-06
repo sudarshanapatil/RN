@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import abhangList from '../databaseFiles/abhang/abhangData'
+
 const { width, height } = Dimensions.get('window');
 let style = StyleSheet.create({
     backgroundImage: {
@@ -23,6 +24,7 @@ let style = StyleSheet.create({
     navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
 })
 import TrackPlayer from 'react-native-track-player';
+//import console = require('console');
 AppRegistry.registerComponent('appname', () => App);
 const backAction = NavigationActions.back({
     screen: 'Abhang',
@@ -30,17 +32,15 @@ const backAction = NavigationActions.back({
 export default class FullAbhang extends Component {
     constructor(props) {
         super(props);
-        const { navigation } = this.props;
+        const { navigation } = props;
         const newPageNo = navigation.getParam('pageNo', 0);
+
         this.state = {
             isList: 1,
             initialFontSize: 20,
-            dataArray: [],
-            pageNo: newPageNo,
             visible: false,
             x: new Animated.Value(0),
-            dataArray: abhangList,
-            pageNo: newPageNo,
+            pageNo: newPageNo
         }
 
         TrackPlayer.registerEventHandler(() => { });
@@ -55,39 +55,42 @@ export default class FullAbhang extends Component {
         })
 
     }
-    componentWillMount() {
+    componentWillReceiveProps(nextProps) {
+        const { navigation } = nextProps;
+        const newPageNo = navigation.getParam('pageNo', 0);
+        console.log(this.state, "state")
         this.setState({
-            pageNo: 0
+            pageNo: newPageNo,
         })
+    }
+    componentWillMount() {
+
         // TrackPlayer.play()
     }
 
     componentWillUnmount() {
-        // this.setState({
-        //     pageNo: 0
-        // })
-        // TrackPlayer.stop()
+
     }
-    componentDidMount(){
-        this.setState({
-            pageNo: 0
-        })
+    componentDidMount() {
+
     }
     setPage = (pageType, listPageNo) => {
-        let { dataArray, pageNo, x } = this.state;
+        let { pageNo, x } = this.state;
+
         switch (pageType) {
             case "prev": {
-                if (pageNo !== 0) {
-                    pageNo--;
-                    x = new Animated.Value(-width)
-                }
+                pageNo--;
+                if (pageNo == 0)
+                    pageNo = abhangList.length
+                x = new Animated.Value(-width)
                 break;
             }
             case "next": {
-                if (pageNo !== dataArray.length--) {
-                    pageNo++;
-                    x = new Animated.Value(width)
+                pageNo++;
+                if (pageNo == abhangList.length + 1) {
+                    pageNo = 1
                 }
+                x = new Animated.Value(width)
                 break;
             }
             default: break;
@@ -106,15 +109,13 @@ export default class FullAbhang extends Component {
             });
         });
     }
-    renderPage = (listPageNo, isList) => {
-        let { dataArray, pageNo } = this.state;
-        let actualPage;
-       
+    renderPage = () => {
+        let { pageNo } = this.state;
         return (
             <Animated.View
                 style={[{
                     flex: 1, width: width - 16, height: height - 16, backgroundColor: '#ffffff',
-                    margin: 8, padding: 20, alignItems: 'center', justifyContent: 'center', elevation: 5
+                    margin: 8, padding: 10, alignItems: 'center', justifyContent: 'center', elevation: 5
                 }, {
                     transform: [
                         {
@@ -123,23 +124,21 @@ export default class FullAbhang extends Component {
                     ]
                 }]}
             >
-                <ImageBackground
+                {/* <ImageBackground
                     style={{ flex: 1, width, height: height + 50 }}
                     source={require('../../images/specialPhotos/splash.jpg')}
                     opacity={0.2}
                     resizeMode={'stretch'}
-                >
-                    <Text style={{ fontFamily: 'Sahitya-Bold', fontSize: 18 }}>{`\n${pageNo}`}</Text>
+                > */}
+                    {/* <Text style={{ fontFamily: 'Sahitya-Bold', fontSize: 18 }}>{`\n${pageNo}`}</Text> */}
                     <Text style={{
-                        alignContent: 'center', alignItems: 'center', textAlign: "justify",
-                        alignSelf: 'center', fontSize: this.state.initialFontSize, color: '#000000',
-                        fontFamily: 'Laila-Medium', padding: 20
+                     
+                      fontSize: this.state.initialFontSize, color: '#000000',
+                        fontFamily: 'Laila-Medium', 
                     }}>
-                        {abhangList[pageNo].fullAbhang}
+                        {abhangList[pageNo - 1].fullAbhang}
                     </Text>
-
-                </ImageBackground>
-
+                {/* </ImageBackground> */}
             </Animated.View>
         )
     }
@@ -165,6 +164,7 @@ export default class FullAbhang extends Component {
         const { navigate } = this.props.navigation;
         navigate('Abhang');
 
+
     }
     onShare = async (data) => {
         try {
@@ -182,10 +182,7 @@ export default class FullAbhang extends Component {
 
     render() {
         const { navigation } = this.props;
-
         const listPageNo = navigation.getParam('pageNo', 0)
-       // if (listPageNo)
-         //   this.state.isList = 1
         const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
         return (
             <View style={{
@@ -214,18 +211,20 @@ export default class FullAbhang extends Component {
 
                 </View>
                 {
-
-                    this.renderPage(listPageNo)
+                    this.renderPage()
                 }
-
                 <View style={{
                     width, height: 50, position: 'absolute', alignItems: 'center',
-                    bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6', elevation: 1000
+                    bottom: 0, left: 0, flexDirection: "row", backgroundColor: '#e9fcf6', elevation: 5
                 }}>
-                    <View style={{
-                        width: width / 4, height: 50,
-                        justifyContent: 'center', alignItems: 'center'
-                    }}>
+                    <View style={style.fontView}>
+                        <TouchableOpacity onPress={() => this.setPage("prev", listPageNo)}>
+                            <View style={style.fontButton}>
+                                <Text style={{ fontSize: 20, color: 'black' }}>मागे</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.increaseFont("minus")}>
                             <View style={style.fontButton}>
                                 <Text style={{ fontSize: 22, color: 'black', fontWeight: '0' }}>अ</Text>
@@ -239,17 +238,11 @@ export default class FullAbhang extends Component {
                             </View>
                         </TouchableOpacity>
                     </View>
-                    <View style={style.fontView}>
-                        <TouchableOpacity onPress={() => this.setPage("prev", listPageNo)}>
-                            <View style={style.fontButton}>
-                                <Text style={{ fontSize: 20, color: 'black' }}>prev</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+
                     <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.setPage("next", listPageNo)}>
                             <View style={style.fontButton}>
-                                <Text style={{ fontSize: 20, color: 'black' }}>next</Text>
+                                <Text style={{ fontSize: 20, color: 'black' }}>पुढे</Text>
                             </View>
                         </TouchableOpacity>
                     </View>

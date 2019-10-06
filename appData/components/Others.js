@@ -18,7 +18,7 @@ const backAction = NavigationActions.back({
 });
 const data = [
     { key: 'आरती ', id: 1, logoName: "book", imagePath: require('../../images/homeScreen/aarti1.jpeg') },
-    { key: 'उपक्रम आणि भक्ती रचना ', id: 2, logoName: "photo", imagePath: require('../../images/homeScreen/function.jpeg') },
+    { key: 'उपक्रम आणि भक्ती रचना  ', id: 2, logoName: "photo", imagePath: require('../../images/homeScreen/function.jpeg') },
     { key: 'हस्तलिखित अल्प-परिचय', id: 3, logoName: "video-camera", imagePath: require('../../images/homeScreen/handWrite1.jpeg') },
     { key: 'रौप्य महोत्सव कार्यक्रम ', id: 4, logoName: "video-camera", imagePath: require('../../images/homeScreen/saptah.jpeg') },
 
