@@ -28,15 +28,19 @@ const backAction = NavigationActions.back({
     screen: 'Abhang',
 });
 export default class FullAbhang extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props);
+        const { navigation } = this.props;
+        const newPageNo = navigation.getParam('pageNo', 0);
         this.state = {
             isList: 1,
             initialFontSize: 20,
             dataArray: [],
-            pageNo: 0,
+            pageNo: newPageNo,
             visible: false,
-            x: new Animated.Value(0)
+            x: new Animated.Value(0),
+            dataArray: abhangList,
+            pageNo: newPageNo,
         }
 
         TrackPlayer.registerEventHandler(() => { });
@@ -50,20 +54,6 @@ export default class FullAbhang extends Component {
             });
         })
 
-    }
-    componentDidMount = () => {
-        this.setState({
-            dataArray: abhangList,
-            pageNo: 0
-        });
-    }
-    componentWillReceiveProps(data) {
-        const { navigation } = this.props;
-
-        const listPageNo = navigation.getParam('pageNo', 0)
-        this.setState({
-            isList: 1
-        })
     }
     componentWillMount() {
         this.setState({
@@ -202,10 +192,12 @@ export default class FullAbhang extends Component {
     }
 
     render() {
-       
-        //if (listPageNo)
-        //     this.state.isList = 1
-        //const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
+        const { navigation } = this.props;
+
+        const listPageNo = navigation.getParam('pageNo', 0)
+        if (listPageNo)
+            this.state.isList = 1
+        const fullAbhang = navigation.getParam('fullAbhang', `देह जावो अथवा राहो ।\n तुझे नामी धरीला भावो ॥\n\n तुझ्या पायाचा विश्वास ।\n म्हणोनिया झालो दास ॥\n\n तुझे रूप माझे मनी ।\n तेची ठसविले ध्यानी ॥\n\n कदा न फिरे माघारी ।\n बाळा म्हणे कृपा करी ॥`)
         return (
             <View style={{
                 flex: 1, width, height
