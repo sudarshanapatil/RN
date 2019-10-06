@@ -28,15 +28,19 @@ const backAction = NavigationActions.back({
     screen: 'Abhang',
 });
 export default class FullAbhang extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props);
+        const { navigation } = this.props;
+        const newPageNo = navigation.getParam('pageNo', 0);
         this.state = {
             isList: 1,
             initialFontSize: 20,
             dataArray: [],
-            pageNo: 0,
+            pageNo: newPageNo,
             visible: false,
             x: new Animated.Value(0),
+            dataArray: abhangList,
+            pageNo: newPageNo,
         }
 
         TrackPlayer.registerEventHandler(() => { });
@@ -50,14 +54,6 @@ export default class FullAbhang extends Component {
             });
         })
 
-    }
-    componentDidMount = () => {
-        const { navigation } = this.props;
-        const newPageNo = navigation.getParam('pageNo', 0)
-         this.setState({
-            dataArray: abhangList,
-            pageNo: newPageNo,
-        });
     }
     componentWillMount() {
         this.setState({
