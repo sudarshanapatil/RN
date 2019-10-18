@@ -61,7 +61,7 @@ export default class Gallary extends Component {
     }
     goBack = () => {
         const { navigate } = this.props.navigation;
-        navigate('newHome');
+        navigate('Home');
     }
     render() {
         return (
@@ -70,13 +70,12 @@ export default class Gallary extends Component {
                 width: width, height: height, backgroundColor: 'white'
             }}>
                 <View style={{
-                    justifyContent: 'center',flexDirection:'row',
+                    justifyContent: 'center', flexDirection: 'row',
                     width: width, height: 50, backgroundColor: 'darkcyan'
                 }}>
                     <View style={{
                         width: 50, height: 50, alignItems: 'center', justifyContent: 'center'
                     }}>
-
                         <Icon name="arrow-left" size={25} color="white" onPress={() => this.goBack()} />
                     </View>
                     <View style={{
@@ -94,7 +93,7 @@ export default class Gallary extends Component {
                 <ScrollView>
                     <View style={{
                         flex: 1, width,
-                        backgroundColor: '#18646e', flexDirection: 'row', flexWrap: 'wrap'
+                        backgroundColor: 'white', flexDirection: 'row', flexWrap: 'wrap'
                     }}>
 
                         {
@@ -102,7 +101,7 @@ export default class Gallary extends Component {
                                 <TouchableOpacity onPress={() => this.displayImage(item.src)}>
                                     <View style={{
                                         width: width / 2 - 8, height: height / 4 - 8, margin: 4,
-                                        backgroundColor: 'pink',
+                                        backgroundColor: 'darkcyan',
                                         elevation: 5, alignItems: 'center', justifyContent: 'center',
                                         borderRadius: 10
 

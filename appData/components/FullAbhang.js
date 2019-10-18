@@ -23,9 +23,9 @@ let style = StyleSheet.create({
     },
     navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
 })
-import TrackPlayer from 'react-native-track-player';
+// import TrackPlayer from 'react-native-track-player';
 //import console = require('console');
-AppRegistry.registerComponent('appname', () => App);
+//AppRegistry.registerComponent('appname', () => App);
 const backAction = NavigationActions.back({
     screen: 'Abhang',
 });
@@ -33,36 +33,36 @@ export default class FullAbhang extends Component {
     constructor(props) {
         super(props);
         const { navigation } = props;
-        const newPageNo = navigation.getParam('pageNo', 0);
+        const newPageNo = navigation.getParam('pageNo', 1);
 
         this.state = {
             isList: 1,
-            initialFontSize: 20,
+            initialFontSize: 18,
             visible: false,
             x: new Animated.Value(0),
             pageNo: newPageNo
         }
 
-        TrackPlayer.registerEventHandler(() => { });
-        TrackPlayer.setupPlayer().then(async () => {
-            await TrackPlayer.add({
-                id: 'trackId',
-                url: require('../audios/flute.mp3'),
-                title: 'Track Title',
-                artist: 'Track Artist',
-                artwork: require('../../images/specialPhotos/8.jpeg')
-            });
-        })
+        // TrackPlayer.registerEventHandler(() => { });
+        // TrackPlayer.setupPlayer().then(async () => {
+        //     await TrackPlayer.add({
+        //         id: 'trackId',
+        //         url: require('../audios/flute.mp3'),
+        //         title: 'Track Title',
+        //         artist: 'Track Artist',
+        //         artwork: require('../../images/specialPhotos/8.jpeg')
+        //     });
+        // })
 
     }
-    componentWillReceiveProps(nextProps) {
-        const { navigation } = nextProps;
-        const newPageNo = navigation.getParam('pageNo', 0);
-        console.log(this.state, "state")
-        this.setState({
-            pageNo: newPageNo,
-        })
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     const { navigation } = nextProps;
+    //     const newPageNo = navigation.getParam('pageNo', 0);
+    //     console.log(this.state, "state")
+    //     this.setState({
+    //         pageNo: newPageNo,
+    //     })
+    // }
     componentWillMount() {
 
         // TrackPlayer.play()
@@ -130,14 +130,14 @@ export default class FullAbhang extends Component {
                     opacity={0.2}
                     resizeMode={'stretch'}
                 > */}
-                    {/* <Text style={{ fontFamily: 'Sahitya-Bold', fontSize: 18 }}>{`\n${pageNo}`}</Text> */}
-                    <Text style={{
-                     
-                      fontSize: this.state.initialFontSize, color: '#000000',
-                        fontFamily: 'Laila-Medium', 
-                    }}>
-                        {abhangList[pageNo - 1].fullAbhang}
-                    </Text>
+                {/* <Text style={{ fontFamily: 'Sahitya-Bold', fontSize: 18 }}>{`\n${pageNo}`}</Text> */}
+                <Text style={{
+
+                    fontSize: this.state.initialFontSize, color: '#000000',
+                    fontFamily: 'Laila-Medium',
+                }}>
+                    {abhangList[pageNo - 1].fullAbhang}
+                </Text>
                 {/* </ImageBackground> */}
             </Animated.View>
         )
@@ -154,13 +154,13 @@ export default class FullAbhang extends Component {
 
     }
     pauseSound = (type) => {
-        if (type == 0)
-            TrackPlayer.pause()
-        else
-            TrackPlayer.play()
+        // if (type == 0)
+        // TrackPlayer.pause()
+        // else
+        // TrackPlayer.play()
     }
     goBack = () => {
-        TrackPlayer.stop()
+        //TrackPlayer.stop()
         const { navigate } = this.props.navigation;
         navigate('Abhang');
 

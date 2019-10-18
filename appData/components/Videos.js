@@ -9,13 +9,15 @@ import videoLinks from '../databaseFiles/videoLinks'
 import otherVideoLinks from '../databaseFiles/otherVideoLinks'
 const styles = StyleSheet.create({
   recommImage: {
-    width: (width / 2) - 5,
+    width: (width / 2),
     height: height - 500,
-    borderRadius: 3
+    borderRadius: 3,
+    flex: 1,
+    alignSelf: 'center',
   },
   imageCard:
   {
-    width: (width / 2) - 10,
+    width: (width / 2) ,
     height: height - 500,
     margin: 5
   }
@@ -40,7 +42,7 @@ export default class Videos extends Component {
   }
   goBack = () => {
     const { navigate } = this.props.navigation;
-    navigate('newHome');
+    navigate('Home');
   }
   videoError = () => {
     console.log("yahape aaya");
@@ -112,7 +114,7 @@ export default class Videos extends Component {
           <ScrollView horizontal={true}>
             {
               videoLinks.map((item, i) =>
-                <View key={i} style={{ height: height - 450, backgroundColor: 'white', flexDirection: 'row' }}>
+                <View key={i} style={{ height: height - 400-50, backgroundColor: 'white', flexDirection: 'row' }}>
                   <TouchableOpacity onPress={() => this.playVideo(item[i + 1].link)}>
                     <View style={styles.imageCard}>
                       {/* <Text>{item[i + 1].tp}</Text> */}
@@ -126,7 +128,7 @@ export default class Videos extends Component {
                         }}>
                           <Text style={{
                             textAlign: "justify", alignContent: 'center', alignItems: 'center',
-                            alignSelf: 'center', fontSize: 14, color: '#000000',
+                            alignSelf: 'center', fontSize: 18, color: '#000000',
                             fontFamily: 'Laila-Bold', margin: 10
                           }}>
                             {item[i + 1].text}

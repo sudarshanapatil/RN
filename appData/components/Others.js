@@ -14,7 +14,7 @@ const stylesheet = StyleSheet.create({
     }
 });
 const backAction = NavigationActions.back({
-    screen: 'newHome',
+    screen: 'Home',
 });
 const data = [
     { key: 'आरती ', id: 1, logoName: "book", imagePath: require('../../images/homeScreen/aarti1.jpeg') },

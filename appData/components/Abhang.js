@@ -30,7 +30,7 @@ export default class Abhang extends Component {
     }
     goBack = () => {
         const { navigate } = this.props.navigation;
-        navigate('newHome');
+        navigate('Home');
     }
     render() {
         return (

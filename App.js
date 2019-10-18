@@ -22,7 +22,7 @@ import Saptah from './appData/components/Saptah'
 import FullImage from './appData/components/FullImage';
 //import PhotoList from './appData/components/PhotoList'
 import Aarati from './appData/components/Aarati'
-import newHome from './appData/components/newHome'
+import Home from './appData/components/Home'
 import Others from './appData/components/Others'
 import Festivals from './appData/components/Festivals'
 
@@ -33,8 +33,8 @@ const RouteConfigs =
   // Home: {
   //   screen: HomeScreen
   // },
-  newHome: {
-    screen: newHome
+  Home: {
+    screen: Home
   },
 
   Abhang:

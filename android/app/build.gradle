@@ -103,7 +103,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.awesomeproject"
+        applicationId "com.haribhakt"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -151,7 +151,7 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-track-player')
+//    implementation project(':react-native-track-player')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])

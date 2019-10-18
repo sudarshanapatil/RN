@@ -23,7 +23,7 @@ export default class FullImage extends Component {
     constructor(props) {
         super(props);
         const { navigation } = props;
-        const newPageNo = navigation.getParam('imageId', 0);
+        const newPageNo = navigation.getParam('imageId', { "src": require("../../images/oldPhotos/P13.jpg") });
 
         this.state = {
             isList: 1,
