@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, Dimensions, ScrollView, StyleSheet, Image, Animated } from 'react-native';
+import { Text, View, Dimensions, ScrollView, StyleSheet, Image, Animated ,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+//import { TouchableOpacity } from 'react-native-gesture-handler';
 import imageList from '../databaseFiles/imageList'
 const { width, height } = Dimensions.get('window');
 let style = StyleSheet.create({
@@ -14,7 +14,7 @@ let style = StyleSheet.create({
         borderRadius: 20, justifyContent: 'center', alignItems: 'center', margin: 2
     },
     fontView: {
-        width: width / 4, height: 50, justifyContent: 'center',
+        width: width / 2, height: 50, justifyContent: 'center',
         alignItems: 'center'
     },
     navButtons: { width: width / 3, height: 50, alignItems: 'center', justifyContent: 'center' }
@@ -154,20 +154,20 @@ export default class FullImage extends Component {
                             </View>
                         </TouchableOpacity>
                     </View>
-                    <View style={style.fontView}>
-                        {/* <TouchableOpacity onPress={() => this.setPage("next")}>
+                    {/* <View style={style.fontView}>
+                        <TouchableOpacity onPress={() => this.setPage("next")}>
                             <View style={style.fontButton}>
                                 <Text style={{ fontSize: 20, color: 'black' }}>पुढे</Text>
                             </View>
-                        </TouchableOpacity> */}
-                    </View>
-                    <View style={style.fontView}>
-                        {/* <TouchableOpacity onPress={() => this.setPage("next")}>
+                        </TouchableOpacity>
+                    </View> */}
+                    {/* <View style={style.fontView}>
+                        <TouchableOpacity onPress={() => this.setPage("next")}>
                             <View style={style.fontButton}>
                                 <Text style={{ fontSize: 20, color: 'black' }}>पुढे</Text>
                             </View>
-                        </TouchableOpacity> */}
-                    </View>
+                        </TouchableOpacity>
+                    </View> */}
                    <View style={style.fontView}>
                         <TouchableOpacity onPress={() => this.setPage("next")}>
                             <View style={style.fontButton}>
@@ -177,8 +177,6 @@ export default class FullImage extends Component {
                     </View>
 
                 </View>
-                {/* </TouchableOpacity> */}
-
             </View>)
     }
 }
